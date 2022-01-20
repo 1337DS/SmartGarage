@@ -1,22 +1,5 @@
 % !TEX root =  master.tex
-\chapter{Beispiel-Kapitel: Noch ein Kapitel}
+\chapter{Validierung}
+Nach erfolgreichem Proof-of-Concept musste unter den technisch möglichen Varianden der Verarbeitungspipelines die beste ausgewählt werden. Hierzu wurde ein Skript geschrieben, dass die Pipeline in leicht abgewandelter Form für jedes Bild des gesammelten Datensatzes durchführt und das Ergebnis oder eventuelle Fehler in den einzelnen Bearbeitungsschritten festhält. Damit konnten verschiedene OCR-Verfahren untereinander verglichen werden. Ebenso war es möglich die bereits festgestellten Unterschiede in der Bearbeitungsgeschwindigkeit und Qualität von der Berechnung am Laptop gegenüber der Bearbeitung auf dem RasPi zu quantifizieren. Anhand der festgestellten Metriken konnten schlussendlich auch weiterführende Optimierungen vorgenommen und Fehlerquellen lokalisiert werden.
+Abbildung #TODO veranschaulicht den Aufbau des Dataframes, in dem die Ergebnisse gespeichert wurden.
 
-blabla
-
-\section{Abschnitt mit Coding}
-
-Der folgende Quelltext wird auch im Quelltextverzeichnis\index{Quelltext} referenziert:
-
-\begin{lstlisting}[caption={\texttt{PrintMovieDB.py}},captionpos=b]
-import numpy as np  
-import matplotlib.pyplot as plt  
-import pandas as pd  
-from apyori import apriori
-
-movie_data = pd.read_csv('./movie_dataset.csv', header = None)
-num_records = len(movie_data)
-print(num_records)
-\end{lstlisting}
-
-\section{Noch ein Abschnitt mit Coding}
-Blabla
