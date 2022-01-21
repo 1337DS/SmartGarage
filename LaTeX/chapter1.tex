@@ -2,6 +2,7 @@
 \chapter{Grundlagen}
 \section{Konzeption}
 Als Ausgangslage dient in diesem Projekt eine handelsübliches elektrisch öffenbares Garagentor, das mit einer Fernbedienung gesteuert wird. Dabei wird davon ausgegangen, dass es sich um eine 1-Kanal Steuerung handelt, also dass ein einmaliges Drücken eines Knopfes der Fernbedienung das Garagentor öffnet und ein weiteres Betätigen desselben Knopfes das Garagentor wieder schließt. Weiterhin wird davon ausgegangen, dass das Garagentor beim Auftreffen auf ein Hindernis automatisch Reversiert. Dies ist sogar, wie durch ein Gerichtsurteil des OLG Frankfurt von 2015 festgestellt, gesetzlich vorgeschrieben.  https://openjur.de/u/775737.html
+Die Ansteuerung und Regelung des Garagentor-Motors selbst ist also nicht Bestandteil dieser Projektarbeit.
 
 Neben der automatisierten Öffnung durch die Kennzeichenerkennung sollten folgende Features vorhanden sein:
 
@@ -18,9 +19,21 @@ Folgende Features wurden als optional festgehalten und deren Implementierung vom
 \section{Technische Umsetzung}
 
 \subsection{Hardware}
+Aufgrund der vielseitigen Verwendbarkeit, des geringen Preises, der guten Konnektivität und Kompatibilität wurde sich für ein Rasberry Pi 3+ bzw. 4 entschieden. Diese Modelle sind hervorragend für IoT-Anwendungen geeignet und verfügen mit 4 bzw. 8 GB trotzdem über genug Arbeitsspeicher um einfache Bildverarbeitung durchführen zu können. 
+
+Als einfachste Schnittstelle zum Torantrieb wurde der Handsender identifiziert. Hier genügt es zwei Drähte am Ein- und Ausgang des Aktivierungsknopfes anzulöten und diese mit einem Relais zu verbinden. TODO Direkt am Raspi möglich ? Dann kann durch die \ac{GPIO}Pins das Relais geöffnet oder geschlossen werden und so ein Betätigen der Fernbedienung simuliert werden.
+
 
 \subsection{Implementierung Alexa}
+
+
+
+
+
 \subsection{Datenbeschaffung}
+Die Güte eines Modells hängt stark von der Qualität und Quantität der beim Training verwendeten Datensätze ab. Jedoch sind Datensätze von deutschen Kennzeichen aufgrund der \ac{DSGVO} sehr schwer zu beschaffen. Zudem sind Anwendungen im Bereich Kennzeichenerkennung von großem kommerziellen Nutzen und dementsprechend nicht frei verfügbar. Die Recherche ergab, das nur ein einziger Datensatz frei verfügbar war und für das Projekt in Frage käme. Es handelte sich um den TODO der TH Ingolstadt. Eine Anfrage beim dort zuständigen Prof. TODO blieb aber leider unbeantwortet, sodass eine andere Lösung gefunden werden musste.
+Da das Modell die Kernfunktion des Projekts ist, entschied sich das Projektteam dazu, selbst einen kleinen Datensatz zu erstellen. 
+Hierzu wurden 108 Bildaufnahmen von Fahrzeugen in der Nachbarschaft angefertigt. Dabei wurde darauf geachtet, möglichst immer in der gleichen Perspektive zu fotografieren. Da sich die Kamera zur Kennzeichenerkennung nicht mittig im Garagentor selbst befestigen lässt, sondern entweder darüber oder seitlich versetzt montiert wird, wurden alle Aufnahmen von einer leicht seitlich versetzten Position aus getätigt.
 
 \subsection{Modelltraining und Implementierung}
 
@@ -28,5 +41,7 @@ Folgende Features wurden als optional festgehalten und deren Implementierung vom
 hier auf jeden noch die quelle 
 
 \subsection{OCR}
+
+\subsection{Schaltlogik und Logs}
 
 \nocite{*}

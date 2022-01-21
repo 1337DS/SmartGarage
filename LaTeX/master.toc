@@ -1,13 +1,13 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {ngerman}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abbildungsverzeichnis}{III}{section*.2}%
+\contentsline {chapter}{Abbildungsverzeichnis}{IV}{section*.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Tabellenverzeichnis}{IV}{section*.3}%
+\contentsline {chapter}{Tabellenverzeichnis}{V}{section*.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abkürzungsverzeichnis}{IV}{chapter*.4}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{V}{chapter*.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Kurzfassung (Abstract)}{V}{chapter*.5}%
+\contentsline {chapter}{Kurzfassung (Abstract)}{VI}{chapter*.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Motivation}{1}{chapter.1}%
 \defcounter {refsection}{0}\relax 
@@ -21,28 +21,40 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Implementierung Alexa}{3}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Datenbeschaffung}{3}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Modelltraining und Implementierung}{3}{subsection.2.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.4}Modelltraining und Implementierung}{3}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.4}Datenbeschaffung}{3}{subsection.2.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.5}Geometrische Lösung}{3}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.5}Geometrische Lösung}{4}{subsection.2.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.6}OCR}{3}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.6}OCR}{4}{subsection.2.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Validierung}{4}{chapter.3}%
+\contentsline {subsection}{\numberline {2.2.7}Schaltlogik und Logs}{4}{subsection.2.2.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Risiken und Limitierungen}{5}{chapter.4}%
+\contentsline {chapter}{\numberline {3}Validierung}{5}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Zusammenfassung}{6}{chapter.5}%
+\contentsline {chapter}{\numberline {4}Zusätzliche Funktionen}{6}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Fazit}{6}{section.5.1}%
+\contentsline {section}{\numberline {4.1}Ultraschallsensor}{6}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Ausblick}{6}{section.5.2}%
+\contentsline {section}{\numberline {4.2}RFID}{6}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Anhang}{}{section.5.2}
+\contentsline {section}{\numberline {4.3}Weboberfläche}{6}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Quellcode Pipeline}{7}{appendix.A}%
+\contentsline {section}{\numberline {4.4}Schalter}{6}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {B}DataFrame Ergebnisse Validierung}{8}{appendix.B}%
+\contentsline {chapter}{\numberline {5}Risiken und Limitierungen}{7}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{9}{chapter*.7}%
+\contentsline {chapter}{\numberline {6}Zusammenfassung}{8}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Fazit}{8}{section.6.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Ausblick}{8}{section.6.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Anhang}{}{section.6.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Quellcode Pipeline}{9}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}DataFrame Ergebnisse Validierung}{10}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{11}{chapter*.9}%
