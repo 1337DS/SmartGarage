@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 '''
 
 Adapted excerpt from Getting Started with Raspberry Pi by Matt Richardson
@@ -29,6 +29,7 @@ app = Flask(__name__)
 #GPIO.setup(20, GPIO.IN)
 
 #lf = "/home/pi/garage/logs.txt"
+lf = r"D:\5_Integrationsseminar\GitHub\logs.txt"
 
 @app.route("/")
 def main():
@@ -67,9 +68,10 @@ def action():
 
 @app.route('/logs')
 def info():
-     # with open(lf) as f:
-      #  logdata = f.readlines()
-        return render_template('logs.html',logdata=logdata)
+     with open(lf) as f:
+        logdata = f.readlines()
+        logdata2 = [x.decode("utf-8", "ignore") for x in logdata]
+        return render_template('logs.html',logdata=logdata2)
       
       
     
