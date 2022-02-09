@@ -1,1 +1,1 @@
-log 1log2 log 3
+Garage geöffnet durch Weboberfläche 22 Jan 13:05:25log2 log 3

@@ -7,6 +7,12 @@ Modified by Rui Santos
 Complete project details: https://randomnerdtutorials.com
 
 Modified by Andreas Edte for Project SmartGarage
+Anleitung: 
+-Pfad der Log Datei anpassen.
+-GPIO kommentierung aufheben
+
+
+
 '''
 
 
@@ -68,10 +74,9 @@ def action():
 
 @app.route('/logs')
 def info():
-     with open(lf) as f:
+    with open(lf, encoding="UTF-8") as f:
         logdata = f.readlines()
-        logdata2 = [x.decode("utf-8", "ignore") for x in logdata]
-        return render_template('logs.html',logdata=logdata2)
+        return render_template('logs.html',logdata=logdata)
       
       
     
