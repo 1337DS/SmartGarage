@@ -1,5 +1,8 @@
-# diy-ai-garage-opener
-IoT device that will recognize the licence plate of your car and open the garage door automatically
+# SmartGarage
+IoT device that will recognize the licence plate of your car and open the garage door automatically.
+Includes multiple alternative opening Options like RFID-Chipreader, Alexa/Google Home Integration, Web-based Solution and Logs the triggered actions.
+
+
 # Status
 Raspi + Drivers ✔️  
 Remote-Access ✔️  
