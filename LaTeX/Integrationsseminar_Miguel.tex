@@ -59,7 +59,14 @@ Es war geplant, an den Anfang dieser Pipeline noch ein neuronales Netz zu hänge
 Als OCR-Lösung war EasyOCR geplant, weil es trotz geringem Ressourcenaufwand gute Ergebnisse liefert. Dieser Ansatz scheiterte, weil EasyOCR von Torch abhängt, Torch ein 64bit-Betriebssystem voraussetzt und Pi OS für den Raspberry Pi 2 nur als 32bit-Version verfügbar ist.
 Die Alternative ist Tesseract, eine OCR-Engine, die ursprünglich von Hewlett-Packard entwickelt wurde. Seit 2005 ist es Open-Source und von 2006 bis 2018 wurde es von Google weiterentwickelt. https://tesseract-ocr.github.io/docs/tesseracticdar2007.pdf
 
-\subsection{Fuzzy Matching}
+\subsection{Cropping}
+Bei 85 von 118 Bildern wurde eine Region als Kennzeichen identifiziert und freigestellt.
+Diese ist nicht immer korrekt, es wurden neben Kennzeichen auch Fenster, Ziegelsteine und Straßenschilder freigestellt.
+Das ist ein Problem, das durch die Vorschaltung von yolov3 verhindert werden könnte. 
+
+
+
+\subsection{OCR}
 Beide OCR-Lösungen liefern ungenaue Ergebnisse. Die Plaketten zwischen den Blöcken der Kennzeichen werden oft als Zeichen interpretiert. Genauso wird zwischen den Blöcken manchmal ein Leerzeichen erkannt und manchmal nicht.
 Bei einem genauen Vergleich dieser Ergebnisse mit einer Liste von erlaubten Kennzeichen würde daher sehr selten ein Treffer auftreten.
 
@@ -85,6 +92,8 @@ Mit dieser Methode (Threshold 45\%) liest easyOCR 31 von 85 Kennzeichen richtig,
 %             return 0
 %     return 100
 % Bild dazu: eval_custom
+
+Hierbei ist zu beachten, dass nicht alle freigestellten Bildsegmente auch wirklich Kennzeichen sind. Ein Mensch könnte an dieser Stelle also auch keine perfekte Leistung erreichen. 
 
 \subsection{Laufzeit}
 
