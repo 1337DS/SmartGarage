@@ -73,6 +73,7 @@ Hierzu wurden 108 Bildaufnahmen von Fahrzeugen in der Nachbarschaft angefertigt.
 hier auf jeden noch die quelle 
 
 \section{OCR}
+OCR (Optical Character Recognition) ist das automatische Erkennen von Text innerhalb eines Bildes. Diese Technologie ermöglicht es, den Text in einem Bild oder einem gescannten Dokument in für Menschen verständlichen Text umzuwandeln. Für diesartige Anwendungen gibt es eine Vielzahl von Anwendungsfällen in der heutigen Zeit. Dazu gehört beispielsweise die Umwandlung Informationen, die ausschließlich in einem Print-Medium zu finden sind, in ein digitales Medium, die einfache Erkennung eines Coupons oder auch das auslesen eines schriftlich ausgefüllten Formulars mit Hilfe des Computers.\autocite{ocr1}[Vgl.][S. 81]
 
 \section{Validierung}
 Nach erfolgreichem Proof-of-Concept musste unter den technisch möglichen Varianden der Verarbeitungspipelines die beste ausgewählt werden. Hierzu wurde ein Skript geschrieben, dass die Pipeline in leicht abgewandelter Form für jedes Bild des gesammelten Datensatzes durchführt und das Ergebnis oder eventuelle Fehler in den einzelnen Bearbeitungsschritten festhält. Damit konnten verschiedene OCR-Verfahren untereinander verglichen werden. Ebenso war es möglich die bereits festgestellten Unterschiede in der Bearbeitungsgeschwindigkeit und Qualität von der Berechnung am Laptop gegenüber der Bearbeitung auf dem RasPi zu quantifizieren. Anhand der festgestellten Metriken konnten schlussendlich auch weiterführende Optimierungen vorgenommen und Fehlerquellen lokalisiert werden.
