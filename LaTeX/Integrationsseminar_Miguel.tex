@@ -59,8 +59,48 @@ Es war geplant, an den Anfang dieser Pipeline noch ein neuronales Netz zu hänge
 Als OCR-Lösung war EasyOCR geplant, weil es trotz geringem Ressourcenaufwand gute Ergebnisse liefert. Dieser Ansatz scheiterte, weil EasyOCR von Torch abhängt, Torch ein 64bit-Betriebssystem voraussetzt und Pi OS für den Raspberry Pi 2 nur als 32bit-Version verfügbar ist.
 Die Alternative ist Tesseract, eine OCR-Engine, die ursprünglich von Hewlett-Packard entwickelt wurde. Seit 2005 ist es Open-Source und von 2006 bis 2018 wurde es von Google weiterentwickelt. https://tesseract-ocr.github.io/docs/tesseracticdar2007.pdf
 
-\chapter{Fuzzy Matching}
+\subsection{Fuzzy Matching}
 Beide OCR-Lösungen liefern ungenaue Ergebnisse. Die Plaketten zwischen den Blöcken der Kennzeichen werden oft als Zeichen interpretiert. Genauso wird zwischen den Blöcken manchmal ein Leerzeichen erkannt und manchmal nicht.
 Bei einem genauen Vergleich dieser Ergebnisse mit einer Liste von erlaubten Kennzeichen würde daher sehr selten ein Treffer auftreten.
 
-Aus diesem Grund wird stattdessen Fuzzy Matching verwendet. Fuzzy matching 
+Aus diesem Grund wird stattdessen das Python-Paket \lstinline{thefuzz} verwendet, welches sich die Levenshtein-Distanz zu Nutze macht, um die Ähnlichkeit mehrerer Strings zu quanitfizieren.
+Um die Levenshtein-Distanz zwischen zwei Strings zu bestimmen, wird ein String zum Anderen umgeformt. Erlaubte Operationen sind dabei das Einfügen eines neuen Zeichens und das Entfernen eines bestehenden Zeichens.
+Die minimal benötigte Anzahl dieser Operationen ist die Levenshtein-Distanz.
+
+Hieraus wird ein prozentualer Wert abgeleitet, der die Genauigkeit der Erkennung wiederspiegelt.
+Für die finale Evaluation mit dieser Methode wurde ein Threshold von 45\% gewählt, um das gelesene Kennzeichen als richtig einzuordnen.
+
+Mit easyOCR wurden 28 von 85 Kennzeichen richtig gelesen, mit Tesseract 17.
+%TODO Bild eval_fuzzy_ratio
+
+Neben dem vollständigen Fuzzy Matching können mit der Funktion \lstinline{fuzz.partial_ratio()} auch Substrings berücksichtigt werden.
+Das ist sinnvoll, um beispielsweise die Namen von Autohäusern aus den OCR-Ergebnissen herauszufiltern.
+Mit dieser Methode (Threshold 45\%) liest easyOCR 31 von 85 Kennzeichen richtig, Tesseract 22.
+%TODO Bild eval_partial_ratio
+
+% Keine Ahnung wie ich das schreiben soll, das da halt:
+% def custom_match(read, label):
+%     for x in label:
+%         if x not in read:
+%             return 0
+%     return 100
+% Bild dazu: eval_custom
+
+\subsection{Laufzeit}
+
+Für eine praktische Anwendung darf die Laufzeit der gesamten Pipeline nicht zu lang sein.
+%Wenn die Laufzeit der Pipeline, also die Verzögerung zwischen der Aufnahme zweier Bilder \delta t ist,
+%dann wird das 
+
+Erstens sollte die Zeit zwischen dem Auftauchen des Autos vor der Kamera und dem ersten Scan konsistent sein,
+zweitens kann die Pipeline im gleichen Zeitraum mehrmals ausgeführt werden und so trotz ungenauen Modellen gute Ergebnisse erzielen.
+Die Laufzeit hängt direkt von der verwendeten Hardware ab.
+
+Zur Evaluation wird die Dauer der einzelnen Schritte (Cropping und OCR) gemessen und zu Durchschnitten aggregiert.
+
+Auf dem selbst erstellten Datensatz wurde mit einem Lenovo Thinkpad T580 (Intel i7-8850U) für das Cropping durchschnittlich 1,37 Sekunden,
+für die Texterkennung mit easyOCR 2,27 Sekunden und für die Bilderkennung mit Tesseract 2,67 Sekunden benötigt.
+Das entspricht einer Gesamtlaufzeit von rund 4 Sekunden, also etwa 15 Bildern pro Minute.
+
+Wird jedoch stattdessen ein Raspberry Pi 3 verwendet, steigt die Laufzeit auf durchschnittlich 14,87 Sekunden für das Cropping und 17,62 Sekunden für die Texterkennung mit Tesseract.
+EasyOCR wurde nicht evaluiert, weil es nicht mit der 32bit-Version von Pi OS kompatibel ist.
