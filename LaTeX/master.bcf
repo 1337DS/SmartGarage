@@ -2186,6 +2186,10 @@
     <bcf:citekey order="1">IoT</bcf:citekey>
     <bcf:citekey order="2">SmartHome</bcf:citekey>
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="3">Pi3b</bcf:citekey>
+    <bcf:citekey order="4">RFID</bcf:citekey>
+    <bcf:citekey order="5">SR04</bcf:citekey>
+    <bcf:citekey order="6">eWe</bcf:citekey>
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->

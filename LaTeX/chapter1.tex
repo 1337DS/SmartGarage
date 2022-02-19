@@ -1,10 +1,10 @@
 % !TEX root =  master.tex
 \chapter{Grundlagen}
 \section{Konzeption}
-Als Ausgangslage dient in diesem Projekt eine handelsübliches elektrisch öffenbares Garagentor, das mit einer Fernbedienung gesteuert wird. Dabei wird davon ausgegangen, dass es sich um eine 1-Kanal Steuerung handelt, also dass ein einmaliges Drücken eines Knopfes der Fernbedienung das Garagentor öffnet und ein weiteres Betätigen desselben Knopfes das Garagentor wieder schließt. Weiterhin wird davon ausgegangen, dass das Garagentor beim Auftreffen auf ein Hindernis automatisch Reversiert. Dies ist sogar, wie durch ein Gerichtsurteil des OLG Frankfurt von 2015 festgestellt, gesetzlich vorgeschrieben.  https://openjur.de/u/775737.html
-Die Ansteuerung und Regelung des Garagentor-Motors selbst ist also nicht Bestandteil dieser Projektarbeit.
+Als Ausgangslage dient in diesem Projekt eine handelsübliches elektrisch öffenbares Garagentor, das mit einer Fernbedienung gesteuert wird. Dabei wird davon ausgegangen, dass es sich um eine 1-Kanal Steuerung handelt, also dass ein einmaliges Drücken eines Knopfes der Fernbedienung das Garagentor öffnet und ein weiteres Betätigen desselben Knopfes das Garagentor wieder schließt. Weiterhin wird davon ausgegangen, dass das Garagentor beim Auftreffen auf ein Hindernis automatisch reversiert. Dies ist sogar, wie durch ein Gerichtsurteil des OLG Frankfurt von 2015 festgestellt, gesetzlich vorgeschrieben. #TODO https://openjur.de/u/775737.html
+Die Ansteuerung und Regelung des Garagentor-Motors selbst sind also nicht Bestandteil dieser Projektarbeit.
 
-Neben der automatisierten Öffnung durch die Kennzeichenerkennung sollten folgende Features vorhanden sein:
+Neben der automatisierten Öffnung durch die Kennzeichenerkennung wurden folgende Features als Projektumfang festgelegt:
 
 - Amazon Alexa oder Google Home Integration, um das Garagentor auch als "Fußgänger" und ferngesteuert öffnen zu können (um Gartengeräte zu entnehmen oder den Postboten ein Paket abstellen zu lassen)
 
@@ -12,7 +12,7 @@ Neben der automatisierten Öffnung durch die Kennzeichenerkennung sollten folgen
 
 Folgende Features wurden als optional festgehalten und deren Implementierung vom Projektverlauf abhängig gemacht:
 
-- Lichtschranke zur Erkennung ob die Garage bereits belegt ist. In diesem Fall soll das Tor nicht geöffnet werden und es einem anderen Fahrzeug, das ebenfalls einfahrtsberechtigt ist, ermöglicht weden VOR der Garage zu parkieren ohne ständig durch das sichtbare Kennzeichen die automatische Öffnung auszulösen.
+- Lichtschranke zur Erkennung ob die Garage bereits belegt ist. In diesem Fall soll das Tor nicht geöffnet werden und es einem anderen Fahrzeug, das ebenfalls einfahrtsberechtigt ist, ermöglicht werden VOR der Garage zu parkieren ohne ständig durch das sichtbare Kennzeichen die automatische Öffnung auszulösen.
 
 - Öffnung per Transponder, um das Tor vor Ort und ohne Smartphone öffnen zu können, falls der Akku leer ist oder man anderen Personengruppen (evtl. temporären) Zutritt erteilen möchte
 
@@ -21,7 +21,9 @@ Folgende Features wurden als optional festgehalten und deren Implementierung vom
 \subsection{Hardware}
 Aufgrund der vielseitigen Verwendbarkeit, des geringen Preises, der guten Konnektivität und Kompatibilität wurde sich für ein Rasberry Pi 3+ bzw. 4 entschieden. Diese Modelle sind hervorragend für IoT-Anwendungen geeignet und verfügen mit 4 bzw. 8 GB trotzdem über genug Arbeitsspeicher um einfache Bildverarbeitung durchführen zu können. 
 
-Als einfachste Schnittstelle zum Torantrieb wurde der Handsender identifiziert. Hier genügt es zwei Drähte am Ein- und Ausgang des Aktivierungsknopfes anzulöten und diese mit einem Relais zu verbinden. TODO Direkt am Raspi möglich ? Dann kann durch die \ac{GPIO}Pins das Relais geöffnet oder geschlossen werden und so ein Betätigen der Fernbedienung simuliert werden.
+Als einfachste Schnittstelle zum Torantrieb wurde der Handsender identifiziert. Hier genügt es zwei Drähte am Ein- und Ausgang des Aktivierungsknopfes anzulöten und diese mit einem Relais zu verbinden. TODO Direkt am Raspi möglich ? Dann kann durch die \ac{GPIO}-Pins das Relais geöffnet oder geschlossen werden und so ein Betätigen der Fernbedienung simuliert werden.
+
+\subsection{Einrichtung}
 
 
 \subsection{Implementierung Alexa}
@@ -43,5 +45,8 @@ hier auf jeden noch die quelle
 \subsection{OCR}
 
 \subsection{Schaltlogik und Logs}
+
+Das folgende Steckdiagramm veranschaulicht die 
+Der dazugehörige Schaltplan ist im Anhang beigefügt.
 
 \nocite{*}

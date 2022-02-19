@@ -19,17 +19,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.1}Hardware}{3}{subsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Implementierung Alexa}{3}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Einrichtung}{3}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Modelltraining und Implementierung}{3}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Implementierung Alexa}{3}{subsection.2.2.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.4}Datenbeschaffung}{3}{subsection.2.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.5}Geometrische Lösung}{4}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.5}Modelltraining und Implementierung}{4}{subsection.2.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.6}OCR}{4}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.6}Geometrische Lösung}{4}{subsection.2.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.7}Schaltlogik und Logs}{4}{subsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.2.7}OCR}{4}{subsection.2.2.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.8}Schaltlogik und Logs}{4}{subsection.2.2.8}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Validierung}{5}{chapter.3}%
 \defcounter {refsection}{0}\relax 
@@ -45,6 +47,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Risiken und Limitierungen}{7}{chapter.5}%
 \defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Wirtschaftliche Aspekte}{7}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.1}Kosten}{7}{subsection.5.1.1}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}Zusammenfassung}{8}{chapter.6}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.1}Fazit}{8}{section.6.1}%
@@ -53,8 +59,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Anhang}{}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Quellcode Pipeline}{9}{appendix.A}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {B}DataFrame Ergebnisse Validierung}{10}{appendix.B}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{11}{chapter*.9}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{9}{chapter*.9}%
