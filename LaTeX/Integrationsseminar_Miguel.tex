@@ -1,5 +1,5 @@
 %
-% Diese Datei nicht einbinden, sondern die einzelnen Absätze an die richtigen Stellen kopieren.
+% Diese Datei bitte nicht einbinden, sondern die einzelnen Absätze an die richtigen Stellen kopieren.
 %     
         
     
@@ -14,7 +14,7 @@ Die Schnittstellen umfassen MicroUSB für die Stromversorgung, HDMI für die Bil
 Die vierte Version (4 Mod. B) hat eine schnellere CPU mit vier ARM Cortex-A72-Kernen, 2GB bis 4GB RAM, fest verbautes Wi-fi und Bluetooth, schnellere USB 3.0 Anschlüsse, sowie zwei Micro-HDMI-Buchsen. Die Form ist gleich geblieben. \autocite{RaspberryPi2}
 
 \section{Einrichtung}
-Für dieses Projekt wurde ein Raspberry Pi 3 verwendet. Als Betriebssystem wurde aufgrund der Spezialisierung auf diese Hardware Pi OS (Build vom 30.10.2021) gewählt. Aus Platzgründen musste der Raspberry Pi per Fernzugriff gesteuert werden. Hierfür wurde zuerst das vorinstallierte realVNC verwendet, später jedoch auf SSH gewechselt. Grund dafür war, dass mit SSH mehrere Verbindungen gleichzeitig aktiv sein können. Zudem ist die Performance unter Last deutlich besser, weil eine grafische Aufbereitung und die Übertragung der Bilddaten entfallen.
+Für dieses Projekt wurde ein Raspberry Pi 3 verwendet. Als Betriebssystem wurde aufgrund der Spezialisierung auf die Hardware Pi OS (Build vom 30.10.2021) gewählt. Aus Platzgründen musste der Raspberry Pi per Fernzugriff gesteuert werden. Hierfür wurde zuerst das vorinstallierte realVNC verwendet, später jedoch auf SSH gewechselt. Grund dafür war, dass mit SSH mehrere Verbindungen gleichzeitig aktiv sein können. Zudem ist die Performance unter Last deutlich besser, weil eine grafische Aufbereitung und die Übertragung der Bilddaten entfallen. 
 
 \section{Intel Movidius Myriad X}
 Der Myriad X der Intel-Tochterfirma Movidius ist eine Vision Processing Unit (VPU), die auf IoT-Anwendungen spezialisiert ist. Sie unterstützt bis zu 8 Kameras mit einer Auflösung von 4k. Sie kann Aufgaben wie Stereosicht und Bildverarbeitung sehr effizient ausführen und ist dabei nicht auf Datentransfers zu externem Speicher angewiesen.
@@ -22,7 +22,7 @@ Der Myriad X der Intel-Tochterfirma Movidius ist eine Vision Processing Unit (VP
 Zusätzlich ist sie mit einer Neural Compute Engine ausgestattet, die ein schnelles und Energieeffizientes Ausführen von Inferenz auf neuralen Netzen ermöglicht. Movidius gibt eine Performance von 1 TOPS (1 Billion Operationen pro Sekunde) an.
 
 \section{Luxonis OAK-D}
-Die Luxonis OAK-D ist eine IoT-Kamera, die einen RGB-Sensor und ein Paar Stereosensoren hat. Der Stereosensor nutzt einen Sony IMX378-Sensor und kann Video in 4k aufnehmen. Das Stereopaar nutzt Omnivision OV9282-Sensoren mit einer Auflösung von 1280x800.
+Die Luxonis OAK-D ist eine IoT-Kamera, die einen RGB-Sensor und ein Paar Stereosensoren hat. Der Stereosensor nutzt einen Sony IMX378-Sensor und kann Video in 4k aufnehmen. Das Stereopaar nutzt Omnivision OV9282-Sensoren mit einer Auflösung von 1280x800 Pixeln.
 Die Sensoren sind direkt mit der integrierten Myriad X VPU verbunden. Stromversorgung und Datentransfer erfolgen über USB-C, wobei sowohl USB 2.0 als auch USB 3.0 unterstützt werden.
 
 Die Kamera wird über die DepthAI-Platform und deren Python-API gesteuert. Hierbei kann der Entwickler selbst entscheiden, welche Sensoren und Funktionen der VPU er in welchem Ausmaß nutzt.
@@ -62,18 +62,18 @@ Die Alternative ist Tesseract, eine OCR-Engine, die ursprünglich von Hewlett-Pa
 Bei 85 von 118 Bildern wurde eine Region als Kennzeichen identifiziert und freigestellt.
 Diese ist nicht immer korrekt, es wurden neben Kennzeichen auch Fenster, Ziegelsteine und Straßenschilder freigestellt.
 Das ist ein Problem, das durch die Vorschaltung von yolov3 verhindert werden könnte. 
-
+Eine genauere Evaluation dieses Schrittes ist, ohne die Ergebnisse der nachgeschalteten OCR-Lösung zu berücksichtigen, wenig sinnvoll, weil der Bildausschnitt unvorhersehbare Folgen für das OCR-Ergebnis hat.
 
 
 \subsection{OCR}
 Beide OCR-Lösungen liefern ungenaue Ergebnisse. Die Plaketten zwischen den Blöcken der Kennzeichen werden oft als Zeichen interpretiert. Genauso wird zwischen den Blöcken manchmal ein Leerzeichen erkannt und manchmal nicht.
 Bei einem genauen Vergleich dieser Ergebnisse mit einer Liste von erlaubten Kennzeichen würde daher sehr selten ein Treffer auftreten.
 
-Aus diesem Grund wird stattdessen das Python-Paket \lstinline{thefuzz} verwendet, welches sich die Levenshtein-Distanz zu Nutze macht, um die Ähnlichkeit mehrerer Strings zu quanitfizieren.
+Aus diesem Grund wird stattdessen das Python-Paket \lstinline{thefuzz} verwendet, welches sich die Levenshtein-Distanz zu Nutze macht, um die Ähnlichkeit mehrerer Strings zu quantifizieren.
 Um die Levenshtein-Distanz zwischen zwei Strings zu bestimmen, wird ein String zum Anderen umgeformt. Erlaubte Operationen sind dabei das Einfügen eines neuen Zeichens und das Entfernen eines bestehenden Zeichens.
 Die minimal benötigte Anzahl dieser Operationen ist die Levenshtein-Distanz.
 
-Hieraus wird ein prozentualer Wert abgeleitet, der die Genauigkeit der Erkennung wiederspiegelt.
+Hieraus wird ein prozentualer Wert abgeleitet, der die Genauigkeit der Erkennung widerspiegelt.
 Für die finale Evaluation mit dieser Methode wurde ein Threshold von 45\% gewählt, um das gelesene Kennzeichen als richtig einzuordnen.
 
 Mit easyOCR wurden 28 von 85 Kennzeichen richtig gelesen, mit Tesseract 17.
@@ -92,8 +92,8 @@ Mit dieser Methode (Threshold 45\%) liest easyOCR 31 von 85 Kennzeichen richtig,
 
 
 Abgesehen von den bestehenden Methoden zum Vergleich mehrerer Strings wurde auch ein spezialisierter Ansatz entwickelt. Sowohl easyOCR als auch Tesseract haben die Schwäche, dass sie manchmal die Blöcke der Kennzeichen vertauschen. Um dieses Problem zu umgehen, wurde folgende, auf das vorliegende Problem spezialisierte, Funktion zur Evaluation entwickelt:
-% Keine Ahnung wie ich das schreiben soll, das da halt:
-% 
+
+% TODO: Formatierung prüfen
 \begin{lstlisting} 
 def custom_match(read, label):	
     for x in label:
@@ -103,6 +103,7 @@ def custom_match(read, label):
 \end{lstlisting}     
 % Bild dazu: eval_custom
 Die Werte 0 und 100 dienen der einheitlichen Visualisierung. \lstinline{read} ist der Text, den die OCR-Lösung erkannt hat. \lstinline{label} ist das Label des jeweiligen Bildes in der Form \lstinline{OG AE 1337}. Die leerzeichengetrennten Teile des Labels werden durch Python in jeweils einzelnen Schleifendurchläufen behandelt.
+Mit dieser Methode erzielt easyOCR 21 richtige Ergebnisse, Tesseract 5.
 \begin{figure}[h]
 	\includegraphics[width=8cm]{./img/evaluation_custom_matcher.svg}
 	\caption{Evaluation mit eigener Funktion}
@@ -121,7 +122,7 @@ Erstens sollte die Zeit zwischen dem Auftauchen des Autos vor der Kamera und dem
 zweitens kann die Pipeline im gleichen Zeitraum mehrmals ausgeführt werden und so trotz ungenauen Modellen gute Ergebnisse erzielen.
 Die Laufzeit hängt direkt von der verwendeten Hardware ab.
 
-Zur Evaluation wird die Dauer der einzelnen Schritte (Cropping und OCR) gemessen und zu Durchschnitten aggregiert.
+Zur Evaluation wird die Dauer der einzelnen Schritte (Cropping und OCR) gemessen und zu Durchschnitten aggregiert. 
 
 Auf dem selbst erstellten Datensatz wurde mit einem Lenovo Thinkpad T580 (Intel i7-8850U) für das Cropping durchschnittlich 1,37 Sekunden,
 für die Texterkennung mit easyOCR 2,27 Sekunden und für die Bilderkennung mit Tesseract 2,67 Sekunden benötigt.
@@ -129,10 +130,6 @@ Das entspricht einer Gesamtlaufzeit von rund 4 Sekunden, also etwa 15 Bildern pr
 
 Wird jedoch stattdessen ein Raspberry Pi 3 verwendet, steigt die Laufzeit auf durchschnittlich 14,87 Sekunden für das Cropping und 17,62 Sekunden für die Texterkennung mit Tesseract.
 EasyOCR wurde nicht evaluiert, weil es nicht mit der verwendeten Version von Pi OS kompatibel ist.
-
-
-
-
 
 
 \section{Darknet und YOLO v3 (Technologie)}
@@ -152,6 +149,15 @@ Um das Transfer-Learning auszuführen, muss zuerst Darknet kompiliert werden. Da
 Hierbei gab es aufgrund der proprietären Nvidia-Grafiktreiber und den zusätzlichen Paketen CUDA und CUDNN große Schwierigkeiten.
 Nachdem diese überwunden waren, konnte ein Modell in etwa zwei Stunden trainiert werden. Inferenz auf einem einzelnen Bild dauert im CPU-Modus auf einem i7 8850U mehr als 20 Sekunden. Für Inferenz mit dem Raspberry Pi muss also unbedingt die Myriad X VPU verwendet werden, die in der OAK-D Kamera verbaut ist. Luxonis erreicht mit dieser Hardware und tiny YOLO v4 stabile 30fps. \autocite{Luxonis1}.
 Um auf der OAK-D ausgeführt zu werden, muss das Darknet-Modell zuerst in das .pb-Format von Tensorflow umgewandelt werden.
-Von dort aus muss es in das Format "Intermediate Representation" von OpenVino konvertiert werden und über eine proprietäre API zu einem Blobfile.
-Dieser Schritt war trotz großem Aufwand nicht erfolgreich. Die API hat unerklärte Fehler geworfen. Nach mehreren Tagen Aufwand wurde die Entscheidung getroffen, den ersten Schritt der geplanten Pipeline zu entfernen und die geometrische Lösung zum ersten Schritt zu machen.
+Von dort aus muss es in das Format "Intermediate Representation" von OpenVino und über eine proprietäre API zu einem Blobfile konvertiert werden.
+Dieser Schritt war trotz mehrtägigem Aufwand nicht erfolgreich. Die API hat unerklärte Fehler geworfen. Nach mehreren Tagen Aufwand wurde die Entscheidung getroffen, den ersten Schritt der geplanten Pipeline zu entfernen und die geometrische Lösung zum ersten Schritt zu machen.
+
+
+
+
+\chapter{Technischer Ausblick}
+Die Nutzung eines 64bit-Betriebssystems würde die Nutzung von easyOCR ermöglichen, was in der Evaluation zu deutlich besseres Performance geführt hat.
+Mit zusätzlichem Aufwand ist denkbar, die ursprünglich geplante Eingrenzung des Kennzeichens durch ein neuronales Netz, welches auf der Myriad X VPU läuft, nachträglich einzubauen und die Schwächen der aktuellen geometrischen Lösung zu umgehen.
+easyOCR basiert auf Torch und es ist laut Intel möglich, PyTorch-Modelle in die Intermediate Representation umzuwandeln.
+easyOCR könnte also auf die Myriad X VPU portiert werden, um noch bessere Performance zu erreichen.
 
