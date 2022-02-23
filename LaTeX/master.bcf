@@ -2185,11 +2185,19 @@
   <bcf:section number="0">
     <bcf:citekey order="1">IoT</bcf:citekey>
     <bcf:citekey order="2">SmartHome</bcf:citekey>
+    <bcf:citekey order="3">oakd</bcf:citekey>
+    <bcf:citekey order="4">sensoren</bcf:citekey>
+    <bcf:citekey order="5">sensoren</bcf:citekey>
+    <bcf:citekey order="6">rfid</bcf:citekey>
+    <bcf:citekey order="7">rfid</bcf:citekey>
+    <bcf:citekey order="8">rfid</bcf:citekey>
+    <bcf:citekey order="9">Raschka</bcf:citekey>
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
-    <bcf:citekey order="3">Pi3b</bcf:citekey>
-    <bcf:citekey order="4">RFID</bcf:citekey>
-    <bcf:citekey order="5">SR04</bcf:citekey>
-    <bcf:citekey order="6">eWe</bcf:citekey>
+    <bcf:citekey order="10">ocr1</bcf:citekey>
+    <bcf:citekey order="11">Pi3b</bcf:citekey>
+    <bcf:citekey order="12">RFID</bcf:citekey>
+    <bcf:citekey order="13">SR04</bcf:citekey>
+    <bcf:citekey order="14">eWe</bcf:citekey>
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->

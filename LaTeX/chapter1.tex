@@ -18,41 +18,76 @@ Folgende Features wurden als optional festgehalten und deren Implementierung vom
 
 
 \section{Hardware}
-Aufgrund der vielseitigen Verwendbarkeit, des geringen Preises, der guten Konnektivität und Kompatibilität wurde sich für ein Rasberry Pi 3+ bzw. 4 entschieden. Diese Modelle sind hervorragend für IoT-Anwendungen geeignet und verfügen mit 4 bzw. 8 GB trotzdem über genug Arbeitsspeicher um einfache Bildverarbeitung durchführen zu können. 
+Aufgrund der vielseitigen Verwendbarkeit, des geringen Preises, der guten Konnektivität und Kompatibilität wurde sich für ein Rasberry Pi 3+ bzw. 4 entschieden. Diese Modelle sind hervorragend für IoT-Anwendungen geeignet und verfügen mit 1 bzw. 4 oder 8 GB trotzdem über genug Arbeitsspeicher um einfache Bildverarbeitung durchführen zu können. 
 
 Als einfachste Schnittstelle zum Torantrieb wurde der Handsender identifiziert. Hier genügt es zwei Drähte am Ein- und Ausgang des Aktivierungsknopfes anzulöten und diese mit einem Relais zu verbinden. TODO Direkt am Raspi möglich ? Dann kann durch die \ac{GPIO}-Pins das Relais geöffnet oder geschlossen werden und so ein Betätigen der Fernbedienung simuliert werden.
 
-\section{Einrichtung}
 
 
-\section{Ultraschallsensor}
+\subsection{Raspberry Pi 3}
+Der Raspberry Pi ist ein vollständiger Computer in der Größe einer Kreditkarte. Er wird von der nicht profitorientierten Raspberry Pi Foundation entwickelt und in Großbritannien hergestellt. Er besitzt keinen aufgelöteten Speicher, sondern bootet direkt von einer MicroSD-Karte. Die Raspberry Pi Foundation entwickelt auch das offizielle Betriebssystem Pi OS auf Basis von Linux (Debian).
+
+Die Zweite Version des Raspberry Pi (3 Mod. B v1.2) hat 1GB RAM und als CPU vier ARM Cortex-A53-Kerne, welche die ARMv8-A-Mikroarchitektur implementieren. Für dieses Modell gibt es aktuell keine offizielle 64-bit-Version von Pi OS, was die Kompatibilität mit bestimmter Software einschränkt.
+Die Schnittstellen umfassen MicroUSB für die Stromversorgung, HDMI für die Bildausgabe, 3,5mm Klinke für Audio, RJ-45 (Ethernet), 4x USB 2.0, 26 \ac{GPIO}-Pins und zwei Flachband-Header für den offiziellen Touchscreen und die offizielle Kamera.
+
+Die vierte Version (4 Mod. B) hat eine schnellere CPU mit vier ARM Cortex-A72-Kernen, 4GB RAM, fest verbautes Wi-fi und bluetooth sowie zwei Micro-HDMI-Buchsen. Die Form ist gleich geblieben.
+
+\subsection{Luxonis OAK-D}
+Die Luxonis OAK-D ist eine IoT-Kamera, die einen RGB-Sensor und ein Paar Stereosensoren hat. Der Stereosensor nutzt einen Sony IMX378-Sensor und kann Video in 4k aufnehmen. Das Stereopaar nutzt Omnivision OV9282-Sensoren mit einer Auflösung von 1280x800.
+Die Sensoren sind direkt mit der integrierten Myriad X-VPU verbunden. Stromversorgung und Datentransfer erfolgen über USB-C, wobei sowohl USB 2.0 als auch USB 3.0 unterstützt werden.
+
+Die Kamera wird über die DepthAI-Platform und deren Python-API gesteuert. Hierbei kann der Entwickler selbst entscheiden, welche Sensoren und Funktionen der VPU er in welchem Ausmaß nutzt.\autocite{oakd}
+
+Als Vision Processing Unit verwendet die OAK-D den Myriad X der Intel-Tochterfirma Movidius ist eine Vision Processing Unit (VPU), die auf IoT-Anwendungen spezialisiert ist. Sie unterstützt bis zu 8 Kameras mit einer Auflösung von 4k. Sie kann Aufgaben wie Stereosicht und Bildverarbeitung sehr effizient ausführen und ist dabei nicht auf Datentransfers zu externem Speicher angewiesen.
+
+Zusätzlich ist sie mit einer Neural Compute Engine ausgestattet, die ein schnelles und Energieeffizientes Ausführen von Inferenz auf neuralen Netzen ermöglicht. Movidius gibt eine Performance von 1 TOPS (1 Billion Operationen pro Sekunde) an.
+
+\subsection{RC522 RFID-Modul}
+
+Das RC552-Modul von NXP Semiconductors ist ein RFID-Transponder, der das 13.56Mhz ISM-Band nutzt und dadurch keine Probleme mit anderen Funkverbindungen verursacht. Es kann über UART, I²C oder SPI kommunizieren und wird mit 3.3V betrieben, passt also auf die \ac{GPIO}-Pins des Raspberry Pi. Eine Besonderheit ist der Interrupt-Pin, mit dem ein externes Gerät aufgeweckt werden kann, sobald ein RFID-Tag erkannt wird. Es wird mit zwei RFID-Tags geliefert, die beliebig beschrieben und ausgelesen werden können. 
+
+
+\subsection{Ultraschallsensor}
 Ultraschallsensoren finden in der heutigen Zeit in vielen Anwendungsbereichen Verwendung. Beispiele hierfür ist beispielsweise die Werkstoffprüftechnik, medizinische Diagnostik oder auch Näherungsschalter. Ein weiteres bekanntes Beispiel aus dem Alltag ist die Verwendung in Fahrzeugen, bei denen Systeme, die beispielsweise beim Einparken helfen sollen, auf Ultraschallsensoren basieren.
-Ultraschall selbst liegt bei Frequenzen über dem Frequenzbereich, den ein Mensch hören kann. Also über 20 kHz. Erzeugt werden kann Ultraschall über zwei verschiedene Methoden, pneumatisch oder elektrisch beziehungsweise piezoelektrisch oder magnetostriktiv.\autocite{sensoren}[Vgl.][S. 70] Da sich Ultraschallwellen über die Luft bewegen spielt die Temperatur bei der Messung eine Rolle und kann die Genauigkeit beeinflussen. Die Schallgeschwindigkeit bei einer Temperatur von 0° Celsius liegt so beispielsweise bei 331,6 m/s während die Schallgeschwindigkeit bei 20° Celsius bereits 343,8 m/s beträgt. Man kann hierbei also feststellen, dass sich der Schall bei einer wärmeren Temperatur schneller bewegt. 
-Auch einen Einfluss auf die Messgenauigkeit kann neben der Temperatur auch der Luftdruck haben. Bei ansteigendem Luftdruck nimmt die Schallgeschwindigkeit zu. Auch die Zusammensetzung der Luft spielt eine Rolle, also unter anderem der CO2-Gehalt der Luft sowie die relative Luftfeuchte. Diese Einflussfaktoren sind bei Entwurf von Ultraschallsensoren zu beachten, um später ein möglich akkurates Messergebnis zu erzielen.\autocite{sensoren}[Vgl.][S. 71]
+Ultraschall selbst liegt bei Frequenzen über dem Frequenzbereich, den ein Mensch hören kann. Also über 20 kHz. Erzeugt werden kann Ultraschall über zwei verschiedene Methoden, pneumatisch oder elektrisch beziehungsweise piezoelektrisch oder magnetostriktiv.\autocite[Vgl.][S. 70]{sensoren} Da sich Ultraschallwellen über die Luft bewegen spielt die Temperatur bei der Messung eine Rolle und kann die Genauigkeit beeinflussen. Die Schallgeschwindigkeit bei einer Temperatur von 0° Celsius liegt so beispielsweise bei 331,6 m/s während die Schallgeschwindigkeit bei 20° Celsius bereits 343,8 m/s beträgt. Man kann hierbei also feststellen, dass sich der Schall bei einer wärmeren Temperatur schneller bewegt. 
+Auch einen Einfluss auf die Messgenauigkeit kann neben der Temperatur auch der Luftdruck haben. Bei ansteigendem Luftdruck nimmt die Schallgeschwindigkeit zu. Auch die Zusammensetzung der Luft spielt eine Rolle, also unter anderem der CO2-Gehalt der Luft sowie die relative Luftfeuchte. Diese Einflussfaktoren sind bei Entwurf von Ultraschallsensoren zu beachten, um später ein möglich akkurates Messergebnis zu erzielen.\autocite[Vgl.][S. 71]{sensoren}
 Die meistverwendete Art von Ultraschallsensoren sind Ultraschall-Abstandssensoren, die aus einem Sender und Empfänger bestehen, die beide in demselben Gehäuse eingebaut sind. Bei dieser Art von Ultraschallsensoren wird der Sender, periodisch angesteuert, sodass dieser einen Ultraschallimpuls von 100 Mikrosekunden bis zu 1 Millisekunde in einem Frequenzbereich von etwa 40 bis 400 kHz aussendet. Nachdem ein Signal ausgesendet wurde versucht der Empfänger das Echo des Ultraschalls zu erfassen. Dies ist möglich, wenn sich innerhalb der Schallkeule, die vom Sender ausgesendet wird, ein Objekt befindet. Ist dies der Fall, wird der Ultraschallimpuls vom Objekt reflektiert, sodass dieser wieder zurück zum Sender gesendet wird, und dadurch vom Empfänger aufgenommen werden kann.
 
-Für die Abstandsbemessung im Projekt SmartGarage wird der HC SR04 Ultraschallsensor implementiert. Der HC SR04 Ultraschallsensor besteht aus zwei Komponenten die als Trigger bzw. Sender und Echo bzw. Empfänger fungieren. Die Funktionsweise ist die Selbe, wie bereits allgemein zu Ultraschall-Abstandssensoren erläutert wurde. Angesteuert wird der Ultraschallsensor über die GPIO Ports des Raspberry Pis. Die Messung selbst wird mit Hilfe eines Python-Skripts zur Abstandsmessung gesteuert. 
+Für die Abstandsbemessung im Projekt SmartGarage wird der HC SR04 Ultraschallsensor implementiert. Der HC SR04 Ultraschallsensor besteht aus zwei Komponenten die als Trigger bzw. Sender und Echo bzw. Empfänger fungieren. Die Funktionsweise ist die Selbe, wie bereits allgemein zu Ultraschall-Abstandssensoren erläutert wurde. Angesteuert wird der Ultraschallsensor über die \ac{GPIO} Ports des Raspberry Pis. Die Messung selbst wird mit Hilfe eines Python-Skripts zur Abstandsmessung gesteuert. 
 
 Eingesetzt wird die Abstandsbemessung mittels Ultraschallsensors im Projekt für die Messung, ob ein Objekt, also in diesem Anwendungsfall ein Automobil, in der Garage geparkt ist, oder nicht. Daraus lässt sich die Information ableiten, ob die Garage frei oder belegt ist. Diese Information wird über die Weboberfläche ausgegeben.
 
 
 
 
-\section{RFID}
-RFID, kurz für Radio-Frequenz-Identifikation, ist eine Technologie, die Verwendet wird um Gegenständen oder auch Personen sowie Tieren eine Kennzeichnung zu Vergeben. Zu einem solchen RFID-System gehören zwei grundlegende Komponenten, ein Transponder sowie ein Lesegerät, die mittels Radiowellen untereinander kommunizieren. RFID-Systeme gehören wie der Barcode zu sogenannten Auto-ID-Systemen, die in der Lage sind ein Objekt zu identifizieren. Der Barcode ist das bekannteste Auto-ID-System und lässt sich im Alltag beispielsweise in Supermärkten oder im Einzelhandel aufgedruckt auf Produkte auffinden. Die Radio-Frequenz-Identifikation hat gegenüber dem Barcode als Auto-ID-System jedoch einen Vorteil. Bei der Radio-Frequenz-Identifikation muss nicht beachtet werden, dass die Komponenten richtig ausgerichtet sind. Dies ist bei dem Scan eines Barcodes notwendig. Mittels Radio-Frequenz-Identifikation können Objekte ohne spezielle Ausrichtung erkannt werden. Ebenfalls ist die Erkennung mehrerer Objekte gleichzeitig möglich, auch wenn diese beispielsweise in einer Verpackung sind.\autocite{rfid}[Vgl.][S. 1]
+\subsection{RFID}
+RFID, kurz für Radio-Frequenz-Identifikation, ist eine Technologie, die Verwendet wird um Gegenständen oder auch Personen sowie Tieren eine Kennzeichnung zu Vergeben. Zu einem solchen RFID-System gehören zwei grundlegende Komponenten, ein Transponder sowie ein Lesegerät, die mittels Radiowellen untereinander kommunizieren. RFID-Systeme gehören wie der Barcode zu sogenannten Auto-ID-Systemen, die in der Lage sind ein Objekt zu identifizieren. Der Barcode ist das bekannteste Auto-ID-System und lässt sich im Alltag beispielsweise in Supermärkten oder im Einzelhandel aufgedruckt auf Produkte auffinden. Die Radio-Frequenz-Identifikation hat gegenüber dem Barcode als Auto-ID-System jedoch einen Vorteil. Bei der Radio-Frequenz-Identifikation muss nicht beachtet werden, dass die Komponenten richtig ausgerichtet sind. Dies ist bei dem Scan eines Barcodes notwendig. Mittels Radio-Frequenz-Identifikation können Objekte ohne spezielle Ausrichtung erkannt werden. Ebenfalls ist die Erkennung mehrerer Objekte gleichzeitig möglich, auch wenn diese beispielsweise in einer Verpackung sind.\autocite[Vgl.][S. 1]{rfid}
 
-Zur Implementierung eines RFID-Systems ist ein Transponder und ein Lesegerät notwendig. Das Lesegerät ist meist stationär angebracht während der Transponder eine Karte, ein Chip oder auch ein Mikrochip sein kann.\autocite{rfid}[Vgl.][S. 33] Ein bekanntes Beispiel aus der Geschäftswelt sind RFID-Chipkarten, mit denen man beispielsweise Zugang auf ein Betriebsgelände, in ein Büro oder auch dem Firmenparkplatz erlangt. Eine gängige Implementierung ist somit, dass ein Mitarbeiter eine Chipkarte erhält, die den Transponder verkörpert. Will dieser Mitarbeiter beispielsweise auf den Firmenparkplatz mit seinem Auto fahren, muss dieser vor einer Schranke halten, und seine Chipkarte an das Lesegerät, welches stationär vor dieser Schranke angebracht ist, halten. Das Lesegerät liest die Chipkarte mit Hilfe von Radiowellen aus und kann somit identifizieren, dass es sich um einen Mitarbeiter handelt und gewährt Zugriff auf den Firmenparkplatz in Form von Öffnen der Schranke.
 
-Wichtig zu beachten bei Radio-Frequenz-Identifikationssystemen ist Frequenz. Die Wahl dieser hat einen hohen Einfluss auf die Funktion und Sicherheit dieser Systeme. Grund hierfür ist, dass nicht nur RFID-Systeme die Radiofrequenz verwenden, sondern auch wie der Name verbirgt Radiosender sowie andere Funkanlagen. Die gängigen Frequenzen für RFID-Systeme sind daher 120 - 135 kHz für die Low Frequenz, 13,56 MHz für die High Frequenz sowie 868 MHZ, 915 MHz, 2,45 GHz und 5,5 GHz für die Ultra-High Frequenzen. Der gängige Standard ist hierbei jedoch 13,56 MHz.\autocite{rfid}[Vgl.][S. 34]
+Zur Implementierung eines RFID-Systems ist ein Transponder und ein Lesegerät notwendig. Das Lesegerät ist meist stationär angebracht während der Transponder eine Karte, ein Chip oder auch ein Mikrochip sein kann.\autocite[Vgl.][S. 33]{rfid} Ein bekanntes Beispiel aus der Geschäftswelt sind RFID-Chipkarten, mit denen man beispielsweise Zugang auf ein Betriebsgelände, in ein Büro oder auch dem Firmenparkplatz erlangt. Eine gängige Implementierung ist somit, dass ein Mitarbeiter eine Chipkarte erhält, die den Transponder verkörpert. Will dieser Mitarbeiter beispielsweise auf den Firmenparkplatz mit seinem Auto fahren, muss dieser vor einer Schranke halten, und seine Chipkarte an das Lesegerät, welches stationär vor dieser Schranke angebracht ist, halten. Das Lesegerät liest die Chipkarte mit Hilfe von Radiowellen aus und kann somit identifizieren, dass es sich um einen Mitarbeiter handelt und gewährt Zugriff auf den Firmenparkplatz in Form von Öffnen der Schranke.
 
-Die Implementierung eines RFID-Systems in der SmartGarage bietet eine weitere Möglichkeit die Garage zu öffnen. Für das Projekt wird daher ein RFID-RC522 Modul an den Raspberry Pi angeschlossen. Dieses dient als Lesegerät, welches später den Transponder auslesen wird. Angesteuert vom Raspberry Pi wird das Modul mittels der GPIO-Ports ähnlich wie beispielsweise bereits dem Ultraschallsensors. Das Auslesen wird dann mit Hilfe eines Python-Skripts gesteuert und mit einer Whitelist abgeglichen.
+Wichtig zu beachten bei Radio-Frequenz-Identifikationssystemen ist Frequenz. Die Wahl dieser hat einen hohen Einfluss auf die Funktion und Sicherheit dieser Systeme. Grund hierfür ist, dass nicht nur RFID-Systeme die Radiofrequenz verwenden, sondern auch wie der Name verbirgt Radiosender sowie andere Funkanlagen. Die gängigen Frequenzen für RFID-Systeme sind daher 120 - 135 kHz für die Low Frequenz, 13,56 MHz für die High Frequenz sowie 868 MHZ, 915 MHz, 2,45 GHz und 5,5 GHz für die Ultra-High Frequenzen. Der gängige Standard ist hierbei jedoch 13,56 MHz.\autocite[Vgl.][S. 34]{rfid}
+
+Die Implementierung eines RFID-Systems in der SmartGarage bietet eine weitere Möglichkeit die Garage zu öffnen. Für das Projekt wird daher ein RFID-RC522 Modul an den Raspberry Pi angeschlossen. Dieses dient als Lesegerät, welches später den Transponder auslesen wird. Angesteuert vom Raspberry Pi wird das Modul mittels der \ac{GPIO}-Ports ähnlich wie beispielsweise bereits dem Ultraschallsensors. Das Auslesen wird dann mit Hilfe eines Python-Skripts gesteuert und mit einer Whitelist abgeglichen.
 
 Als Transponder kann im Projekt jede beschreibbare RFID-Karte oder RFID-Chipkarte verwendet werden. Im Projekt wird hierfür eine RFID-Karte, die nicht mit dem richtigen Code beschriftet ist, als Beispiel für eine fehlerhafte Identifikation verwendet. Wenn diese an das Lesegerät gehalten wird, wird kein Zugriff gewährt, da der Code auf der Karte nicht mit den Codes, die in der Whitelist festgelegt sind, übereinstimmt. Als Beispiel für eine erfolgreiche Identifizierung wird im Projekt ein RFID-Chip mit dem richtigen Code beschriftet. Wird dieser an das Lesegerät gehalten, wird abgeglichen ob dieser in der Whitelist enthalten ist. Da dieser in der Whitelist enthalten ist, wird Zugriff auf die SmartGarage gewährt.
 
 Bei tatsächlicher Implementierung besteht hierbei neben Chipkarten und RFID-Karten auch die Möglichkeit sich einen NFC-Chip beziehungsweise RFID-Chip mittels Implantat unter die Haut einsetzen zu lassen. Dies bietet den Vorteil, dass man immer Zugriff auf seine Garage hat, ohne einen externen Gegenstand, den man verlieren kann, bei sich haben zu müssen.
 Während des Projektverlaufes konnten zwei weitere Funktionen festgestellt werden, die sich noch mit vertretbarem zeitlichen Aufwand in das Produkt integrieren ließen.
 
-\section{Weboberfläche}
+\section{Software}
+\subsection{Betriebssystem}
+
+\subsection{SSH}
+
+Secure Shell ist ein Netzwerkprotokoll, mit dem verschlüselt auf entfernte Rechner zugegriffen werden kann. Der entfernte Rechner muss dafür direkt erreichbar sein (über ein lokales Netzwerk oder eine Portweiterleitung).
+SSH ist ein Client-Server-Protokoll, wobei der entfernte Rechner der Server und der lokale Rechner der Client ist. Neben klassischen textbasierten Shells können mit SSH auch verschlüsselte Dateiübertragungen (per SFTP) und grafische Anwendungen (per X11-Forwarding) realisiert werden.
+
+\subsection{Programmiersprache}
+Als Programmiersprache wurde Python ausgewählt, da Python leistungsfähig, vielseitig einsetzbar, sehr leicht erlernbar und sich auf dem Gebiet Data Science zur verbreitetsten Programmiersprache entwickelt hat.\autocite[Vgl.][S. XIV]{Raschka} 
+
+
+\subsection{Weboberfläche}
 Mit Hilfe einer Weboberfläche lässt sich eine weitere Möglichkeit die SmartGarage zu öffnen implementieren. Der Vorteil dabei ist, dass diese unabhängig vom Endgerät aufgerufen werden kann und lediglich ein mit dem Internet verbundener Browser benötigt wird. Des weiteren lassen sich in einer Weboberfläche auch Informationen, die für den Besitzer der SmartGarage relevant sind, ausgeben. Hierzu gehört beispielsweise die Information, ob sich aktuell ein Fahrzeug in der Garage befindet. Hierzu wird ein Ultraschallsensor implementiert, der diese Information auf der Weboberfläche bereitstellt. Hierzu wird eine einfache wenn-Funktion verwendet, die angibt, dass die Garage belegt ist, falls sich innerhalb eines gewissen Abstands ein Objekt befindet, und dass die Garage frei ist, wenn sich innerhalb dieses Abstands kein Objekt befindet.
 Ein weiterer wichtiger Nutzen der Weboberfläche für die Bereitstellung von Informationen ist das Anzeigen von Logs. Hierzu wird eine Log-Datei erstellt, in die alle Dienste, mit denen sich die SmartGarage öffnen lässt, einen Log-Eintrag schreiben, sobald sie diese öffnen. Damit wird Dokumentiert wann und wie die SmartGarage geöffnet wird. Durch die Implementierung dieser Logs in einer Weboberfläche steht diese Information dem Besitzer auch unabhängig vom Standort zur Verfügung.
 
@@ -60,22 +95,25 @@ Für die Realisierung einer Weboberfläche gibt es viele Realisierungsansätze u
 
 Daher wird im Rahmen des Projekts für die Realisierung einer Weboberfläche eine einfache FlaskApp erstellt, die den üblichen Aufbau hat mit einer flaskapp.py, die die Weboberfläche steuert, und auf einzelne Templates, die wiederum in HTML geschrieben werden, zugreift. Hierbei wird in der flaskapp.py-Datei die Initialisierung der Weboberfläche sowie das Routing und dem Datentransfer zwischen den Seiten festgelegt sowie auch die Funktion, die die Garage öffnet. Als Templates die als Seite geladen werden, wird ein Template für die Startseite erstellt sowie ein Template für die Seite, auf der die Logs angezeigt werden sollen. Die Hauptseite, die bei Aufruf der Seite geladen wird, enthält einen Button, der mittels der in der flaskapp.py dafür festgelegten Funktion die SmartGarage öffnet und einen Eintrag in der Logs-Datei erstellt. Des Weiteren enthält diese Seite die Information ob in der Garage ein Fahrzeug steht, oder nicht. Dies geschieht über die Ultraschallmessung, wie bereits zuvor erläutert. Ebenfalls wird von dieser Seite aus auf die Logs-Seite verlinkt. Die Logs-Seite bezieht die Daten aus der Logs-Datei und gibt diese auf der Weboberfläche aus, wodurch der Besitzer der Garage die geloggten Öffnungen einsehen kann.
 
+
+
 \nocite{*}
 
 \chapter{Kennzeichenerkennung}
 
 \section{Datenbeschaffung}
-Die Güte eines Modells hängt stark von der Qualität und Quantität der beim Training verwendeten Datensätze ab. Jedoch sind Datensätze von deutschen Kennzeichen aufgrund der \ac{DSGVO} sehr schwer zu beschaffen. Zudem sind Anwendungen im Bereich Kennzeichenerkennung von großem kommerziellen Nutzen und dementsprechend nicht frei verfügbar. Die Recherche ergab, das nur ein einziger Datensatz frei verfügbar war und für das Projekt in Frage käme. Es handelte sich um den TODO der TH Ingolstadt. Eine Anfrage beim dort zuständigen Prof. TODO blieb aber leider unbeantwortet, sodass eine andere Lösung gefunden werden musste.
+Die Güte eines Modells hängt stark von der Qualität und Quantität der beim Training verwendeten Datensätze ab. Jedoch sind Datensätze von deutschen Kennzeichen aufgrund der \ac{DSGVO} sehr schwer zu beschaffen. Zudem sind Anwendungen im Bereich Kennzeichenerkennung von großem kommerziellen Nutzen und dementsprechend nicht frei verfügbar. Die Recherche ergab, das nur ein einziger Datensatz frei verfügbar war und für das Projekt in Frage käme. Es handelte sich um das \textit{THI License Plate Dataset}der TH Ingolstadt. Eine Anfrage beim dort zuständigen Prof. TODO blieb aber leider unbeantwortet, sodass eine andere Lösung gefunden werden musste.
 Da das Modell die Kernfunktion des Projekts ist, entschied sich das Projektteam dazu, selbst einen kleinen Datensatz zu erstellen. 
-Hierzu wurden 108 Bildaufnahmen von Fahrzeugen in der Nachbarschaft angefertigt. Dabei wurde darauf geachtet, möglichst immer in der gleichen Perspektive zu fotografieren. Da sich die Kamera zur Kennzeichenerkennung nicht mittig im Garagentor selbst befestigen lässt, sondern entweder darüber oder seitlich versetzt montiert wird, wurden alle Aufnahmen von einer leicht seitlich versetzten Position aus getätigt.
+Hierzu wurden 118 Bildaufnahmen von Fahrzeugen in verschieden Landkreisen angefertigt. Dabei wurde darauf geachtet, möglichst immer in der gleichen Perspektive zu fotografieren. Da sich die Kamera zur Kennzeichenerkennung nicht mittig im Garagentor selbst befestigen lässt, sondern entweder darüber oder seitlich versetzt montiert wird, wurden alle Aufnahmen von einer leicht seitlich versetzten Position aus getätigt.
 
 \section{Modelltraining und Implementierung}
-
+DARKNETTT 
 \section{Geometrische Lösung}
-hier auf jeden noch die quelle 
+Nach mehren gescheiterten Anläufe der versuchten Implementierung des Darknet Finetuning ist gilt es alternative Ansätze zu finden und umzusetzen.Der Mangel an Modellen hinsichtlich der im Paragraph (Datenbeschaffung) gennaten Gründe des Datenschutzes und der Wirtschaftlichkeit, galt es auf ein alternativ Ansatz zurückzugreifen. Hierbei hat man auf eine allgemeine und Repetitive Eigenschaft eines Frontalen PKW Bildes gesetzte. Anderst als mittels eines trainierten Neuronalen Netzes auf die Erkennung von an Autos befestigter Nummer Schildern. Macht man sich deren Rechteckige Eigenschaften zu Gunsten und gestaltet eine Pipeline die auf die Erkennung von Rechtecken innerhalb eines Bildes. 
+
 
 \section{OCR}
-OCR (Optical Character Recognition) ist das automatische Erkennen von Text innerhalb eines Bildes. Diese Technologie ermöglicht es, den Text in einem Bild oder einem gescannten Dokument in für Menschen verständlichen Text umzuwandeln. Für diesartige Anwendungen gibt es eine Vielzahl von Anwendungsfällen in der heutigen Zeit. Dazu gehört beispielsweise die Umwandlung Informationen, die ausschließlich in einem Print-Medium zu finden sind, in ein digitales Medium, die einfache Erkennung eines Coupons oder auch das auslesen eines schriftlich ausgefüllten Formulars mit Hilfe des Computers.\autocite{ocr1}[Vgl.][S. 81]
+OCR (Optical Character Recognition) ist das automatische Erkennen von Text innerhalb eines Bildes. Diese Technologie ermöglicht es, den Text in einem Bild oder einem gescannten Dokument in für Menschen verständlichen Text umzuwandeln. Für diesartige Anwendungen gibt es eine Vielzahl von Anwendungsfällen in der heutigen Zeit. Dazu gehört beispielsweise die Umwandlung Informationen, die ausschließlich in einem Print-Medium zu finden sind, in ein digitales Medium, die einfache Erkennung eines Coupons oder auch das auslesen eines schriftlich ausgefüllten Formulars mit Hilfe des Computers.\autocite[Vgl.][S. 81]{ocr1}
 
 Für die Optische Texterkennung gibt es mittlerweile eine Vielzahl von angebotenen Algorithmen und Services. Darunter beispielsweise Textract, welches von Amazon bereitgestellt und verkauft wird. Allerdings gibt es auch Open-Source Algorithmen dafür wie EasyOCR und Tesseract. Diese ermöglichen es auch ohne einen Aufwand für die Kosten der Texterkennung diese durchzuführen.
 
@@ -84,10 +122,80 @@ Nach erfolgreichem Proof-of-Concept musste unter den technisch möglichen Varian
 %Abbildung #TODO veranschaulicht den Aufbau des Dataframes, in dem die Ergebnisse gespeichert wurden.
 
 
-\chapter{Technische Umsetzung}
 
-\section{Implementierung Alexa}
-\section{Schaltlogik}
-\section{Weboberfläche}
+\section{Evaluation der Pipeline}
 
+Die Kennzeichenerkennungspipeline besteht aus folgenden Schritten:
+\begin{itemize}
+	\item[Laden der kurz zuvor gespeicherten Datei]
+	\item[Preprocessing]
+	\begin{itemize}
+		\item[Umwandlung zu Graustufen]
+		\item[Bilateraler Filter]
+		\item[Canny-Algorithmus zu Kantenfindung]
+		\item[Douglas-Peucker-Algorithmus zur Erkennung von Rechtecken]
+		\item[Cropping]
+		\item[OCR mit vorgefertigter Lösung]
+	\end{itemize}
+\end{itemize}
+
+Es war geplant, an den Anfang dieser Pipeline noch ein neuronales Netz zu hängen, mit dem eine erste Eingrenzung des Kennzeichens erfolgen sollte. Dieser Schritt wurde jedoch aufgrund von technischen Problemen entfernt.
+
+Als OCR-Lösung war EasyOCR geplant, weil es trotz geringem Ressourcenaufwand gute Ergebnisse liefert. Dieser Ansatz scheiterte, weil EasyOCR von Torch abhängt, Torch ein 64bit-Betriebssystem voraussetzt und Pi OS für den Raspberry Pi 2 nur als 32bit-Version verfügbar ist.
+Die Alternative ist Tesseract, eine OCR-Engine, die ursprünglich von Hewlett-Packard entwickelt wurde. Seit 2005 ist es Open-Source und von 2006 bis 2018 wurde es von Google weiterentwickelt. https://tesseract-ocr.github.io/docs/tesseracticdar2007.pdf
+
+\subsection{Cropping}
+Bei 85 von 118 Bildern wurde eine Region als Kennzeichen identifiziert und freigestellt.
+Diese ist nicht immer korrekt, es wurden neben Kennzeichen auch Fenster, Ziegelsteine und Straßenschilder freigestellt.
+Das ist ein Problem, das durch die Vorschaltung von yolov3 verhindert werden könnte. 
+
+
+
+\subsection{OCR}
+Beide OCR-Lösungen liefern ungenaue Ergebnisse. Die Plaketten zwischen den Blöcken der Kennzeichen werden oft als Zeichen interpretiert. Genauso wird zwischen den Blöcken manchmal ein Leerzeichen erkannt und manchmal nicht.
+Bei einem genauen Vergleich dieser Ergebnisse mit einer Liste von erlaubten Kennzeichen würde daher sehr selten ein Treffer auftreten.
+
+Aus diesem Grund wird stattdessen das Python-Paket \lstinline{thefuzz} verwendet, welches sich die Levenshtein-Distanz zu Nutze macht, um die Ähnlichkeit mehrerer Strings zu quanitfizieren.
+Um die Levenshtein-Distanz zwischen zwei Strings zu bestimmen, wird ein String zum Anderen umgeformt. Erlaubte Operationen sind dabei das Einfügen eines neuen Zeichens und das Entfernen eines bestehenden Zeichens.
+Die minimal benötigte Anzahl dieser Operationen ist die Levenshtein-Distanz.
+
+Hieraus wird ein prozentualer Wert abgeleitet, der die Genauigkeit der Erkennung wiederspiegelt.
+Für die finale Evaluation mit dieser Methode wurde ein Threshold von 45\% gewählt, um das gelesene Kennzeichen als richtig einzuordnen.
+
+Mit easyOCR wurden 28 von 85 Kennzeichen richtig gelesen, mit Tesseract 17.
+%TODO Bild eval_fuzzy_ratio
+
+Neben dem vollständigen Fuzzy Matching können mit der Funktion \lstinline{fuzz.partial_ratio()} auch Substrings berücksichtigt werden.
+Das ist sinnvoll, um beispielsweise die Namen von Autohäusern aus den OCR-Ergebnissen herauszufiltern.
+Mit dieser Methode (Threshold 45\%) liest easyOCR 31 von 85 Kennzeichen richtig, Tesseract 22.
+%TODO Bild eval_partial_ratio
+
+% Keine Ahnung wie ich das schreiben soll, das da halt:
+% def custom_match(read, label):
+%     for x in label:
+%         if x not in read:
+%             return 0
+%     return 100
+% Bild dazu: eval_custom
+
+Hierbei ist zu beachten, dass nicht alle freigestellten Bildsegmente auch wirklich Kennzeichen sind. Ein Mensch könnte an dieser Stelle also auch keine perfekte Leistung erreichen. 
+
+\subsection{Laufzeit}
+
+Für eine praktische Anwendung darf die Laufzeit der gesamten Pipeline nicht zu lang sein.
+%Wenn die Laufzeit der Pipeline, also die Verzögerung zwischen der Aufnahme zweier Bilder \delta t ist,
+%dann wird das 
+
+Erstens sollte die Zeit zwischen dem Auftauchen des Autos vor der Kamera und dem ersten Scan konsistent sein,
+zweitens kann die Pipeline im gleichen Zeitraum mehrmals ausgeführt werden und so trotz ungenauen Modellen gute Ergebnisse erzielen.
+Die Laufzeit hängt direkt von der verwendeten Hardware ab.
+
+Zur Evaluation wird die Dauer der einzelnen Schritte (Cropping und OCR) gemessen und zu Durchschnitten aggregiert.
+
+Auf dem selbst erstellten Datensatz wurde mit einem Lenovo Thinkpad T580 (Intel i7-8850U) für das Cropping durchschnittlich 1,37 Sekunden,
+für die Texterkennung mit easyOCR 2,27 Sekunden und für die Bilderkennung mit Tesseract 2,67 Sekunden benötigt.
+Das entspricht einer Gesamtlaufzeit von rund 4 Sekunden, also etwa 15 Bildern pro Minute.
+
+Wird jedoch stattdessen ein Raspberry Pi 3 verwendet, steigt die Laufzeit auf durchschnittlich 14,87 Sekunden für das Cropping und 17,62 Sekunden für die Texterkennung mit Tesseract.
+EasyOCR wurde nicht evaluiert, weil es nicht mit der 32bit-Version von Pi OS kompatibel ist.
 

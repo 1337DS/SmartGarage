@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.10.22)  19 FEB 2022 14:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.10.22)  20 FEB 2022 00:38
 entering extended mode
 **./master.tex
 (master.tex
@@ -942,7 +942,11 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
- (master.aux)
+ (master.aux
+
+LaTeX Warning: Label `fig:test' multiply defined.
+
+)
 \openout1 = `master.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
@@ -963,8 +967,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
 LaTeX Font Info:    ... okay on input line 121.
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
 21.
-
-("C:\Users\andre\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmss.fd"
+ ("C:\Users\andre\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmss.fd"
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 \c@lstlisting=\count424
@@ -1135,19 +1138,21 @@ Package tocbasic Info: Using my definition of `\numberline' on input line 8.
 Package tocbasic Info: Using my definition of `\numberline' on input line 10.
 Package tocbasic Info: Using my definition of `\numberline' on input line 12.
 Package tocbasic Info: Using my definition of `\numberline' on input line 14.
-Package tocbasic Info: Using my definition of `\numberline' on input line 28.
 Package tocbasic Info: Using my definition of `\numberline' on input line 40.
-Package tocbasic Info: Using my definition of `\numberline' on input line 48.
-Package tocbasic Info: Using my definition of `\numberline' on input line 54.
 Package tocbasic Info: Using my definition of `\numberline' on input line 60.
-Package tocbasic Info: Using my definition of `\numberline' on input line 62.
+ [2
+
+]
+Package tocbasic Info: Using my definition of `\numberline' on input line 78.
+Package tocbasic Info: Using my definition of `\numberline' on input line 82.
+Package tocbasic Info: Using my definition of `\numberline' on input line 88.
+Package tocbasic Info: Using my definition of `\numberline' on input line 90.
+Package tocbasic Info: Using my definition of `\numberline' on input line 92.
 )
 \tf@toc=\write6
 \openout6 = `master.toc'.
 
- [2
-
-] [3] (master.lof)
+ [3] (master.lof)
 \tf@lof=\write7
 \openout7 = `master.lof'.
 
@@ -1155,16 +1160,42 @@ Package tocbasic Info: Using my definition of `\numberline' on input line 62.
 
 ] (acronyms.tex
 
-! LaTeX Error: Something's wrong--perhaps a missing \item.
+LaTeX Warning: Hyper reference `acro:OCR' on page V undefined on input line 9.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.9 \end{acronym}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+
+LaTeX Warning: Hyper reference `acro:OCR' on page V undefined on input line 9.
+
+
+LaTeX Warning: Hyper reference `acro:RFID' on page V undefined on input line 10
+.
+
+
+LaTeX Warning: Hyper reference `acro:RFID' on page V undefined on input line 10
+.
+
+
+LaTeX Warning: Hyper reference `acro:SFTP' on page V undefined on input line 11
+.
+
+
+LaTeX Warning: Hyper reference `acro:SFTP' on page V undefined on input line 11
+.
+
+
+LaTeX Warning: Hyper reference `acro:SSH' on page V undefined on input line 12.
+
+
+
+LaTeX Warning: Hyper reference `acro:SSH' on page V undefined on input line 12.
+
+
+
+LaTeX Warning: Hyper reference `acro:VPU' on page V undefined on input line 13.
+
+
+
+LaTeX Warning: Hyper reference `acro:VPU' on page V undefined on input line 13.
+
 
 ) [5
 
@@ -1193,12 +1224,6 @@ Class scrreprt Warning: \float@addtolists detected!
 
 Package acronym Info: Label `acro:IoT' newly defined as it shall be overridden
 although it is yet undefined on input line 3.
-
-Package acronym Warning: Acronym `IoT' is not defined on input line 3.
-
-
-Package acronym Warning: Acronym `IoT' is not defined on input line 3.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -1232,59 +1257,91 @@ chapter 2.
 Package acronym Info: Label `acro:GPIO' newly defined as it shall be overridden
 
 although it is yet undefined on input line 23.
+ [3]
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
+47.
 
-
-Package acronym Warning: Acronym `GPIO' is not defined on input line 23.
-
-
-Package acronym Warning: Acronym `GPIO' is not defined on input line 23.
-
-[3]
+("C:\Users\andre\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmss.fd"
+File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+[4] [5] [6] [7] [8] [9]
 chapter 3.
 Package acronym Info: Label `acro:DSGVO' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 47.
+although it is yet undefined on input line 105.
+[10
 
-Package acronym Warning: Acronym `DSGVO' is not defined on input line 47.
+] [11]
+Overfull \hbox (5.00398pt too wide) in paragraph at lines 144--146
+\T1/cmss/m/n/12 von Goo-gle wei-ter-ent-wi-ckelt. https://tesseract-ocr.github.
+io/docs/tesseracticdar2007.pdf 
+ []
 
-
-Package acronym Warning: Acronym `DSGVO' is not defined on input line 47.
-
-[4
-
-] [5]
+[12]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+58.
+ ("C:\Users\andre\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [13]) (chapter2.tex) (Kap3.tex [14]
 chapter 4.
-) (chapter2.tex) (Kap3.tex [6
 
-]
+LaTeX Warning: Reference `Steckplan' on page 15 undefined on input line 14.
+
+<img/SmartGarage.png, id=263, 654.445pt x 678.535pt>
+File: img/SmartGarage.png Graphic file (type png)
+<use img/SmartGarage.png>
+Package pdftex.def Info: img/SmartGarage.png  used on input line 19.
+(pdftex.def)             Requested size: 523.55672pt x 542.82874pt.
+
+Overfull \hbox (86.09554pt too wide) in paragraph at lines 19--21
+ [][] 
+ []
+
+<img/Programmablaufplan.png, id=265, 614.295pt x 794.97pt>
+File: img/Programmablaufplan.png Graphic file (type png)
+<use img/Programmablaufplan.png>
+Package pdftex.def Info: img/Programmablaufplan.png  used on input line 33.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+
+Overfull \hbox (53.97548pt too wide) in paragraph at lines 33--35
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 39.47685pt on input line 36.
+
+[15
+
+] [16 <./img/SmartGarage.png>] [17 <./img/Programmablaufplan.png>]
 chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
+Overfull \hbox (5.06268pt too wide) in paragraph at lines 49--51
+[]\T1/cmss/m/n/12 Zum einen hat die ver-wen-de-te Soft-wa-re noch Schwie-rig-ke
+i-ten mit Stö-run-gen durch Fahrzeug-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
 
-LaTeX Warning: Citation 'Pi3b' on page 7 undefined on input line 22.
+LaTeX Warning: Citation 'eWe' on page 18 undefined on input line 67.
 
 
-LaTeX Warning: Citation 'RFID' on page 7 undefined on input line 23.
-
-
-LaTeX Warning: Citation 'SR04' on page 7 undefined on input line 24.
-
-
-LaTeX Warning: Citation 'eWe' on page 7 undefined on input line 25.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--28
+Underfull \hbox (badness 10000) in paragraph at lines 63--71
 
  []
 
-) (conclusion.tex [7
+) (conclusion.tex [18
 
 ]
 chapter 6.
-) (appendix1.tex) [8
+[19
+
+]) [20] (appendix1.tex [21]
+chapter A.
+) [22
 
 ]
 chapter without number
@@ -1292,12 +1349,14 @@ chapter without number
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <12> not available
 (Font)              Font shape `T1/cmr/m/sc' tried instead on input line 237.
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-37.
-("C:\Users\andre\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-[9
+
+Overfull \hbox (4.16927pt too wide) in paragraph at lines 237--237
+[][]\T1/cmss/m/it/12 Raspberry Pi 3b \T1/cmss/m/n/12 (2022). \T1/cmr/m/sc/12 ur
+l\T1/cmss/m/n/12 : []$\T1/cmtt/m/n/12 https : / / www . berrybase . de / raspbe
+rry -[] pi / raspberry -[]
+ []
+
+[23
 
 ]
 No file master.ind.
@@ -1313,6 +1372,9 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 LaTeX Warning: There were undefined references.
 
 
+LaTeX Warning: There were multiply-defined labels.
+
+
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                master
 (biblatex)                and rerun LaTeX afterwards.
@@ -1323,15 +1385,39 @@ Package logreq Info: Writing requests to 'master.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 247.
  ) 
 Here is how much of TeX's memory you used:
- 24495 strings out of 480799
- 484048 string characters out of 2895783
- 1379199 words of memory out of 3000000
- 40081 multiletter control sequences out of 15000+200000
- 546906 words of font info for 49 fonts, out of 3000000 for 9000
+ 24939 strings out of 480799
+ 489383 string characters out of 2895783
+ 1381143 words of memory out of 3000000
+ 40457 multiletter control sequences out of 15000+200000
+ 547563 words of font info for 51 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 68i,18n,86p,10603b,2241s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exi
-st, replaced by a fixed one
+ 68i,19n,86p,10603b,2314s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
 , replaced by a fixed one
@@ -1351,21 +1437,23 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
  <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ec
 tt1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec
 /dpi600\eccc1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/j
-knappen/ec/dpi600\ecss1000.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/p
-k/ljfour/jknappen/ec/dpi600\ecsi1000.pk> <C:\Users\andre\AppData\Local\MiKTeX\2
-.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0700.pk> <C:\Users\andre\AppData\Loca
-l\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0800.pk> <C:\Users\andre\Ap
-pData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1200.pk> <C:\User
-s\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx2488.pk
+knappen/ec/dpi600\ectt1095.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/p
+k/ljfour/jknappen/ec/dpi600\tcss1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\2
+.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\andre\AppData\Loca
+l\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1000.pk> <C:\Users\andre\Ap
+pData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0700.pk> <C:\User
+s\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0800.pk
 > <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\e
-css1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/e
-c/dpi600\ecsx1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/
-jknappen/ec/dpi600\ecsx1728.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/
-pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\andre\AppData\Local\MiKTeX\
-2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1440.pk>
-Output written on master.pdf (16 pages, 293167 bytes).
+csi1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecsx2488.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/
+jknappen/ec/dpi600\ecss1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/
+pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\
+2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1728.pk> <C:\Users\andre\AppData\Loc
+al\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\andre\A
+ppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1440.pk>
+Output written on master.pdf (30 pages, 838298 bytes).
 PDF statistics:
- 668 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 251 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1058 PDF objects out of 1200 (max. 8388607)
+ 117 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

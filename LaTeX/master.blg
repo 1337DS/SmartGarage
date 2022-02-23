@@ -1,17 +1,20 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'master.blg'
-[68] biber-MSWIN64:322> INFO - === 
-[88] Biber.pm:415> INFO - Reading 'master.bcf'
-[184] Biber.pm:940> INFO - Using all citekeys in bib section 0
-[201] Biber.pm:4256> INFO - Processing section 0
-[202] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
-[211] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
-[225] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[228] bibtex.pm:1653> INFO - LaTeX decoding ...
-[234] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliography.bib'
-[260] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[260] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[261] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
-[261] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
-[269] bbl.pm:652> INFO - Writing 'master.bbl' with encoding 'UTF-8'
-[270] bbl.pm:755> INFO - Output to master.bbl
+[80] biber-MSWIN64:322> INFO - === 
+[103] Biber.pm:415> INFO - Reading 'master.bcf'
+[229] Biber.pm:940> INFO - Using all citekeys in bib section 0
+[251] Biber.pm:4256> INFO - Processing section 0
+[252] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
+[263] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
+[281] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[284] bibtex.pm:1653> INFO - LaTeX decoding ...
+[302] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliography.bib'
+[304] Utils.pm:304> WARN - Possible typo (case mismatch) between datasource keys: 'rfid' and 'RFID' in file 'bibliography.bib'
+[377] Utils.pm:304> WARN - year field '2013--2016' in entry 'darknet13' is not an integer - this will probably not sort properly.
+[421] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[421] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[421] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
+[421] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
+[442] bbl.pm:652> INFO - Writing 'master.bbl' with encoding 'UTF-8'
+[450] bbl.pm:755> INFO - Output to master.bbl
+[451] Biber.pm:128> INFO - WARNINGS: 2
