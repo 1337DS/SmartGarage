@@ -1,5 +1,5 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {ngerman}{}
+\babel@toc {ngerman}{}\relax 
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Abbildungsverzeichnis}{IV}{section*.2}%
 \defcounter {refsection}{0}\relax 
@@ -21,6 +21,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Luxonis OAK-D}{4}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
+<<<<<<< HEAD
 \contentsline {subsection}{\numberline {2.2.3}RC522 RFID-Modul}{4}{subsection.2.2.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.4}Ultraschallsensor}{5}{subsection.2.2.4}%
@@ -90,3 +91,44 @@
 \contentsline {chapter}{\numberline {A}Ablaufplan}{22}{appendix.A}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\nonumberline Literaturverzeichnis}{23}{chapter*.11}%
+=======
+\contentsline {section}{\numberline {2.5}RFID}{4}{section.2.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.6}Weboberfläche}{6}{section.2.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Kennzeichenerkennung}{8}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Datenbeschaffung}{8}{section.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Modelltraining und Implementierung}{8}{section.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Geometrische Lösung}{8}{section.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}OCR}{8}{section.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.5}Validierung}{9}{section.3.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Technische Umsetzung}{10}{chapter.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Implementierung Alexa}{10}{section.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Schaltlogik}{10}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Weboberfläche}{10}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Risiken und Limitierungen}{11}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Wirtschaftliche Aspekte}{11}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.1}Kosten}{11}{subsection.5.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Zusammenfassung}{12}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Fazit}{12}{section.6.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Ausblick}{12}{section.6.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Anhang}{}{section.6.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{14}{chapter*.9}%
+>>>>>>> c9d32d0e355291d74b135f1f0b6700e4229d15eb
