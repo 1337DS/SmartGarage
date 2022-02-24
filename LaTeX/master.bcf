@@ -2196,13 +2196,18 @@
     <bcf:citekey order="11">Raschka</bcf:citekey>
     <bcf:citekey order="12">darknet13</bcf:citekey>
     <bcf:citekey order="13">yolov3</bcf:citekey>
+    <bcf:citekey order="14">ocr1</bcf:citekey>
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
-    <bcf:citekey order="14">Luxonis1</bcf:citekey>
-    <bcf:citekey order="15">ocr1</bcf:citekey>
-    <bcf:citekey order="16">Pi3b</bcf:citekey>
-    <bcf:citekey order="17">RFID</bcf:citekey>
-    <bcf:citekey order="18">SR04</bcf:citekey>
-    <bcf:citekey order="19">eWe</bcf:citekey>
+    <bcf:citekey order="15">Luxonis1</bcf:citekey>
+    <bcf:citekey order="16">hershberger1992speeding</bcf:citekey>
+    <bcf:citekey order="17">baek2019character</bcf:citekey>
+    <bcf:citekey order="18">JaidedAI70</bcf:citekey>
+    <bcf:citekey order="19">Tesserac98</bcf:citekey>
+    <bcf:citekey order="20">8974469</bcf:citekey>
+    <bcf:citekey order="21">Pi3b</bcf:citekey>
+    <bcf:citekey order="22">RFID</bcf:citekey>
+    <bcf:citekey order="23">SR04</bcf:citekey>
+    <bcf:citekey order="24">eWe</bcf:citekey>
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->

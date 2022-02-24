@@ -13,7 +13,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Grundlagen}{2}{chapter.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Annahmen und Projektumfang}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.1}Projektumfang}{2}{section.2.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Hardware}{3}{section.2.2}%
 \defcounter {refsection}{0}\relax 
@@ -21,27 +21,27 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Luxonis OAK-D}{4}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Intel Movidius Myriad X}{4}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}RC522 RFID-Modul}{4}{subsection.2.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.4}RC522 RFID-Modul}{5}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.4}Ultraschallsensor}{5}{subsection.2.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.5}Ultraschallsensor}{5}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.5}RFID}{6}{subsection.2.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.6}RFID}{6}{subsection.2.2.6}%
+\contentsline {section}{\numberline {2.3}Software}{7}{section.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Software}{8}{section.2.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Einrichtung}{8}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}Betriebssytem}{7}{subsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.2}Tunneling-Software}{8}{subsection.2.3.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.3}SSH}{8}{subsection.2.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.4}Programmiersprache}{9}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.4}Programmiersprache}{8}{subsection.2.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.5}Darknet und YOLO v3}{9}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.5}Darknet und YOLO v3}{8}{subsection.2.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.6}Weboberfläche}{9}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.6}OCR}{9}{subsection.2.3.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.7}Weboberfläche}{9}{subsection.2.3.7}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Kennzeichenerkennung}{11}{chapter.3}%
 \defcounter {refsection}{0}\relax 
@@ -51,52 +51,54 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.3}Geometrische Lösung}{12}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}OCR}{12}{section.3.4}%
+\contentsline {section}{\numberline {3.4}OCR}{13}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Validierung}{13}{section.3.5}%
+\contentsline {section}{\numberline {3.5}Evaluation der Pipelines}{16}{section.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Evaluation der Pipeline}{13}{section.3.6}%
+\contentsline {subsection}{\numberline {3.5.1}Cropping}{17}{subsection.3.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6.1}Cropping}{14}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.5.2}OCR}{17}{subsection.3.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6.2}OCR}{14}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.5.3}Laufzeit}{19}{subsection.3.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6.3}Laufzeit}{16}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.5.4}Zwischenfazit}{20}{subsection.3.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6.4}Zwischenfazit}{16}{subsection.3.6.4}%
+\contentsline {chapter}{\numberline {4}Alternative Öffnungsmöglichkeiten}{21}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Verbindung}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Sprachassistenten-Steuerung}{21}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Sprachassistenten-Steuerung}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Weboberfläche}{21}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Weboberfläche}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}RFID}{22}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}RFID}{18}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Ultraschallsensor}{22}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Ultraschallsensor}{18}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Piezo-Lautsprecher}{22}{section.4.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Piezo-Lautsprecher}{18}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Steckplan}{23}{section.4.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}Steckplan}{18}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Schaltlogik}{25}{section.4.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.7}Schaltlogik}{18}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Risiken und Limitierungen}{27}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.8}Weboberfläche}{18}{section.4.8}%
+\contentsline {chapter}{\numberline {6}Wirtschaftliche Aspekte}{28}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Risiken und Limitierungen}{21}{chapter.5}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{29}{chapter.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Wirtschaftliche Aspekte}{22}{chapter.6}%
+\contentsline {section}{\numberline {7.1}Fazit}{29}{section.7.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{23}{chapter.7}%
+\contentsline {section}{\numberline {7.2}Ausblick}{29}{section.7.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}Fazit}{23}{section.7.1}%
+\contentsline {subsection}{\numberline {7.2.1}Technischer Ausblick}{31}{subsection.7.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}Ausblick}{23}{section.7.2}%
+\contentsline {chapter}{Anhang}{}{subsection.7.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Technischer Ausblick}{26}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Ablaufplan}{32}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Anhang}{}{chapter.8}
+\contentsline {chapter}{\numberline {B}Schaltplan}{34}{appendix.B}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Ablaufplan}{27}{appendix.A}%
+\contentsline {chapter}{\numberline {C}Steckplan}{35}{appendix.C}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{28}{chapter*.14}%
+\contentsline {chapter}{\numberline {D}Fehlermeldungen}{37}{appendix.D}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{38}{chapter*.21}%
