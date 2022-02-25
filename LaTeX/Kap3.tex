@@ -22,7 +22,7 @@ Bei der Umsetzung des Akustischen Signal Tons der Anlage wurde provisorisch auf 
 
 \section{Steckplan}
 
-Auf Abbildung \ref{Steckplansm} ist die schlussendlich verwendete Steckung abgebildet. Hierbei war zu beachten, dass die im Internet verfügbaren Anleitungen und Tutorials nicht unbedingt miteinander kompatibel sind und einige \ac{GPIO}-Pins von mehreren Vorlagen verwendet werden. Hier muss demetsprechend ein anderer freier Pin mit gleicher I/O-Funktion gefunden werden und der Code angepasst werden. Außerdem ist die Spannung zwingend zu beachten. Manche Module, wie der Ultraschallsensor, benötigen eine Spannung von 5V, andere nur 3.3V. Ein versehentliches Verbinden der beiden Spannungsnetze kann zu irreperablen Hardwareschäden führen. 
+Auf Abbildung \ref{Steckplansm} ist die schlussendlich verwendete Steckung abgebildet. Hierbei war zu beachten, dass die im Internet verfügbaren Anleitungen und Tutorials nicht unbedingt miteinander kompatibel sind und einige \ac{GPIO}-Pins von mehreren Vorlagen verwendet werden. Hier muss demetsprechend ein anderer freier Pin mit gleicher I/O-Funktion gefunden werden und der Code angepasst werden. Außerdem ist die Spannung zwingend zu beachten. Manche Module, wie der Ultraschallsensor, benötigen eine Spannung von 5V, andere nur 3.3V. Die GPIO-Pins des Raspberry Pi, sind auf 3.3V ausgelegt und nicht vor Überspannug geschützt. Ein versehentliches Verbinden der beiden Spannungsnetze kann zu irreperablen Hardwareschäden führen. Deshalb wurde beispielsweie am Ultraschallsensor ein Spannungsteiler eingebaut.
 Der dazugehörge elektrische Schaltplan findet sich in Anhang \ref{Schaltplan}
 \begin{figure}[H]
 	\centering 
