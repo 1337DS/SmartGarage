@@ -285,3 +285,10 @@ Beachtet man, dass das System im schlimmsten Fall kurz vor Ankunft des Fahrzeugs
 \subsection{Zwischenfazit}
 Geht man von der besten erreichten Erkennungsrate von 26\% aus, so beträgt der Erwartungswert der benötigten Erkennungsdurchläufe 100/26 = 3,84, welche wiederum 125 Sekunden benötigten. Dazu kommen durchschnittlich 0.5 * 32 Sekunden zur Beendigung der beim Eintreffen ablaufenden Schleife. Die Durchschnittliche Wartedauer beträgt also 141 Sekunden oder 2 Minuten und 21 Sekunden. 
 \newline Natürlich ist hier zu beachten, dass beim Warten und der erneuten Bildverarbeitung das Bild ggf. nicht so stark vom vorherigen abweicht wie beim Datensatz und die gleichen Problembereiche hat. Die Erfahrungen im Praxistest auf der Straße lassen aber eher auf eine große Varianz der erkannten Flächen und Texte schließen, weshalb der Wert sich durchaus als Schätzung verwenden lässt.
+
+Die durchschnittliche Wartedauer W bis zum Start der Öffnung lässt sich somit allgemein mit  Formel \ref{wartezeit} berechnen, wobei p die Erkennungswahrscheinlichkeit und t die Ausführungsdauer des Skripts darstellt.
+
+\begin{equation}
+	W=\frac{1}{p} * t + \frac{t}{2}
+\label{wartezeit}
+\end{equation}
