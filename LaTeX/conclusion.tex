@@ -1,11 +1,11 @@
 % !TEX root =  master.tex
-\chapter{Zusammenfassung}
+\chapter{Fazit}
 
 \nocite{*}
 
 Dieses Kapitel enthält die Zusammenfassung des Projektberichts mit einem kurzen Fazit und Ausblick, der weitere Verbesserungen vorschlägt.
 
-\section{Fazit}
+\section{Zusammenfassung}
 Zusammenfassend lässt sich feststellen, dass die Implementierung der Module gut funktioniert hat und diese zuverlässig funktionieren.
 
 Dies ist nicht zuletzt der weiten Verbreitung des Raspberry Pi und der verwendeten Bauteile unter Hobbybastlern geschuldet, die in der Szene zahlreiche und umfangreiche Tutorials veröffentlichten.
@@ -17,19 +17,17 @@ Die schlussendlich verwendete geometrische Lösung funktioniert prinzipiell, jed
 Da die Kennzeichenerkennung aber ein elementarer Kernbestandteil des Projekts ist, kommen wir zu dem Schluss, dass die technische Umsetzung des Projekts prinzipiell machbar ist, die Reaktionszeit und die Fehlerquote jedoch zu hoch ist für einen sinnvollen Betrieb. Bei über Zwei Minuten Wartezeit haben die meisten Personen wohl ihr Garagentor schneller manuell Geöffnet. Daher bedarf es für den Alltagseinsatz einer Weiterentwicklung.
 
 \section{Ausblick}
-Das Projekt SmartGarage bietet in vielen Punkten Potential und Ausblick auf weitere Features. Besonders der Ausblick auf die kommerzielle Nutzung des Systems ist vielversprechend. Grund hierfür ist, dass es aktuell noch kein Gesamtpaket kommerziell zu kaufen gibt, das alle Features, die im Projekt implementiert sind, enthält. Auch die kommerzielle Nutzung im Öffentlichen Raum ist möglich. So beispielsweise bei Tiefgaragen sowie Parkhäusern. Hierbei besteht die Möglichkeit das Projekt in einer abgewandten Form kommerziell Nutzbar zu machen. Dabei ist es beispielsweise denkbar, die Weboberfläche so umzugestalten, dass dort Parkplätze bereits vorab am Handy oder Tablet gebucht werden können und der Kunde sein Nummernschild angibt. Ist der Kunde dann vor Ort kann er aufgrund der Nummernschilderkennung einfach und ohne weiteren Aufwand in das Parkhaus oder die Tiefgarage fahren und hat bereits einen reservierten Parkplatz. Dies ermöglicht potentiellen Betreibern von diesem System, die Parkdauer des Kundens direkt zu berechnen, da das Loggen der Ein- und Ausfahrten in diesem Anwendungsbeispiel diese Information bereits mitliefert. 
+Die Nutzung eines 64bit-Betriebssystems würde die Nutzung von easyOCR ermöglichen, was in der Evaluation zu deutlich besserer Performance führte.
+Mit zusätzlichem Aufwand ist denkbar, die ursprünglich geplante Eingrenzung des Kennzeichens durch ein neuronales Netz, welches auf der Myriad X VPU läuft, nachträglich zu verwenden und die Schwächen der aktuellen geometrischen Lösung zu umgehen. Alternativ könnte auch kommerzielle Software zur Kennzeichenerkennung eingekauft werden.
 
-Einen weiteren Nutzen für die Öffentliche Sicherheit kann das Projekt mit einer Anbindung an die Polizei bieten. Durch die Nummernschilderkennung wird bei Einfahrt das Nummernschild erkannt und es ist im System ersichtlich, welches Auto in welcher Garage geparkt hat. Dies macht es wie im Anwendungsbeispiel der Tiefgaragen und Parkhäuser möglich, dass die Polizei direkt nachverfolgen kann, wo ein Nummernschild zuletzt geparkt hat. Wird so beispielsweise ein Verkehrsunfall mit Fahrerflucht gemeldet, bei dem der flüchtige Fahrer danach zu einem Kaufhaus fährt, welches über ein Parkhaus mit einem solchen System verfügt, kann die Polizei den flüchtigen Fahrer nach Einfahrt in das Parkhaus direkt lokalisieren. Dies ist auch im Falle von Privatgaragen möglich, sollten diese auch die Information über Ein- und Ausfahrt mit der Polizei teilen. Im Falle dessen bietet das System hier auch den Vorteil, dass die Zustellung von Strafzetteln vereinfacht wird, da hier die Strafzettel immer an die richtige Adresse gesendet werden.
+Wäre das Performance-Problem gelöst, bestünden vielfältige Möglichkeiten das System zu erweitern oder in anderen Use-Cases zu verwenden. 
+Auch eine kommerzielle Nutzung bei Tiefgaragen sowie Parkhäusern oder Mautsytemen wäre möglich. Dies ermöglicht potentiellen Betreibern von diesem System, die Parkdauer oder Fahrtstrecke des Kundens direkt zu berechnen, da das Loggen der Ein- und Ausfahrten in diesem Anwendungsbeispiel diese Information bereits mitliefert. 
 
-Potential zur Verbesserung weist das Projekt im Punkt Sicherheit auf. Hierbei ist die Rede von sowohl Sicherheit im Sinne von Schutz vor einem Einbruch als auch Sicherheit im Sinne von Unfallvermeidung. Die Vermeidung von Unfällen spielt vor allem eine Rolle, falls es sich um ein Garagentor handelt, welches sich nach außen öffnet. Hierbei ist es sinnvoll, auch eine Abstandsmessung außerhalb durchzuführen, um das Öffnen der Garage zu blockieren, falls sich etwas vor dem Tor befindet. Hierbei kann es sonst zu Kollisionen zwischen dem Tor der Garage und beispielsweise einem Auto kommen. Kommt es jedoch vor, dass vor der Garage Passanten laufen könnten, könnte es hierbei auch zu schwereren Unfällen kommen, im Falle dass das Garagentor mit einem vorbeifahrenden Fahrrad kollidiert.
-Die Sicherheit vor einem Einbruch lässt sich auch durch verschiedene Methoden noch optimieren. Eine Möglichkeit ist hierbei beispielsweise die Implementierung einer Sperre, die das Garagentor mittels Nummernschilderkennung nicht öffnet, sollte sich ein Auto bereits in der Garage befinden. Eine derartige Implementierung schützt nicht nur vor eventuell gefälschten Nummernschildern, sondern auch vor False-Positives im System, wodurch die Garage fehlerhafterweise bei der Einfahrt eines Kennzeichens, welches nicht in der Whitelist steht, geöffnet werden kann. 
-
-
-Hinsichtlich des RFID-Transponders besteht hierbei neben Chipkarten und RFID-Karten auch die Möglichkeit sich einen NFC-Chip beziehungsweise RFID-Chip mittels Implantat unter die Haut einsetzen zu lassen. Dies bietet den Vorteil, dass man immer Zugriff auf seine Garage hat, ohne einen externen Gegenstand, den man verlieren kann, bei sich haben zu müssen.
+Eine Weiterentwicklung des RFID-Zugangs und Kombination mit einer Zeitsteuerung wäre ebenfalls möglich, so könnte der Postbote mit seinem Chip zwischen 8 und 12 Uhr Zutritt erhalten oder der Gärtner zwischen 9 und 17 Uhr.
+Auch wäre es möglich weitere IoT-Geräte anzuschließen und beispielsweise bei der Einfahrt schonmal die Lichter im Haus anzuschalten, einen Kaffee zu kochen oder das Badezimmer anzuheizen oder bei der Ausfahrt alle Lichter auszuschalten und die Alarmanlage scharf zu schalten. Der Integration ins Smart Home sind keine Grenzen gesetzt. SmartGarage kann also nicht nur das Garagentor, sondern auch die Tür zu vielen spannenden und nützlichen Anwendungsmöglichkeiten öffnen.
 
 
-\subsection{Technischer Ausblick}
-Die Nutzung eines 64bit-Betriebssystems würde die Nutzung von easyOCR ermöglichen, was in der Evaluation zu deutlich besseres Performance geführt hat.
-Mit zusätzlichem Aufwand ist denkbar, die ursprünglich geplante Eingrenzung des Kennzeichens durch ein neuronales Netz, welches auf der Myriad X VPU läuft, nachträglich einzubauen und die Schwächen der aktuellen geometrischen Lösung zu umgehen.
-easyOCR basiert auf Torch und es ist laut Intel möglich, PyTorch-Modelle in die Intermediate Representation umzuwandeln.
-easyOCR könnte also auf die Myriad X VPU portiert werden, um noch bessere Performance zu erreichen.
+%Hinsichtlich des RFID-Transponders besteht hierbei neben Chipkarten und RFID-Karten auch die Möglichkeit sich einen NFC-Chip beziehungsweise RFID-Chip mittels Implantat unter die Haut einsetzen zu lassen. Dies bietet den Vorteil, dass man immer Zugriff auf seine Garage hat, ohne einen externen Gegenstand, den man verlieren kann, bei sich haben zu müssen.%
+%Wild
+
+
