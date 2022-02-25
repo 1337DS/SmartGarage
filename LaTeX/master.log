@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.10.22)  24 FEB 2022 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.10.22)  25 FEB 2022 20:53
 entering extended mode
 **./master.tex
 (master.tex
@@ -944,7 +944,10 @@ Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
  (master.aux
 
-LaTeX Warning: Label `Steckplansm' multiply defined.
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
 
 )
 \openout1 = `master.aux'.
@@ -1086,26 +1089,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'master.bbl' found.
- (master.bbl
-! Illegal parameter number in definition of \NewValue.
-<to be read again> 
-                   T
-l.577 ....github.io/tessdoc/#Tesseract-with-lstm}}
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! Illegal parameter number in definition of \abx@field@howpublished.
-<to be read again> 
-                   T
-l.581     \endentry
-                   
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-)
+ (master.bbl)
 Package biblatex Info: Reference section=0 on input line 121.
 Package biblatex Info: Reference segment=0 on input line 121.
  (titlepage.tex
@@ -1129,7 +1113,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 {C:/Users/andre/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./img/firme
-nlogo.jpg> <./img/logo.jpg>]) (ewerkl.tex
+nlogo.jpg> <./img/logo.jpg>])
+(ewerkl.tex
 Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
@@ -1156,152 +1141,26 @@ Package tocbasic Info: Using my definition of `\numberline' on input line 8.
 Package tocbasic Info: Using my definition of `\numberline' on input line 10.
 Package tocbasic Info: Using my definition of `\numberline' on input line 12.
 Package tocbasic Info: Using my definition of `\numberline' on input line 14.
-Package tocbasic Info: Using my definition of `\numberline' on input line 46.
+Package tocbasic Info: Using my definition of `\numberline' on input line 44.
+Package tocbasic Info: Using my definition of `\numberline' on input line 64.
  [2
 
 ]
-Package tocbasic Info: Using my definition of `\numberline' on input line 66.
+Package tocbasic Info: Using my definition of `\numberline' on input line 78.
+Package tocbasic Info: Using my definition of `\numberline' on input line 80.
 Package tocbasic Info: Using my definition of `\numberline' on input line 82.
-Package tocbasic Info: Using my definition of `\numberline' on input line 84.
-Package tocbasic Info: Using my definition of `\numberline' on input line 86.
+Package tocbasic Info: Using my definition of `\numberline' on input line 88.
+Package tocbasic Info: Using my definition of `\numberline' on input line 90.
+Package tocbasic Info: Using my definition of `\numberline' on input line 92.
 Package tocbasic Info: Using my definition of `\numberline' on input line 94.
 Package tocbasic Info: Using my definition of `\numberline' on input line 96.
 Package tocbasic Info: Using my definition of `\numberline' on input line 98.
 Package tocbasic Info: Using my definition of `\numberline' on input line 100.
-Package tocbasic Info: Using my definition of `\numberline' on input line 102.
-Package tocbasic Info: Using my definition of `\numberline' on input line 104.
 )
 \tf@toc=\write6
 \openout6 = `master.toc'.
 
- [3] (master.lof
-! Missing $ inserted.
-<inserted text> 
-                $
-l.12 ...uzzy_ratio\relax }}{18}{figure.caption.11}
-                                                  %
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<argument> ...s Evaluation mit fuzzy_ratio\relax }
-                                                  }\hyper@linkend 
-l.12 ...uzzy_ratio\relax }}{18}{figure.caption.11}
-                                                  %
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Extra }, or forgotten $.
-<argument> ... Evaluation mit fuzzy_ratio\relax }}
-                                                  \hyper@linkend 
-l.12 ...uzzy_ratio\relax }}{18}{figure.caption.11}
-                                                  %
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.12 ...uzzy_ratio\relax }}{18}{figure.caption.11}
-                                                  %
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.12 ...uzzy_ratio\relax }}{18}{figure.caption.11}
-                                                  %
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.12 ...uzzy_ratio\relax }}{18}{figure.caption.11}
-                                                  %
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.14 ...tial_ratio\relax }}{18}{figure.caption.12}
-                                                  %
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-<argument> ...Evaluation mit partial_ratio\relax }
-                                                  }\hyper@linkend 
-l.14 ...tial_ratio\relax }}{18}{figure.caption.12}
-                                                  %
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Extra }, or forgotten $.
-<argument> ...valuation mit partial_ratio\relax }}
-                                                  \hyper@linkend 
-l.14 ...tial_ratio\relax }}{18}{figure.caption.12}
-                                                  %
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.14 ...tial_ratio\relax }}{18}{figure.caption.12}
-                                                  %
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.14 ...tial_ratio\relax }}{18}{figure.caption.12}
-                                                  %
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.14 ...tial_ratio\relax }}{18}{figure.caption.12}
-                                                  %
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-)
+ [3] (master.lof)
 \tf@lof=\write7
 \openout7 = `master.lof'.
 
@@ -1393,197 +1252,92 @@ l.2 \chapter
 ]
 chapter 2.
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-10.
+11.
 ("C:\Users\andre\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmss.fd"
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 [2
 
 ]
+
+LaTeX Warning: Citation 'todo' on page 3 undefined on input line 28.
+
 Package acronym Info: Label `acro:GPIO' newly defined as it shall be overridden
 
-although it is yet undefined on input line 27.
- [3]
-
-LaTeX Warning: Citation 'oakd' on page 4 undefined on input line 42.
-
+although it is yet undefined on input line 30.
+[3]
 Package acronym Info: Label `acro:VPU' newly defined as it shall be overridden
-although it is yet undefined on input line 44.
-[4]
+although it is yet undefined on input line 43.
+ [4] [5] [6] [7]
 
-LaTeX Warning: Citation 'ultraschall2' on page 5 undefined on input line 56.
-
-
-LaTeX Warning: Citation 'ultraschall2' on page 5 undefined on input line 57.
-
-[5]
-
-LaTeX Warning: Citation 'rfid2' on page 6 undefined on input line 66.
-
-[6] [7]
-
-LaTeX Warning: Citation 'Raschka' on page 8 undefined on input line 88.
+LaTeX Warning: Citation 'bibid' on page 8 undefined on input line 109.
 
 [8] [9] [10]
 chapter 3.
 Package acronym Info: Label `acro:DSGVO' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 119.
+although it is yet undefined on input line 142.
 [11
 
-] [12]
-Overfull \hbox (5.00398pt too wide) in paragraph at lines 157--159
-\T1/cmss/m/n/12 von Goo-gle wei-ter-ent-wi-ckelt. https://tesseract-ocr.github.
-io/docs/tesseracticdar2007.pdf 
- []
-
-[13]
-<img/baek.jpg, id=307, 301.125pt x 92.67958pt>
+] [12] [13]
+<img/baek.jpg, id=341, 301.125pt x 92.67958pt>
 File: img/baek.jpg Graphic file (type jpg)
 <use img/baek.jpg>
-Package pdftex.def Info: img/baek.jpg  used on input line 169.
+Package pdftex.def Info: img/baek.jpg  used on input line 196.
 (pdftex.def)             Requested size: 393.71239pt x 121.18767pt.
- [14 <./img/baek.jpg>]
-! Illegal parameter number in definition of \abx@field@howpublished.
-<to be read again> 
-                   T
-l.179 ...kgegriffen. \autocite[Vgl.][]{Tesserac98}
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-[15] [16]
+ [14 <./img/baek.jpg>] [15] [16]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-18.
+48.
 
 ("C:\Users\andre\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<./img/evaluation_fuzzy_ratio.png, id=337, 369.38pt x 248.93pt>
+<./img/evaluation_fuzzy_ratio.png, id=371, 369.38pt x 248.93pt>
 File: ./img/evaluation_fuzzy_ratio.png Graphic file (type png)
 <use ./img/evaluation_fuzzy_ratio.png>
 Package pdftex.def Info: ./img/evaluation_fuzzy_ratio.png  used on input line 2
-28.
+58.
 (pdftex.def)             Requested size: 227.62204pt x 153.3968pt.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.229 \caption{Evaluation mit fuzzy_ratio}
-                                          
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.229 \caption{Evaluation mit fuzzy_ratio}
-                                          
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.229 \caption{Evaluation mit fuzzy_ratio}
-                                          
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.229 \caption{Evaluation mit fuzzy_ratio}
-                                          
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./img/evaluation_partial_ratio.png, id=339, 369.38pt x 248.93pt>
+<./img/evaluation_partial_ratio.png, id=373, 369.38pt x 248.93pt>
 File: ./img/evaluation_partial_ratio.png Graphic file (type png)
 <use ./img/evaluation_partial_ratio.png>
 Package pdftex.def Info: ./img/evaluation_partial_ratio.png  used on input line
- 238.
+ 267.
 (pdftex.def)             Requested size: 227.62204pt x 153.3968pt.
-! Missing $ inserted.
-<inserted text> 
-                $
-l.239 \caption{Evaluation mit partial_ratio}
-                                            
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.239 \caption{Evaluation mit partial_ratio}
-                                            
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.239 \caption{Evaluation mit partial_ratio}
-                                            
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.239 \caption{Evaluation mit partial_ratio}
-                                            
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-[17]
-<./img/evaluation_custom_matcher.png, id=345, 376.40625pt x 248.93pt>
+[17 <./img/evaluation_fuzzy_ratio.png>]
+<./img/evaluation_custom_matcher.png, id=380, 376.40625pt x 248.93pt>
 File: ./img/evaluation_custom_matcher.png Graphic file (type png)
 <use ./img/evaluation_custom_matcher.png>
 Package pdftex.def Info: ./img/evaluation_custom_matcher.png  used on input lin
-e 258.
+e 287.
 (pdftex.def)             Requested size: 227.62204pt x 150.53664pt.
- [18 <./img/evaluation_fuzzy_ratio.png> <./img/evaluation_partial_ratio.png>] [
-19 <./img/evaluation_custom_matcher.png>]) (chapter2.tex) (Kap3.tex
-[20]
+ [18 <./img/evaluation_partial_ratio.png>] [19 <./img/evaluation_custom_matcher
+.png>] [20]) (chapter2.tex) (Kap3.tex
+[21]
 chapter 4.
-[21
+[22
 
-]
-<img/SmartGarage.png, id=376, 654.445pt x 678.535pt>
+] [23] [24]
+<img/SmartGarage.png, id=437, 654.445pt x 678.535pt>
 File: img/SmartGarage.png Graphic file (type png)
 <use img/SmartGarage.png>
-Package pdftex.def Info: img/SmartGarage.png  used on input line 30.
-(pdftex.def)             Requested size: 490.83255pt x 508.9pt.
-
-Overfull \hbox (53.37137pt too wide) in paragraph at lines 30--32
- [][] 
- []
-
-[22] [23]
-<img/Programmablaufplan.png, id=385, 614.295pt x 794.97pt>
-File: img/Programmablaufplan.png Graphic file (type png)
-<use img/Programmablaufplan.png>
-Package pdftex.def Info: img/Programmablaufplan.png  used on input line 37.
-(pdftex.def)             Requested size: 460.72011pt x 596.22604pt.
-
-Overfull \hbox (23.25893pt too wide) in paragraph at lines 37--39
- [][] 
- []
-
-[24 <./img/SmartGarage.png>] [25] [26 <./img/Programmablaufplan.png>]
+Package pdftex.def Info: img/SmartGarage.png  used on input line 42.
+(pdftex.def)             Requested size: 327.2217pt x 339.26666pt.
+<img/Foto (7).jpg, id=438, 4047.12pt x 3035.34pt>
+File: img/Foto (7).jpg Graphic file (type jpg)
+<use img/Foto (7).jpg>
+Package pdftex.def Info: img/Foto (7).jpg  used on input line 49.
+(pdftex.def)             Requested size: 323.77621pt x 242.83215pt.
+ [25] [26 <./img/SmartGarage.png>] [27 <./img/Foto (7).jpg>]
 chapter 5.
 
-Overfull \hbox (5.06268pt too wide) in paragraph at lines 45--47
+Overfull \hbox (5.06268pt too wide) in paragraph at lines 57--59
 []\T1/cmss/m/n/12 Zum einen hat die ver-wen-de-te Soft-wa-re noch Schwie-rig-ke
 i-ten mit Stö-run-gen durch Fahrzeug-
  []
 
-[27
+[28
 
 ]
 chapter 6.
@@ -1594,38 +1348,42 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.52    \newline
+l.68    \newline
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--63
+Underfull \hbox (badness 10000) in paragraph at lines 71--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
 
-LaTeX Warning: Citation 'eWe' on page 28 undefined on input line 71.
+LaTeX Warning: Citation 'eWe' on page 29 undefined on input line 87.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--75
+LaTeX Warning: Citation 'eWe' on page 29 undefined on input line 88.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--91
 
  []
 
-) (conclusion.tex [28
+) (conclusion.tex [29
 
 ]
 chapter 7.
-[29
+[30
 
-] [30]) (appendix1.tex [31]
+]) (appendix1.tex [31]
 chapter A.
+<img/Programmablaufplan.png, id=487, 614.295pt x 794.97pt>
 File: img/Programmablaufplan.png Graphic file (type png)
 <use img/Programmablaufplan.png>
 Package pdftex.def Info: img/Programmablaufplan.png  used on input line 5.
@@ -1641,9 +1399,9 @@ Overfull \hbox (23.25893pt too wide) in paragraph at lines 5--7
 Overfull \vbox (60.72655pt too high) has occurred while \output is active []
 
 
-[33]
+[33 <./img/Programmablaufplan.png>]
 chapter B.
-<img/SmartGarage_Schaltplan.png, id=446, 630.355pt x 447.271pt>
+<img/SmartGarage_Schaltplan.png, id=497, 630.355pt x 447.271pt>
 File: img/SmartGarage_Schaltplan.png Graphic file (type png)
 <use img/SmartGarage_Schaltplan.png>
 Package pdftex.def Info: img/SmartGarage_Schaltplan.png  used on input line 12.
@@ -1655,10 +1413,10 @@ Package pdftex.def Info: img/SmartGarage_Schaltplan.png  used on input line 12.
 chapter C.
 File: img/SmartGarage.png Graphic file (type png)
 <use img/SmartGarage.png>
-Package pdftex.def Info: img/SmartGarage.png  used on input line 21.
+Package pdftex.def Info: img/SmartGarage.png  used on input line 20.
 (pdftex.def)             Requested size: 523.55672pt x 542.82874pt.
 
-Overfull \hbox (86.09554pt too wide) in paragraph at lines 21--23
+Overfull \hbox (86.09554pt too wide) in paragraph at lines 20--22
  [][] 
  []
 
@@ -1670,9 +1428,33 @@ Overfull \vbox (7.32924pt too high) has occurred while \output is active []
 
 [36]
 chapter D.
-) [37
+<img/Foto (1).jpg, id=512, 4047.12pt x 3035.34pt>
+File: img/Foto (1).jpg Graphic file (type jpg)
+<use img/Foto (1).jpg>
+Package pdftex.def Info: img/Foto (1).jpg  used on input line 27.
+(pdftex.def)             Requested size: 323.77621pt x 242.83215pt.
+<img/Foto (2).jpg, id=513, 4047.12pt x 3035.34pt>
+File: img/Foto (2).jpg Graphic file (type jpg)
+<use img/Foto (2).jpg>
+Package pdftex.def Info: img/Foto (2).jpg  used on input line 34.
+(pdftex.def)             Requested size: 323.77621pt x 242.83215pt.
+<img/Foto (3).jpg, id=514, 4047.12pt x 3035.34pt>
+File: img/Foto (3).jpg Graphic file (type jpg)
+<use img/Foto (3).jpg>
+Package pdftex.def Info: img/Foto (3).jpg  used on input line 41.
+(pdftex.def)             Requested size: 323.77621pt x 242.83215pt.
+[37
 
-]
+ <./img/Foto (1).jpg>] [38 <./img/Foto (3).jpg> <./img/Foto (2).jpg>]
+chapter E.
+<img/Fehler.png, id=523, 683.21916pt x 381.09042pt>
+File: img/Fehler.png Graphic file (type png)
+<use img/Fehler.png>
+Package pdftex.def Info: img/Fehler.png  used on input line 55.
+(pdftex.def)             Requested size: 393.71239pt x 219.61374pt.
+) [39
+
+ <./img/Fehler.png>]
 chapter without number
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <12> not available
@@ -1704,44 +1486,29 @@ Overfull \hbox (20.45007pt too wide) in paragraph at lines 237--237
 lo/$[]\T1/cmss/m/n/12 . (Ac-ces-sed on 02/19/2022). 
  []
 
+[40
 
+]
 Overfull \hbox (4.16927pt too wide) in paragraph at lines 237--237
 [][]\T1/cmss/m/it/12 Raspberry Pi 3b \T1/cmss/m/n/12 (2022). \T1/cmr/m/sc/12 ur
 l\T1/cmss/m/n/12 : []$\T1/cmtt/m/n/12 https : / / www . berrybase . de / raspbe
 rry -[] pi / raspberry -[]
  []
 
-[38
 
-]
-! Illegal parameter number in definition of \abx@field@howpublished.
-<to be read again> 
-                   T
-l.237 \initializeBibliography
-                             
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
+Overfull \hbox (2.4296pt too wide) in paragraph at lines 237--237
+\T1/cmtt/m/n/12 www . softwaretestinghelp . com / ngrok -[] alternatives/$[]\T1
+/cmss/m/n/12 . (Ac-ces-sed on 02/25/2022). 
+ []
 
-! Illegal parameter number in definition of \Hy@tempa.
-<to be read again> 
-                   T
-l.237 \initializeBibliography
-                             
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
 
-! Illegal parameter number in definition of \Hy@tempa.
-<to be read again> 
-                   T
-l.237 \initializeBibliography
-                             
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
+Overfull \hbox (41.66393pt too wide) in paragraph at lines 237--237
+[][]\T1/cmss/m/it/12 Urteil vom OLG Frank-furt \T1/cmss/m/n/12 (2015). []$\T1/c
+mtt/m/n/12 @$[]\T1/cmss/m/n/12 https://openjur.de/u/775737.html. (Ac-ces-sed on
+ 01/29/2022). 
+ []
 
-[39]
+[41]
 No file master.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 247.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 247.
@@ -1768,15 +1535,36 @@ Package logreq Info: Writing requests to 'master.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 247.
  ) 
 Here is how much of TeX's memory you used:
- 25097 strings out of 480799
- 492660 string characters out of 2895783
- 1382960 words of memory out of 3000000
- 40551 multiletter control sequences out of 15000+200000
+ 25189 strings out of 480799
+ 494499 string characters out of 2895783
+ 1384745 words of memory out of 3000000
+ 40615 multiletter control sequences out of 15000+200000
  549489 words of font info for 54 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
  68i,19n,86p,10603b,2315s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.24} has been referenced but does not ex
+pdfTeX warning (dest): name{Hfootnote.31} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.30} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.29} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.28} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.27} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.26} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.25} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.24} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.23} has been referenced but does not exis
 t, replaced by a fixed one
@@ -1869,10 +1657,11 @@ k> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ecsx1440.pk> <C:\Users\andre\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecss1440.pk><C:/Users/andre/AppData/Local/Programs/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/andre/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
-Output written on master.pdf (46 pages, 1203108 bytes).
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/andre/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on master.pdf (48 pages, 13807981 bytes).
 PDF statistics:
- 1396 PDF objects out of 1440 (max. 8388607)
- 172 named destinations out of 1000 (max. 500000)
- 454 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1485 PDF objects out of 1728 (max. 8388607)
+ 195 named destinations out of 1000 (max. 500000)
+ 463 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -201,6 +201,86 @@
       \verb https://www.conrad.de/de/p/hc-sr04-abstandsmessung-ultraschall-ultrasonic-sensor-module-802235231.html
       \endverb
     \endentry
+    \entry{rfid2}{book}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=078bd5bbc6af9970141182d7352c7abb}{%
+           family={Helmus},
+           familyi={H\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=afe96812bfeb56e4de8483c101e391fc}{%
+           family={Kelm},
+           familyi={K\bibinitperiod},
+           given={Agnes},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26e9a992308ab05b5169236bffc43f0d}{%
+           family={Laußat},
+           familyi={L\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85b2da3c65cbd3df0fa715f2a267111e}{%
+           family={Meins-Becker},
+           familyi={M\bibinithyphendelim B\bibinitperiod},
+           given={Anica},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Verlag}%
+      }
+      \strng{namehash}{5b695d77f6dd242ea31ee987166372c6}
+      \strng{fullhash}{7380c04f898d094e7e7ce16b08a74bb1}
+      \strng{bibnamehash}{5b695d77f6dd242ea31ee987166372c6}
+      \strng{authorbibnamehash}{5b695d77f6dd242ea31ee987166372c6}
+      \strng{authornamehash}{5b695d77f6dd242ea31ee987166372c6}
+      \strng{authorfullhash}{7380c04f898d094e7e7ce16b08a74bb1}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-8348-1577-4}
+      \field{title}{RFID–Baulogistikleitstand}
+      \field{year}{2011}
+    \endentry
+    \entry{ultraschall2}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=29be8b370d75b426ff18a2557da6b5da}{%
+           family={Hering},
+           familyi={H\bibinitperiod},
+           given={Ekbert},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=56ae41fff0197628b15144a481a44934}{%
+           family={Schönfelder},
+           familyi={S\bibinitperiod},
+           given={Gert},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Verlag}%
+      }
+      \strng{namehash}{5e1c21ad5d6607cd0fd65f5c23f438f2}
+      \strng{fullhash}{5e1c21ad5d6607cd0fd65f5c23f438f2}
+      \strng{bibnamehash}{5e1c21ad5d6607cd0fd65f5c23f438f2}
+      \strng{authorbibnamehash}{5e1c21ad5d6607cd0fd65f5c23f438f2}
+      \strng{authornamehash}{5e1c21ad5d6607cd0fd65f5c23f438f2}
+      \strng{authorfullhash}{5e1c21ad5d6607cd0fd65f5c23f438f2}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-658-12561-5}
+      \field{title}{Sensoren in Wissenschaft und Technik}
+      \field{year}{2018}
+    \endentry
     \entry{hershberger1992speeding}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=149b04775689cf26d38ab71bd53d396a}{%
@@ -233,6 +313,18 @@
       \field{labeltitlesource}{title}
       \field{title}{Speeding up the Douglas-Peucker line-simplification algorithm}
       \field{year}{1992}
+      \true{nocite}
+    \endentry
+    \entry{tutorialrfikd}{misc}{}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://pimylifeup.com/raspberry-pi-rfid-rc522/}}
+      \field{note}{(Accessed on 02/25/2022)}
+      \field{title}{How to setup a Raspberry Pi RFID RC522 Chip - Pi My Life Up}
+      \field{year}{2022}
       \true{nocite}
     \endentry
     \entry{IoT}{online}{}
@@ -312,6 +404,47 @@
       \field{note}{(Accessed on 02/19/2022)}
       \field{title}{RGB \& Tiny YOLO — DepthAI documentation}
       \true{nocite}
+    \endentry
+    \entry{oakd}{misc}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{ff8d4eeb5101e3cf3809959b3592d942}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://store.opencv.ai/products/oak-d}}
+      \field{note}{(Accessed on 02/19/2022)}
+      \field{title}{OpenCV AI Kit: OAK—D– OpenCV.AI}
+    \endentry
+    \entry{Raschka}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=bb679961e3f3f4bba79fc1cf3aa7df1c}{%
+           family={Raschka},
+           familyi={R\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea5b3d38b4b9dc9c54ee2a9c3d6c7437}{%
+           family={Mirjalili},
+           familyi={M\bibinitperiod},
+           given={Vahid},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{70b021b69c6a4d9d9ffa597a634487d5}
+      \strng{fullhash}{70b021b69c6a4d9d9ffa597a634487d5}
+      \strng{bibnamehash}{70b021b69c6a4d9d9ffa597a634487d5}
+      \strng{authorbibnamehash}{70b021b69c6a4d9d9ffa597a634487d5}
+      \strng{authornamehash}{70b021b69c6a4d9d9ffa597a634487d5}
+      \strng{authorfullhash}{70b021b69c6a4d9d9ffa597a634487d5}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Third edition}
+      \field{isbn}{9781789955750}
+      \field{title}{Python machine learning: Machine learning and deep learning with Python, scikit-learn, and TensorFlow 2}
+      \field{year}{2019}
     \endentry
     \entry{Pi3b}{online}{}
       \field{sortinit}{R}
@@ -574,10 +707,50 @@
       \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
       \field{labeldatesource}{nodate}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://tesseract-ocr.github.io/tessdoc/#Tesseract-with-lstm}}
       \field{note}{(Accessed on 01/29/2022)}
       \field{title}{Tesseract User Manual | tessdoc}
       \true{nocite}
+      \verb{urlraw}
+      \verb https://tesseract-ocr.github.io/tessdoc/#Tesseract-with-lstm
+      \endverb
+      \verb{url}
+      \verb https://tesseract-ocr.github.io/tessdoc/#Tesseract-with-lstm
+      \endverb
+    \endentry
+    \entry{thilp}{misc}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.thi.de/forschung/carissma/c-isafe/thi-license-plate-dataset/}}
+      \field{note}{(Accessed on 02/25/2022)}
+      \field{title}{THI License Plate Dataset}
+      \field{year}{2019}
+      \true{nocite}
+    \endentry
+    \entry{tunnel}{misc}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.softwaretestinghelp.com/ngrok-alternatives/}}
+      \field{month}{02}
+      \field{note}{(Accessed on 02/25/2022)}
+      \field{title}{Top 4 BEST Ngrok Alternatives In 2022: Review And Comparison}
+      \field{year}{2022}
+    \endentry
+    \entry{olgfrankfurt}{misc}{}
+      \field{sortinit}{U}
+      \field{sortinithash}{77a6935510e008adcf5b555e7b4f0711}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url@https://openjur.de/u/775737.html}
+      \field{note}{(Accessed on 01/29/2022)}
+      \field{title}{Urteil vom OLG Frankfurt}
+      \field{year}{2015}
     \endentry
   \enddatalist
 \endrefsection

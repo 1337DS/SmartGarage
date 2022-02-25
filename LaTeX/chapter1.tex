@@ -1,18 +1,14 @@
 % !TEX root =  master.tex
 \chapter{Grundlagen}
-TODO JUPYTER notebook
-TODO gecroppte Bilder
-TODO Fehlermeldungen
-TODO Tabelle Auswertung
 \section{Projektumfang}
-Als Ausgangslage dient in diesem Projekt eine handelsübliches elektrisch öffenbares Garagentor, das mit einer Fernbedienung gesteuert wird. Dabei wird davon ausgegangen, dass es sich um eine 1-Kanal Steuerung handelt, also dass ein einmaliges Drücken eines Knopfes der Fernbedienung das Garagentor öffnet und ein weiteres Betätigen desselben Knopfes das Garagentor wieder schließt. Weiterhin wird davon ausgegangen, dass das Garagentor beim Auftreffen auf ein Hindernis automatisch reversiert. Dies ist sogar, wie durch ein Gerichtsurteil des OLG Frankfurt von 2015 festgestellt, gesetzlich vorgeschrieben.\autocite[Vgl.][]{olgfrankfurt} %#TODO https://openjur.de/u/775737.html
+Als Ausgangslage dient in diesem Projekt eine handelsübliches elektrisch öffenbares Garagentor, das mit einer Fernbedienung gesteuert wird. Dabei wird davon ausgegangen, dass es sich um eine 1-Kanal Steuerung handelt, also dass ein einmaliges Drücken eines Knopfes der Fernbedienung das Garagentor öffnet und ein weiteres Betätigen desselben Knopfes das Garagentor wieder schließt. Weiterhin wird davon ausgegangen, dass das Garagentor beim Auftreffen auf ein Hindernis automatisch reversiert. Dies ist sogar, wie durch ein Gerichtsurteil des OLG Frankfurt von 2015 festgestellt, gesetzlich vorgeschrieben.\autocite[Vgl.][]{olgfrankfurt}
 Die Ansteuerung und Regelungstechnik des Garagentor-Motors selbst sind also nicht Bestandteil dieser Projektarbeit.
 Beim Erkennen eines berechtigten Kennzeichens und der Öffnung des Garagentors soll auch ein Logeintrag erstellt werden, um Ein- und Ausfahrten nachvollziehen zu können. Der hierzu konzipierte Programmablaufpan befindet sich in Anhang \ref{Ablaufplan}.
 
 Neben der automatisierten Öffnung durch die Kennzeichenerkennung wurden folgende Features als Projektumfang festgelegt:
 
 \begin{itemize}
-\item Amazon Alexa oder Google Home Integration, um das Garagentor auch als "Fußgänger" und ferngesteuert öffnen zu können (um Gartengeräte zu entnehmen oder den Postboten ein Paket abstellen zu lassen)
+\item Amazon Alexa oder Google Home Integration, um das Garagentor auch als \enquote{Fußgänger} und ferngesteuert öffnen zu können (um Gartengeräte zu entnehmen oder den Postboten ein Paket abstellen zu lassen)
 
 
 
@@ -29,7 +25,7 @@ Folgende Funktionalitäten wurden zunächst als optional festgehalten und deren 
 \end{itemize}
 
 \section{Hardware}
-Aufgrund der vielseitigen Verwendbarkeit, des geringen Preises, der guten Konnektivität und Kompatibilität wurde sich für ein Rasberry Pi 3+ bzw. 4 entschieden. Diese Modelle sind hervorragend für IoT-Anwendungen geeignet und verfügen - anders als kleinere Plattformen wie Arduino - mit 1 bzw. 4 oder 8 GB trotzdem über genug Arbeitsspeicher um einfache Bildverarbeitung durchführen zu können. \autocite[Vgl.][]{todo}
+	Aufgrund der vielseitigen Verwendbarkeit, des geringen Preises, der guten Konnektivität und Kompatibilität wurde sich für ein Rasberry Pi 3+ bzw. 4 entschieden. Diese Modelle sind hervorragend für IoT-Anwendungen geeignet und verfügen - anders als kleinere Plattformen wie Arduino - mit 1 bzw. 4 oder 8 GB trotzdem über genug Arbeitsspeicher um einfache Bildverarbeitung durchführen zu können. \autocite[Vgl.][]{todo}
 
 Als einfachste Schnittstelle zum Torantrieb wurde der Handsender identifiziert. Hier genügt es zwei Drähte am Ein- und Ausgang des Aktivierungsknopfes anzulöten und diese mit einem Relais zu verbinden. Dann kann durch die \ac{GPIO}-Pins das Relais verbunden und geöffnet oder geschlossen werden und somit ein Betätigen der Fernbedienung simuliert werden.
 
@@ -263,7 +259,6 @@ Mit easyOCR wurden 28 von 85 Kennzeichen richtig gelesen, mit Tesseract 17.
 \caption{Evaluation mit fuzzy ratio}
 \end{figure}
 
-
 Neben dem vollständigen Fuzzy Matching können mit der Funktion \lstinline{fuzz.partial_ratio()} auch Substrings berücksichtigt werden.
 Das ist sinnvoll, um beispielsweise die Namen von Autohäusern aus den OCR-Ergebnissen herauszufiltern.
 Mit dieser Methode (Threshold 45\%) liest easyOCR 31 von 85 Kennzeichen richtig, Tesseract 22. Dies entspricht 26\% bzw. 19\% der Ausgangsmenge von 118 Kennzeichen.
@@ -350,7 +345,7 @@ Beachtet man, dass das System im schlimmsten Fall kurz vor Ankunft des Fahrzeugs
 	\end{center}
 \end{table}			   
 							 	   
-
+\newpage
 \subsection{Zwischenfazit}
 Geht man von der besten erreichten Erkennungsrate von 26\% aus, so beträgt der Erwartungswert der benötigten Erkennungsdurchläufe 100/26 = 3,84, welche wiederum 125 Sekunden benötigten. Dazu kommen durchschnittlich 0.5 * 32 Sekunden zur Beendigung der beim Eintreffen ablaufenden Schleife. Die Durchschnittliche Wartedauer beträgt also 141 Sekunden oder 2 Minuten und 21 Sekunden. 
 \newline Natürlich ist hier zu beachten, dass beim Warten und der erneuten Bildverarbeitung das Bild ggf. nicht so stark vom vorherigen abweicht wie beim Datensatz und die gleichen Problembereiche hat. Die Erfahrungen im Praxistest auf der Straße lassen aber eher auf eine große Varianz der erkannten Flächen und Texte schließen, weshalb der Wert sich durchaus als Schätzung verwenden lässt.
