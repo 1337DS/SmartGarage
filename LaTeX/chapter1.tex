@@ -1,8 +1,13 @@
 % !TEX root =  master.tex
 \chapter{Grundlagen}
+TODO JUPYTER notebook
+TODO gecroppte Bilder
+TODO Fehlermeldungen
+TODO Tabelle Auswertung
 \section{Projektumfang}
-Als Ausgangslage dient in diesem Projekt eine handelsübliches elektrisch öffenbares Garagentor, das mit einer Fernbedienung gesteuert wird. Dabei wird davon ausgegangen, dass es sich um eine 1-Kanal Steuerung handelt, also dass ein einmaliges Drücken eines Knopfes der Fernbedienung das Garagentor öffnet und ein weiteres Betätigen desselben Knopfes das Garagentor wieder schließt. Weiterhin wird davon ausgegangen, dass das Garagentor beim Auftreffen auf ein Hindernis automatisch reversiert. Dies ist sogar, wie durch ein Gerichtsurteil des OLG Frankfurt von 2015 festgestellt, gesetzlich vorgeschrieben. %#TODO https://openjur.de/u/775737.html
-Die Ansteuerung und Regelung des Garagentor-Motors selbst sind also nicht Bestandteil dieser Projektarbeit.
+Als Ausgangslage dient in diesem Projekt eine handelsübliches elektrisch öffenbares Garagentor, das mit einer Fernbedienung gesteuert wird. Dabei wird davon ausgegangen, dass es sich um eine 1-Kanal Steuerung handelt, also dass ein einmaliges Drücken eines Knopfes der Fernbedienung das Garagentor öffnet und ein weiteres Betätigen desselben Knopfes das Garagentor wieder schließt. Weiterhin wird davon ausgegangen, dass das Garagentor beim Auftreffen auf ein Hindernis automatisch reversiert. Dies ist sogar, wie durch ein Gerichtsurteil des OLG Frankfurt von 2015 festgestellt, gesetzlich vorgeschrieben.\autocite[Vgl.][]{olgfrankfurt} %#TODO https://openjur.de/u/775737.html
+Die Ansteuerung und Regelungstechnik des Garagentor-Motors selbst sind also nicht Bestandteil dieser Projektarbeit.
+Beim Erkennen eines berechtigten Kennzeichens und der Öffnung des Garagentors soll auch ein Logeintrag erstellt werden, um Ein- und Ausfahrten nachvollziehen zu können. Der hierzu konzipierte Programmablaufpan befindet sich in Anhang \ref{Ablaufplan}.
 
 Neben der automatisierten Öffnung durch die Kennzeichenerkennung wurden folgende Features als Projektumfang festgelegt:
 
@@ -14,15 +19,17 @@ Neben der automatisierten Öffnung durch die Kennzeichenerkennung wurden folgend
 
 \item Logging der Ein- und Ausfahrenden Fahrzeuge, um das Produkt eventuell später auch für kommerzielle Parkhäuser und Tiefgaragen nutzen zu können
 \end{itemize}
-Folgende Features wurden als optional festgehalten und deren Implementierung vom Projektverlauf abhängig gemacht:
+Folgende Funktionalitäten wurden zunächst als optional festgehalten und deren Implementierung vom Projektverlauf abhängig gemacht:
 \begin{itemize}
 \item Lichtschranke zur Erkennung ob die Garage bereits belegt ist. In diesem Fall soll das Tor nicht geöffnet werden und es einem anderen Fahrzeug, das ebenfalls einfahrtsberechtigt ist, ermöglicht werden VOR der Garage zu parkieren ohne ständig durch das sichtbare Kennzeichen die automatische Öffnung auszulösen.
 
 \item Öffnung per Transponder, um das Tor vor Ort und ohne Smartphone öffnen zu können, falls der Akku leer ist oder man anderen Personengruppen (evtl. temporären) Zutritt erteilen möchte
+
+
 \end{itemize}
 
 \section{Hardware}
-Aufgrund der vielseitigen Verwendbarkeit, des geringen Preises, der guten Konnektivität und Kompatibilität wurde sich für ein Rasberry Pi 3+ bzw. 4 entschieden. Diese Modelle sind hervorragend für IoT-Anwendungen geeignet und verfügen mit 1 bzw. 4 oder 8 GB trotzdem über genug Arbeitsspeicher um einfache Bildverarbeitung durchführen zu können. 
+Aufgrund der vielseitigen Verwendbarkeit, des geringen Preises, der guten Konnektivität und Kompatibilität wurde sich für ein Rasberry Pi 3+ bzw. 4 entschieden. Diese Modelle sind hervorragend für IoT-Anwendungen geeignet und verfügen - anders als kleinere Plattformen wie Arduino - mit 1 bzw. 4 oder 8 GB trotzdem über genug Arbeitsspeicher um einfache Bildverarbeitung durchführen zu können. \autocite[Vgl.][]{todo}
 
 Als einfachste Schnittstelle zum Torantrieb wurde der Handsender identifiziert. Hier genügt es zwei Drähte am Ein- und Ausgang des Aktivierungsknopfes anzulöten und diese mit einem Relais zu verbinden. Dann kann durch die \ac{GPIO}-Pins das Relais verbunden und geöffnet oder geschlossen werden und somit ein Betätigen der Fernbedienung simuliert werden.
 
@@ -43,11 +50,11 @@ Als Vision Processing Unit verwendet die OAK-D die Myriad X \ac{VPU} der Intel-T
 
 Zusätzlich ist sie mit einer Neural Compute Engine ausgestattet, die ein schnelles und Energieeffizientes Ausführen von Inferenz auf neuralen Netzen ermöglicht. Movidius gibt eine Performance von 1 TOPS (1 Billion Operationen pro Sekunde) an.
 
-Die Kamera wird über die DepthAI-Platform und deren Python-API gesteuert. Hierbei kann der Entwickler selbst entscheiden, welche Sensoren und Funktionen der VPU er in welchem Ausmaß nutzt.\autocite[Vgl.][]{oakd}
+Die Kamera wird über die DepthAI-Platform und deren Python-API gesteuert. Hierbei kann der Entwickler selbst entscheiden, welche Sensoren und Funktionen der \ac{VPU} er in welchem Ausmaß nutzt.\autocite[Vgl.][]{oakd}
 
-\subsection{RC522 RFID-Modul}
+							 
 
-Das RC552-Modul von NXP Semiconductors ist ein RFID-Transponder, der das 13.56Mhz ISM-Band nutzt und dadurch keine Probleme mit anderen Funkverbindungen verursacht. Es kann über UART, I²C oder SPI kommunizieren und wird mit 3.3V betrieben, passt also auf die \ac{GPIO}-Pins des Raspberry Pi. Eine Besonderheit ist der Interrupt-Pin, mit dem ein externes Gerät aufgeweckt werden kann, sobald ein RFID-Tag erkannt wird. Es wird mit zwei RFID-Tags geliefert, die beliebig beschrieben und ausgelesen werden können. 
+																																																																																																																																   
 
 \subsection{Ultraschallsensor}
 Ultraschallsensoren finden in der heutigen Zeit in vielen Anwendungsbereichen Verwendung. Beispiele hierfür ist beispielsweise die Werkstoffprüftechnik, medizinische Diagnostik oder auch Näherungsschalter. Ein weiteres bekanntes Beispiel aus dem Alltag ist die Verwendung in Fahrzeugen, bei denen Systeme, die beispielsweise beim Einparken helfen sollen, auf Ultraschallsensoren basieren. Durch Anwendungsfelder wie die Durchhangregelung, die Höhenmessung, die Lagerregelung, den Kollisionsschutz oder auch die Füllstandserfassung sowie die Objekterkennung und Objektzählung ist Ultraschall als Messtechnik in fast jeder Branche einsetzbar.\autocite[Vgl.][S. 182]{ultraschall2}
@@ -55,9 +62,10 @@ Ultraschall selbst liegt über dem Frequenzbereich, den ein Mensch hören kann; 
 Neben der Temperatur kann auch der Luftdruck einen Einfluss auf die Messgenauigkeit haben. Bei ansteigendem Luftdruck nimmt die Schallgeschwindigkeit zu. Auch die Zusammensetzung der Luft spielt eine Rolle, also unter anderem der CO2-Gehalt der Luft sowie die relative Luftfeuchte. Diese Einflussfaktoren sind bei Entwurf von Ultraschallsensoren zu beachten, um später ein möglich akkurates Messergebnis zu erzielen.\autocite[Vgl.][S. 71]{sensoren}
 Die meistverwendete Art von Ultraschallsensoren sind Ultraschall-Abstandssensoren, die aus einem Sender und Empfänger bestehen, die beide in demselben Gehäuse eingebaut sind. Bei dieser Art von Ultraschallsensoren wird der Sender periodisch angesteuert, sodass dieser einen Ultraschallimpuls von 100 Mikrosekunden bis zu 1 Millisekunde in einem Frequenzbereich von etwa 40 bis 400 kHz aussendet. Nachdem ein Signal ausgesendet wurde, versucht der Empfänger das Echo des Ultraschalls zu erfassen. Dies ist möglich, wenn sich innerhalb der Schallkeule, die vom Sender ausgesendet wird, ein Objekt befindet. Ist dies der Fall, wird der Ultraschallimpuls vom Objekt reflektiert, sodass dieser wieder zurück zum Sender gesendet wird, und dadurch vom Empfänger aufgenommen werden kann.
 
-Für die Abstandsbemessung im Projekt SmartGarage wird der HC SR04 Ultraschallsensor verwendet. Der HC SR04 Ultraschallsensor besteht aus zwei Komponenten, die als Trigger bzw. Sender und Echo bzw. Empfänger fungieren. Die Funktionsweise ist die Selbe, wie bereits allgemein zu Ultraschall-Abstandssensoren erläutert wurde. Angesteuert wird der Ultraschallsensor über die GPIO Ports des Raspberry Pis. Die Messung selbst wird mit Hilfe eines Python-Skripts zur Abstandsmessung gesteuert. 
+Für die Abstandsmessung im Projekt SmartGarage wird der HC SR04 Ultraschallsensor verwendet, da dieser einer der billigsten und weit verbreitetsten Sensoren ist. Angesteuert wird der Ultraschallsensor über die GPIO Ports des Raspberry Pis. Die Messung selbst wird mit Hilfe eines Python-Skripts gesteuert. 
 
-Eingesetzt wird die Abstandsbemessung mittels Ultraschallsensors im Projekt für die Messung, ob ein Objekt, also in diesem Anwendungsfall ein Automobil, in der Garage geparkt ist, oder nicht. Daraus lässt sich die Information ableiten, ob die Garage frei oder belegt ist. Diese Information wird über die Weboberfläche ausgegeben.
+
+																																																																																			 
 
 \subsection{RFID}
 RFID, kurz für Radio-Frequenz-Identifikation, ist eine Technologie, die verwendet wird um Gegenständen oder auch Personen sowie Tieren eine Kennzeichnung zu Vergeben. Zu einem solchen RFID-System gehören zwei grundlegende Komponenten, ein Transponder sowie ein Lesegerät, die mittels Radiowellen miteinander kommunizieren. RFID-Systeme gehören wie Barcodes zu sogenannten Auto-ID-Systemen, die in der Lage sind ein Objekt zu identifizieren. Der Barcode ist das bekannteste Auto-ID-System und lässt sich im Alltag beispielsweise in Supermärkten oder im Einzelhandel aufgedruckt auf Produkte auffinden. Die Radio-Frequenz-Identifikation hat gegenüber dem Barcode als Auto-ID-System jedoch einen Vorteil. Bei der Radio-Frequenz-Identifikation muss nicht dafür gesorgt werden, dass die Komponenten richtig ausgerichtet sind. Dies ist bei dem Scan eines Barcodes notwendig. Ebenfalls ist die Erkennung mehrerer Objekte gleichzeitig möglich, auch wenn diese in einer Verpackung sind.\autocite[Vgl.][S. 11]{rfid2}
@@ -66,21 +74,23 @@ Zur Implementierung eines RFID-Systems ist ein Transponder und ein Lesegerät no
 
 Wichtig zu beachten bei Radio-Frequenz-Identifikationssystemen ist Frequenz. Die Wahl dieser hat einen hohen Einfluss auf die Funktion und Sicherheit dieser Systeme. Grund hierfür ist, dass nicht nur RFID-Systeme die Radiofrequenz verwenden, sondern auch Radiosender und andere Funkanlagen. Die gängigen Frequenzen für RFID-Systeme sind daher 120 - 135 kHz für die Low Frequenz, 13,56 MHz für die High Frequenz sowie 868 MHZ, 915 MHz, 2,45 GHz und 5,5 GHz für die Ultra-High Frequenzen. Der gängige Standard ist hierbei jedoch 13,56 MHz.\autocite[Vgl.][S. 34]{rfid}
 
+Aufgrund des geringen Preises und der großen Verbreitung wurde sich in diesem Projekt für das RC552-Modul von NXP Semiconductors entschieden. Es ist ein RFID-Transponder, der das 13.56Mhz ISM-Band nutzt und dadurch keine Probleme mit anderen Funkverbindungen verursacht. Es kann über UART, I²C oder SPI kommunizieren und wird mit 3.3V betrieben, passt also auf die \ac{GPIO}-Pins des Raspberry Pi. Eine Besonderheit ist der Interrupt-Pin, mit dem ein externes Gerät aufgeweckt werden kann, sobald ein RFID-Tag erkannt wird. Es wird mit zwei RFID-Tags geliefert, die beliebig beschrieben und ausgelesen werden können. 
+
 
 
 \section{Software}
 
-\subsection{Tunneling-Software}
-TODO
+							   
+	
 
 
-\subsection{SSH}
+				
 
-Secure Shell ist ein Netzwerkprotokoll, mit dem verschlüselt auf entfernte Rechner zugegriffen werden kann. Der entfernte Rechner muss dafür direkt erreichbar sein (über ein lokales Netzwerk oder eine Portweiterleitung).
-SSH ist ein Client-Server-Protokoll, wobei der entfernte Rechner der Server und der lokale Rechner der Client ist. Neben klassischen textbasierten Shells können mit SSH auch verschlüsselte Dateiübertragungen (per SFTP) und grafische Anwendungen (per X11-Forwarding) realisiert werden.
+																																																							   
+																																																																							   
 
 \subsection{Programmiersprache}
-Als Programmiersprache für die Schaltlogik wurde Python ausgewählt, da Python leistungsfähig, vielseitig einsetzbar, sehr leicht erlernbar und sich auf dem Gebiet Data Science zur verbreitetsten Programmiersprache entwickelt hat.\autocite[Vgl.][S. XIV]{Raschka} 
+Als Programmiersprache für die Schaltlogik und die Auswertung der Sensordaten wurde Python ausgewählt, da Python leistungsfähig, vielseitig einsetzbar, sehr leicht erlernbar und sich auf dem Gebiet Data Science zur verbreitetsten Programmiersprache entwickelt hat.\autocite[Vgl.][S. XIV]{Raschka} 
 
 
 
@@ -92,14 +102,33 @@ Zusammen mit dem Darknet-Framework werden auch vorkonfigurierte und -trainierte 
 
 Inferenz mit Darknet-Modellen kann auch direkt auf der Myriad X VPU ausgeführt werden, wenn sie in ein proprietäres Format konvertiert werden.
 
-
 \subsection{OCR}
-OCR (Optical Character Recognition) ist das automatische Erkennen von Text innerhalb eines Bildes. Diese Technologie ermöglicht es, den Text in einem Bild oder einem gescannten Dokument in für Menschen verständlichen Text umzuwandeln. Für diesartige Anwendungen gibt es eine Vielzahl von Anwendungsfällen in der heutigen Zeit. Dazu gehört beispielsweise die Umwandlung Informationen, die ausschließlich in einem Print-Medium zu finden sind, in ein digitales Medium, die einfache Erkennung eines Coupons oder auch das auslesen eines schriftlich ausgefüllten Formulars mit Hilfe des Computers.\autocite[Vgl.][S. 81]{ocr1}
+OCR (Optical Character Recognition) ist das automatische Erkennen von Text innerhalb eines Bildes. Diese Technologie ermöglicht es, den Text in einem Bild oder einem gescannten Dokument in für Maschinen verarbeitbaren Text umzuwandeln. Hierfür gibt es eine Vielzahl von Anwendungsfällen in der heutigen Zeit. Dazu gehört beispielsweise die Umwandlung von Informationen, die ausschließlich in einem Print-Medium zu finden sind, in ein digitales Medium, die einfache Erkennung eines Coupons oder auch das Auslesen eines schriftlich ausgefüllten Formulars mit Hilfe des Computers.\autocite[Vgl.][S. 81]{ocr1}
 
-Für die optische Texterkennung gibt es mittlerweile eine Vielzahl von angebotenen Algorithmen und Services. Darunter beispielsweise Textract, welches von Amazon bereitgestellt und verkauft wird. Allerdings gibt es auch Open-Source Algorithmen dafür wie EasyOCR und Tesseract. Diese ermöglichen es auch ohne einen Aufwand für die Kosten der Texterkennung diese durchzuführen.
+Für die optische Texterkennung gibt es mittlerweile eine Vielzahl von angebotenen Algorithmen und Services. Darunter beispielsweise Textract, welches von Amazon bereitgestellt und verkauft wird. Allerdings gibt es auch Open-Source Algorithmen dafür wie EasyOCR und Tesseract. Diese ermöglichen es die Texterkennung auch ohne hoche Kosten effektiv durchzuführen.
+																																																																																																																																																												   
+
+\subsection{SSH}
+Secure Shell ist ein Netzwerkprotokoll, mit dem verschlüselt auf entfernte Rechner zugegriffen werden kann. Der entfernte Rechner muss dafür direkt erreichbar sein (über ein lokales Netzwerk oder eine Portweiterleitung).
+SSH ist ein Client-Server-Protokoll, wobei der entfernte Rechner der Server und der lokale Rechner der Client ist. Neben klassischen textbasierten Shells können mit SSH auch verschlüsselte Dateiübertragungen (per SFTP) und grafische Anwendungen (per X11-Forwarding) realisiert werden. \autocite[Vgl.][]{bibid}
 
 \subsection{Betriebssytem}
-Für dieses Projekt wurde ein Raspberry Pi 3 verwendet. Als Betriebssystem des Raspberry Pi wurde aufgrund der Spezialisierung auf die Hardware Pi OS (Build vom 30.10.2021) gewählt. Aufgrund der coronabedingt größtenteils Remote erfolgten Teamarbeit musste der Raspberry Pi von Teilen des Teams per Fernzugriff gesteuert werden. Hierfür wurde zuerst das vorinstallierte realVNC verwendet, das sich jedoch in der Praxis durch die langsamen Internetanschlüsse der Teammitglieder als unpraktikabel erwies. Gelöst wurde das Problem durch die Verwendung von SSH. Damit ließen sich Befehle deutlich schneller und effizienter ausführen, weil eine grafische Aufbereitung und die Übertragung der Bilddaten entfielen. Zusätzlich wurden durch SSH mehrere parallele Anmeldungen möglich. Allerdings machte diese Lösung wiederum die Installation einer Tunneling-Software wie \textit{Ngrok} notwendig, die den Raspberry Pi öffentlich zugänglich macht. 
+Als Betriebssystem des Raspberry Pi wurde aufgrund der Spezialisierung auf die Hardware Pi OS (Build vom 30.10.2021) gewählt. Aufgrund der coronabedingt größtenteils Remote erfolgten Teamarbeit musste der Raspberry Pi von Teilen des Teams per Fernzugriff gesteuert werden. Hierfür wurde zuerst das vorinstallierte realVNC verwendet, das sich jedoch in der Praxis durch die langsamen Internetanschlüsse der Teammitglieder als unpraktikabel erwies. Gelöst wurde das Problem durch die Verwendung von SSH. Damit lassen sich Befehle deutlich schneller und effizienter ausführen, weil eine grafische Aufbereitung und die Übertragung der Bilddaten entfällt. Zusätzlich werden durch SSH mehrere parallele Anmeldungen möglich. Allerdings machte diese Lösung wiederum die Installation einer Tunneling-Software notwendig, die den Raspberry Pi im öffentlichen Netzwerk zugänglich macht. 
+
+
+\subsection{Tunneling-Software}
+Tunneling-Software wird eingesetzt, um ein Endgerät durch eine Firewall und das Internet hinweg auf einem anderen Gerät zugreifbar zu machen, ohne entsprechende Portfreigaben und Weiterleitungen einrichten zu müssen. Die momentan am weitesten verbreiteten Services für Linux sind: \autocite[Vgl.][]{tunnel} %TODO https://www.softwaretestinghelp.com/ngrok-alternatives/
+\begin{itemize}
+	\item ngrok
+	\item Localtunnel
+	\item Serveo
+	\item pagekite
+	\item Teleconsole
+\end{itemize}
+Sie unterscheiden sich in ihrem Funktionsumfang, Art und Anzahl maximaler Verbindungen und sind teilweise kostenpflichtig.
+Als Lösung für die Konfiguration und Wartung innerhalb des Teams wurde \textit{ngrok} verwendet. Der Service ist aber in der kostenlosen Version auf eine Verbindung begrenzt und erhält auch nach jedem Neustart eine neue Adresse, auf der der Rasberry Pi erreichbar ist.
+Für die Weboberfläche wurde daher eine kostenpflichtige Version von \textit{pagekite} verwendet, hiermit kann eine für den Endanwender leichter zu merkende permanente URL festgelegt werden.
+
 
 \subsection{Weboberfläche}
 Mit Hilfe einer Weboberfläche lässt sich eine weitere Möglichkeit, die SmartGarage zu öffnen, implementieren. Der Vorteil dabei ist, dass diese unabhängig vom Endgerät aufgerufen werden kann; es werden lediglich eine Internetverbindung und ein Browser benötigt. Des Weiteren lassen sich in einer Weboberfläche auch Informationen, die für den Besitzer der SmartGarage relevant sind, wie beispielweise ob sich aktuell ein Fahrzeug in der Garage befindet, ausgegeben werden. Diese Information wird von einem Ultraschallsensor bereitgestellt. Hierzu wird eine einfache wenn-Funktion verwendet, die angibt, dass die Garage belegt ist, falls sich innerhalb eines gewissen Abstands ein Objekt befindet, und dass die Garage frei ist, wenn sich innerhalb dieses Abstands kein Objekt befindet.
@@ -111,9 +140,10 @@ Für die Realisierung einer Weboberfläche gibt es viele Ansätze und Möglichke
 \nocite{*}
 
 \chapter{Kennzeichenerkennung}
+Dieses Kapitel behandelt die Entwicklung der Kennzeichenerkennung und ihre anschließende Evaluation.
 
 \section{Datenbeschaffung}
-Die Güte eines Modells hängt stark von der Qualität und Quantität der beim Training verwendeten Datensätze ab. Jedoch sind Datensätze von deutschen Kennzeichen aufgrund der \ac{DSGVO} sehr schwer zu beschaffen. Zudem sind Anwendungen im Bereich Kennzeichenerkennung von großem kommerziellen Nutzen und dementsprechend nicht frei verfügbar. Die Recherche ergab, das nur ein einziger Datensatz verfügbar war und für das Projekt in Frage käme. Es handelte sich um das \textit{THI License Plate Dataset} der TH Ingolstadt. Eine Anfrage beim dort zuständigen Prof. Zimmer blieb aber leider unbeantwortet, sodass eine andere Lösung gefunden werden musste.
+Die Güte eines Modells hängt stark von der Qualität und Quantität der beim Training verwendeten Datensätze ab. Jedoch sind Datensätze von deutschen Kennzeichen aufgrund der \ac{DSGVO} sehr schwer zu beschaffen. Zudem sind Anwendungen im Bereich Kennzeichenerkennung von großem kommerziellen Nutzen und dementsprechend nicht frei verfügbar. Die Recherche ergab, das nur ein einziger Datensatz verfügbar war und für das Projekt in Frage käme. Es handelte sich um das \textit{THI License Plate Dataset} der TH Ingolstadt.\autocite[Vgl.][]{thilp} Eine Anfrage beim dort zuständigen Prof. Zimmer blieb aber leider unbeantwortet, sodass eine andere Lösung gefunden werden musste.
 Da das Modell die Kernfunktion des Projekts ist, entschied sich das Projektteam dazu, selbst einen kleinen Datensatz zu erstellen. 
 Hierzu wurden 118 Bildaufnahmen von Fahrzeugen in verschieden Landkreisen angefertigt. Dabei wurde darauf geachtet, möglichst immer aus ähnlichen Perspektiven zu fotografieren. Da sich die Kamera zur Kennzeichenerkennung nicht mittig im Garagentor selbst befestigen lässt, sondern entweder darüber oder seitlich versetzt montiert wird, wurden alle Aufnahmen von einer leicht seitlich versetzten Position aus getätigt.
 
@@ -126,17 +156,17 @@ Eine Alternative, um Rechenleistung einzusparen, wäre die Lokalisierung der aus
 Um in den aufgenommenen Bildern die Kennzeichen einzugrenzen, sollte zuerst YOLO v3 zum Einsatz kommen. Aufgrund der geringen Menge an selbst verfügbaren Daten und der hohen Ähnlichkeit zu anderen Aufgaben wurde hier ein Transfer-Learning-Ansatz angewandt. Grundlage war die yolov3-Konfiguration von Redmon und die auf dem COCO-Datensatz erstellten Gewichte.
 
 Um das Transfer-Learning auszuführen, muss zuerst Darknet kompiliert werden. Das Training kann zwar auf einer CPU ausgeführt werden, das hätte jedoch in diesem Fall zu Laufzeiten von mehreren Tagen geführt. Eine GPU ist also für das Training unabdingbar.
-Hierbei gab es aufgrund der proprietären Nvidia-Grafiktreiber und den zusätzlichen Paketen CUDA und CUDNN große Schwierigkeiten, weil diese in den aktuellen Versionen sehr instabil sind.
+Hierbei gab es aufgrund der proprietären Nvidia-Grafiktreiber und den zusätzlichen Paketen CUDA und CUDNN große Schwierigkeiten, weil diese in den aktuellen Versionen sehr instabil sind.% TODO vieleicht etwas genauer
 Nachdem diese Schwierigkeiten überwunden waren, konnte ein Modell in etwa zwei Stunden trainiert werden. Inferenz auf einem einzelnen Bild dauert im CPU-Modus auf einem i7 8850U mehr als 20 Sekunden. Für Inferenz mit dem Raspberry Pi muss also unbedingt die Myriad X VPU verwendet werden, die in der OAK-D Kamera verbaut ist. Luxonis erreicht mit dieser Hardware und tiny YOLO v4 stabile 30fps. \autocite[Vgl.][]{Luxonis1}
 Um auf der OAK-D ausgeführt zu werden, muss das Darknet-Modell zuerst in das .pb-Format von Tensorflow umgewandelt werden.
 Von dort aus muss es in das Format \enquote{Intermediate Representation} von OpenVino und über eine proprietäre API zu einem Blobfile konvertiert werden.
-Dieser Schritt war trotz mehrtägigem Aufwand nicht erfolgreich. Die API hat unerklärte Fehler geworfen. Nach mehreren Tagen Aufwand wurde die Entscheidung getroffen, die Erkennung des Kennzeichenbereiches auf dem Bild anderweitig zu lösen.
+Dieser Schritt war trotz mehrtägigem Aufwand nicht erfolgreich. Die API hat unerklärte Fehler geworfen. Aus Zeitgründen wurde schlussendlich die Entscheidung getroffen, die Erkennung des Kennzeichenbereiches auf dem Bild anderweitig zu lösen.
 
 
 \section{Geometrische Lösung}
-Hierbei auf einen nicht Deep-Learning-basierten Ansatz zurückgegriffen. Anders als bei der Verwendung eines trainierten Neuronalen Netzes, was auf die Erkennung von an Autos befestigten Nummernschildern zielt, gilt es bei der verwendeten Methode, das beste Rechteck innerhalb einer des Bildes zu detektieren.
-Kernkonzept der Detektion eines Rechtecks innerhalb des zu Verarbeitenden Bildes ist der Ramer–Douglas–Peucker Algorithmus. Ursprüngliches Ziel des Algorithmus ist die Kurvenglättung. Dabei hat man eine Kette an Knoten und Vektoren der Länge n. Der Algorithmus schreitet und durchläuft einen Graphen dabei Schrittweise. Als Approximation der Strecke P1 und Pn wird deren Vektor genommen und überprüft, welcher Knoten des Graphen die größte Distanz zu diesem Vektor hat. Liegt dieser Knoten außerhalb eines zuvor definierten Toleranzwertes $\epsilon$. % Dann was? Fliegt der einfach raus?
-Der dabei neu ausgemachte Punkt (Px) dient als neuer Punkt innerhalb des Graphen, alle anderen Punkte, die sich zwischen P1 und Px befinden werden, weg approximiert. Der Prozess wiederholt sich immer wieder bis keine Punkt mehr innerhalb der einzelnen Schritte außerhalb des Toleranzwertes $\epsilon$.\autocite[Vgl.][]{hershberger1992speeding} 
+Hierbei wurde auf einen nicht Deep-Learning-basierten Ansatz zurückgegriffen. Anders als bei der Verwendung eines trainierten Neuronalen Netzes, was auf die Erkennung von an Autos befestigten Nummernschildern zielt, gilt es bei der verwendeten Methode, das beste Rechteck innerhalb einer des Bildes zu detektieren. Die Kamera kann dann später so ausgerichtet werden, dass sie direkt auf Kennzeichenhöhe Bilder aufnimmt und somit andere Rechtecke vermeidet.
+Kernkonzept der Detektion eines Rechtecks innerhalb des zu verarbeitenden Bildes ist der Ramer–Douglas–Peucker Algorithmus. Ursprüngliches Ziel des Algorithmus ist die Kurvenglättung. Dabei hat man eine Kette an Knoten und Vektoren der Länge n. Der Algorithmus schreitet und durchläuft einen Graphen dabei Schrittweise. Als Approximation der Strecke P1 und Pn wird deren Vektor genommen und überprüft, welcher Knoten des Graphen die größte Distanz zu diesem Vektor hat. Liegt dieser Knoten außerhalb eines zuvor definierten Toleranzwertes $\epsilon$. % Dann was? Fliegt der einfach raus?
+Der dabei neu ausgemachte Punkt (Px) dient als neuer Punkt innerhalb des Graphen, alle anderen Punkte, die sich zwischen P1 und Px befinden werden, weg approximiert. Der Prozess wiederholt sich immer wieder bis keine Punkte mehr innerhalb der einzelnen Schritte außerhalb des Toleranzwertes $\epsilon$.\autocite[Vgl.][]{hershberger1992speeding} 
 Unter der Voraussetzung, dass man nach einem geschlossenen Graphen, der aus vier Vektoren besteht, sucht, ist man somit in der Lage, Ausreißer durch Kurvenglättung auszuschließen und alle Rechtecke auszumachen, die sich innerhalb eines Bildes befinden. Die vier Knotenpunkte des synthetisierten Rechtecks dienen dabei als Koordinate für die Bildextraktion des Nummernschilds. % Und wie wählen wir jetzt das richtige Rechteck aus? 
 Die Pipeline zur Nummernschilderknunng besteht aus einem Preprocessing Part und der Detektion die mittels des Ramer–Douglas–Peucker Algorithmus als Kernmodul der Erkennung fungiert. Umgesetzt wird der Prozess mittels der Python Bibliothek $opencv$. Zuerst durchlaufen die von der Kamera gestreamten Bilder mehrere Bildverarbeitungsschritte. Dabei wird das Bild in Graustufen umgewandelt, Noise reduziert und  mit gegebenen Kernels Kanten detektiert. % Das ist doch der Canny-Algorithmus oder? @Kilian: Schreib mal bitte noch 1-2 Sätze darüber
  Die Kanten werden dabei in Vektoren erfasst. Durch die Beschaffenheit der Vektoren können mittels des Peucker Algorithmus jene Vektoren gefunden werden, die in der Summe 0 ergeben und somit einen Geschlossenen Graphen bilden. Durch die Detektion vier solcher Vektoren ist man in der Lage, innerhalb des Bildes Rechtecke zu finden. Bei gegebener Detektion eines Rechtecks wird diese extrahiert und erst dann mittels der Texterkennungsprozesse ausgelesen, jene werden im nächsten Kapitel erklärt. 
@@ -151,11 +181,13 @@ Die Pipeline zur Nummernschilderknunng besteht aus einem Preprocessing Part und 
 %Abbildung #TODO veranschaulicht den Aufbau des Dataframes, in dem die Ergebnisse gespeichert wurden.
 
 \section{OCR}
+Nach der Erkennung des Nummernschildes wird das dabei extrahierte Bild im nächsten Pipeline Schritt durch das ein OCR-Package ausgelesen und der Text als String generiert. 
+Als OCR-Lösung war EasyOCR geplant, weil es trotz geringem Ressourcenaufwand gute Ergebnisse liefert. Dessen Funktionsweise wird im folgenden Abschnitt kurz behandelt.
 
-Als OCR-Lösung war EasyOCR geplant, weil es trotz geringem Ressourcenaufwand gute Ergebnisse liefert. Dieser Ansatz scheiterte, weil EasyOCR von Torch abhängt, Torch ein 64bit-Betriebssystem voraussetzt und Pi OS für den Raspberry Pi 3 zum Zeitpunkt der Projektdurchführung nur als 32bit-Version verfügbar war.
-Die Alternative ist Tesseract, eine OCR-Engine, die ursprünglich von Hewlett-Packard entwickelt wurde. Seit 2005 ist es Open-Source und von 2006 bis 2018 wurde es von Google weiterentwickelt. https://tesseract-ocr.github.io/docs/tesseracticdar2007.pdf %TODO
+																																																																														   
+																																																																  
 
-Nach der Erkennung des Nummernschildes wird das dabei extrahierte Bild im nächsten Pipeline Schritt durch das Package ausgelesen und der Text in Schriftform generiert. Bezüglich der Funktionalität und der Hintergrundprozesse wird nun in Folge eingegangen.
+																																																																  
 
 % Welches Modell? easyOCR oder Tesseract?
 Das Modell besteht aus zwei Schritten, zuerst die Detektion der einzelnen Buchstaben, danach deren Erkennung. Für erstere Aufgabe wird sich des CRAFT (Character Region Awareness for Text Detection) Algorithmus bedient. \autocite[Vgl.][]{baek2019character} Durch die Ausmachung der einzelnen Charaktere weist das Modell besonders bei verzerrten oder nicht linearen Texten, im Gegensatz zur Detektion von Wortblöcken, bessere Ergebnisse auf. Das Modell basiert dabei auf einem  Convolutional Neuronal Network mit skip-connections und Charakteristiken eines U-Netzes. Es wird mit Texten jeglicher Form und Druckschrift trainiert. Nach erfolgreichem Training ist es in der Lage, für die Einzelne Buchstaben einen "region score" und einen "Affinitäts score" auszugeben. Ersterer bezieht sich dabei, wie der Name schon ausdrückt, auf die Koordinaten, die die Buchstabe, lokalisieren, zweiteres auf die Wahrscheinlichkeit des Zusammenhangs einzelner Buchstaben in einem Wort. Durch das Anpassen des Modells auf auch nicht lineare Texte gilt es als vielversprechendend bei der Umsetzung des $SmartGarage$ Projekts, da die Kamera in diesem Fall nicht Frontal auf das Nummernschild zeigen wird. Es entsteht verzerrte Schrift, die das OCR-Modell erkennen muss.
@@ -166,22 +198,25 @@ Im Folgenden Bild sind die einzelnen Zusammenhänge der Detektion eines Wortes d
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{img/baek}
-	\caption{}
+	\caption{Wortdetektion}
 	\label{fig:baek}
 \end{figure}
 
 
-Nach der Lokalisierung eines Kennzeichen und der daraus gewonnen Koordinaten, werden die gewonnen Informationen in EasyOCR weiterverarbeitet und mittels eines CRNN (Convolutional Recurrent Neural Network) Netzes bestehend aus drei Komponenten ausgelesen. Es handelt sich dabei um eine Feature Extraction, des Gesuchten Inputs mittels eines ResNets, um ein LSTM (Long-short term memory) Netz für das sequenzielle Labeling von Charakteren innerhalb eines Wortes. LSTM Netzte eignen sich dabei besonders für die Verarbeitung sequenzieller Daten. Die dritte Komponente besteht aus einem CTC (connection temporal classification) Netz und ist für das Decoding der Outputs innerhalb des LSTM Netzes zuständig. \autocite[Vgl.][]{JaidedAI70}. 
+Nach der Lokalisierung eines Kennzeichen und der daraus gewonnen Koordinaten, werden die gewonnen Informationen in EasyOCR weiterverarbeitet und mittels eines CRNN (Convolutional Recurrent Neural Network) Netzes bestehend aus drei Komponenten ausgelesen. Es handelt sich dabei um eine Feature Extraction, des Gesuchten Inputs mittels eines ResNets, um ein LSTM (Long-short term memory) Netz für das sequenzielle Labeling von Charakteren innerhalb eines Wortes. LSTM Netze eignen sich dabei besonders für die Verarbeitung sequenzieller Daten. Die dritte Komponente besteht aus einem CTC (connection temporal classification) Netz und ist für das Decoding der Outputs innerhalb des LSTM Netzes zuständig. \autocite[Vgl.][]{JaidedAI70}
 
-Die bei der Praktischen Umsetzung erlangten Resultate sind in dem Folgenden Unterkapitel aufgeführt. Manko bei der jeweiligen Implementierung ist jedoch die Notwendigkeit eines 64Bit Systems für die Implementierung, da die Bibliothek für die Implementierung der Netze auf PyTorch zurückgreift. Die Ursprüngliche Hardware, mit der das Projekt umgesetzt wird, ist ein Rasbery Pi 3. Da für diesen bei der Umsetzung des Projektes (16.12.21-10.02.22) lediglich ein 32Bit Systeme zur Verfügung stand, wurde die Umsetzung mittels EasyOCR verworfen. Mittlerweile steht jedoch ein 64Bit Systems zur Verfügung, dieses könnten in einer weiterführenden Arbeit die Nutzung des Packages mit der selben Hardware erlauben.
+Dieser Ansatz scheiterte jedoch, weil EasyOCR von Torch abhängt, Torch ein 64bit-Betriebssystem voraussetzt und Pi OS für den Raspberry Pi 3 zum Zeitpunkt der Projektdurchführung nur als 32bit-Version verfügbar war.
+Die Alternative Lösung war Tesseract, eine OCR-Engine, die ursprünglich von Hewlett-Packard entwickelt wurde. Seit 2005 ist es Open-Source und von 2006 bis 2018 wurde es von Google weiterentwickelt. https://tesseract-ocr.github.io/docs/tesseracticdar2007.pdf %TODO
 
-Alternativ zu der Erkennung der Schriftzeichen mittels EasyOCR wurde auf die Bibliothek Tesseract 5 zurückgegriffen. Diese bedient sich auch eines LSTM Netzes, benötigt jedoch kein 64Bit System. Tesseract ist ein open source Projekt, dass seit dem Jahr 2005 von Google verwaltet wird und seither immer weiterentwickelt wird. Bei der Umsetzung wird auf $Pytesseract$ und ein vortrainiertes englisches Modell der Texterkennung zurückgegriffen. \autocite[Vgl.][]{Tesserac98}
-Bei der Umsetzung wird auch wieder auf ein Preprocessing gesetzt, dass das Bild in Graustufen konvertiert. Des Weiteren wird versucht mittels des Gauß-Verfahrens und gegebenen Filtern, Noise herauszufiltern. Dritter Schritt des Preprocessings ist das hervorhebenden der Kanten mittels der Konvertierung des Bildes in sogenannte $Blobs$, dabei handelt es sich um die Umwandlung eines Graubildes mittels eines festgelegten Schwellenwerts in Binäre Werte. \autocite[Vgl.][]{8974469} % Gehört das zu Tesseract oder ist das unser preprocessing?
+Tesseract bedient sich auch eines LSTM Netzes, benötigt jedoch kein 64Bit System. Bei der Umsetzung wird auf $Pytesseract$ und ein vortrainiertes englisches Modell der Texterkennung zurückgegriffen. \autocite[Vgl.][]{Tesserac98}
+Dabei wird auch wieder auf ein Preprocessing gesetzt, dass das Bild in Graustufen konvertiert. Des Weiteren wird versucht mittels des Gauß-Verfahrens und gegebenen Filtern, Noise herauszufiltern. Dritter Schritt des Preprocessings ist das hervorhebenden der Kanten mittels der Konvertierung des Bildes in sogenannte $Blobs$, dabei handelt es sich um die Umwandlung eines Graubildes mittels eines festgelegten Schwellenwerts in Binäre Werte. \autocite[Vgl.][]{8974469} % Gehört das zu Tesseract oder ist das unser preprocessing?
 Das Modell versucht, mittels Vektoren Linien auszumachen, auf denen sich die Schriftzüge befinden. Danach geht Tesseract dazu über, zeilenweise Wörter mittels der Bemessung von Abständen auszumachen und Wörter in Bounding-Boxes zu fassen. Die Erkennung der Texte geschieht über das vortrainierte englische LSTM Netz. Dieses weist bei der Umsetzung jedoch deutlich schlechtere Resultate auf als das zuvor verwendete CRNN (EasyOCR). Die Funktionalität und Genauigkeit beider Modelle wird in einem separaten Kapitel ausgewertet. %Ab hier Quarantäne, den Satz fass ich nicht an
-Da beide Modelle jedoch funktionieren ist es nicht von Nöten das schlechtere zu verwerfen, durch mehrere Versuche das Nummernschild zu lesen gelingt es beiden Modellen das richtige zu lesen. Lediglich die Halbwertszeit ist invers proportional zur Güte der Modelle. Somit ist man auch in der Lage mittels pytesseract die Nummernschild Erkennung durchzuführen und die Resultate mit einer White-list abzugleichen.
-%Ende Quarantäne
+%Da beide Modelle jedoch funktionieren ist es nicht von Nöten das schlechtere zu verwerfen, durch mehrere Versuche das Nummernschild zu lesen gelingt es beiden Modellen das richtige zu lesen. Lediglich die Halbwertszeit ist invers proportional zur Güte der Modelle. Somit ist man auch in der Lage mittels pytesseract die Nummernschild Erkennung durchzuführen und die Resultate mit einer White-list abzugleichen.
 
-\section{Pipeline}
+%Ende Quarantäne
+%-> gelöscht, klarer Fall von Schweizer Grippe
+
+\section{Evaluation der Pipeline}
 
 Nach erfolgreichem Proof-of-Concept musste unter den technisch möglichen Varianten der Verarbeitungspipelines die beste ausgewählt werden. Hierzu wurde ein Notebook geschrieben, das die Pipeline in leicht abgewandelter Form für jedes Bild des gesammelten Datensatzes durchführt und das Ergebnis oder eventuelle Fehler in den einzelnen Bearbeitungsschritten festhält. Damit konnten verschiedene OCR-Verfahren untereinander verglichen werden. Ebenso war es möglich die bereits festgestellten Unterschiede in der Bearbeitungsgeschwindigkeit und Qualität von der Berechnung am Laptop gegenüber der Bearbeitung auf dem RasPi zu quantifizieren. Anhand der festgestellten Metriken können schlussendlich auch weiterführende Optimierungen vorgenommen und Fehlerquellen lokalisiert werden.
 
@@ -200,7 +235,7 @@ Die Kennzeichenerkennungspipeline besteht aus folgenden Schritten:
 \item OCR mit vorgefertigter Lösung
 \end{itemize}
 
-Ursprünglich war zu Beginn der Pipeline ein neuronales Netz vorgesehen, mit dem eine erste Eingrenzung des Kennzeichens erfolgen sollte. Dieser Schritt wurde jedoch aufgrund von technischen Problemen entfernt
+																																																				 
 
 
 \subsection{Cropping}
@@ -277,8 +312,6 @@ eigene Funktion & 21 & 5 \\
 \end{center}
 \end{table}
 
-
-
 \subsection{Laufzeit}
 
 Für eine praktische Anwendung darf die Laufzeit der gesamten Pipeline nicht zu lang sein.
@@ -300,6 +333,7 @@ EasyOCR wurde nicht evaluiert, weil es nicht mit der verwendeten Version von Pi 
 
 Beachtet man, dass das System im schlimmsten Fall kurz vor Ankunft des Fahrzeugs ein Bild aufnahm, so vergehen selbst bei einer direkten Erkennung etwa 60 Sekunden bis zur nächsten Aufnahme und Auswertung. 
 
+				
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{ c | c | c }
@@ -314,7 +348,8 @@ Beachtet man, dass das System im schlimmsten Fall kurz vor Ankunft des Fahrzeugs
 	\caption{Laufzeit von Cropping, easyOCR und Tesseract}
 	\label{Tabelle:2}
 	\end{center}
-\end{table}
+\end{table}			   
+							 	   
 
 \subsection{Zwischenfazit}
 Geht man von der besten erreichten Erkennungsrate von 26\% aus, so beträgt der Erwartungswert der benötigten Erkennungsdurchläufe 100/26 = 3,84, welche wiederum 125 Sekunden benötigten. Dazu kommen durchschnittlich 0.5 * 32 Sekunden zur Beendigung der beim Eintreffen ablaufenden Schleife. Die Durchschnittliche Wartedauer beträgt also 141 Sekunden oder 2 Minuten und 21 Sekunden. 
