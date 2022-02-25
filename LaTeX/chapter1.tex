@@ -105,7 +105,7 @@ Für dieses Projekt wurde ein Raspberry Pi 3 verwendet. Als Betriebssystem des R
 Mit Hilfe einer Weboberfläche lässt sich eine weitere Möglichkeit, die SmartGarage zu öffnen, implementieren. Der Vorteil dabei ist, dass diese unabhängig vom Endgerät aufgerufen werden kann; es werden lediglich eine Internetverbindung und ein Browser benötigt. Des Weiteren lassen sich in einer Weboberfläche auch Informationen, die für den Besitzer der SmartGarage relevant sind, wie beispielweise ob sich aktuell ein Fahrzeug in der Garage befindet, ausgegeben werden. Diese Information wird von einem Ultraschallsensor bereitgestellt. Hierzu wird eine einfache wenn-Funktion verwendet, die angibt, dass die Garage belegt ist, falls sich innerhalb eines gewissen Abstands ein Objekt befindet, und dass die Garage frei ist, wenn sich innerhalb dieses Abstands kein Objekt befindet.
 Ein weiterer wichtiger Nutzen der Weboberfläche für die Bereitstellung von Informationen ist das Anzeigen von Logs. Hierzu wird eine Log-Datei erstellt, in die alle Dienste, mit denen sich die SmartGarage öffnen lässt, einen Log-Eintrag schreiben, sobald sie diese öffnen. Damit wird dokumentiert, wann und wie die SmartGarage geöffnet wird. Durch die Sammlung und Darstellung dieser Logs in einer Weboberfläche steht diese Information dem Besitzer auch unabhängig vom Standort zur Verfügung.
 
-Für die Realisierung einer Weboberfläche gibt es viele Realisierungsansätze und Möglichkeiten sowie Frameworks die zur Verwendung herangezogen werden können. So bieten sich beispielsweise beliebte Webframeworks wie React, Angular, NextJS, Nuxt, Vue oder viele weitere an. 
+Für die Realisierung einer Weboberfläche gibt es viele Ansätze und Möglichkeiten sowie Frameworks die zur Verwendung herangezogen werden können. So bieten sich beispielsweise beliebte Webframeworks wie React, Angular, NextJS, Nuxt, Vue oder viele weitere an. 
 
 
 \nocite{*}
@@ -138,7 +138,8 @@ Hierbei auf einen nicht Deep-Learning-basierten Ansatz zurückgegriffen. Anders 
 Kernkonzept der Detektion eines Rechtecks innerhalb des zu Verarbeitenden Bildes ist der Ramer–Douglas–Peucker Algorithmus. Ursprüngliches Ziel des Algorithmus ist die Kurvenglättung. Dabei hat man eine Kette an Knoten und Vektoren der Länge n. Der Algorithmus schreitet und durchläuft einen Graphen dabei Schrittweise. Als Approximation der Strecke P1 und Pn wird deren Vektor genommen und überprüft, welcher Knoten des Graphen die größte Distanz zu diesem Vektor hat. Liegt dieser Knoten außerhalb eines zuvor definierten Toleranzwertes $\epsilon$. % Dann was? Fliegt der einfach raus?
 Der dabei neu ausgemachte Punkt (Px) dient als neuer Punkt innerhalb des Graphen, alle anderen Punkte, die sich zwischen P1 und Px befinden werden, weg approximiert. Der Prozess wiederholt sich immer wieder bis keine Punkt mehr innerhalb der einzelnen Schritte außerhalb des Toleranzwertes $\epsilon$.\autocite[Vgl.][]{hershberger1992speeding} 
 Unter der Voraussetzung, dass man nach einem geschlossenen Graphen, der aus vier Vektoren besteht, sucht, ist man somit in der Lage, Ausreißer durch Kurvenglättung auszuschließen und alle Rechtecke auszumachen, die sich innerhalb eines Bildes befinden. Die vier Knotenpunkte des synthetisierten Rechtecks dienen dabei als Koordinate für die Bildextraktion des Nummernschilds. % Und wie wählen wir jetzt das richtige Rechteck aus? 
-Die Pipeline zur Nummernschilderknunng besteht aus einem Preprocessing Part und der Detektion die mittels des Ramer–Douglas–Peucker Algorithmus als Kernmodul der Erkennung fungiert. Umgesetzt wird der Prozess mittels der Python Bibliothek $opencv$. Zuerst durchlaufen die von der Kamera gestreamten Bilder mehrere Bildverarbeitungsschritte. Dabei wird das Bild in Graustufen umgewandelt, Noise reduziert und  mit gegebenen Kernels Kanten detektiert. Die Kanten werden dabei in Vektoren erfasst. Durch die Beschaffenheit der Vektoren können mittels des Peucker Algorithmus jene Vektoren gefunden werden, die in der Summe 0 ergeben und somit einen Geschlossenen Graphen bilden. Durch die Detektion vier solcher Vektoren ist man in der Lage, innerhalb des Bildes Rechtecke zu finden. Bei gegebener Detektion eines Rechtecks wird diese extrahiert und erst dann mittels der Texterkennungsprozesse ausgelesen, jene werden im nächsten Kapitel erklärt. 
+Die Pipeline zur Nummernschilderknunng besteht aus einem Preprocessing Part und der Detektion die mittels des Ramer–Douglas–Peucker Algorithmus als Kernmodul der Erkennung fungiert. Umgesetzt wird der Prozess mittels der Python Bibliothek $opencv$. Zuerst durchlaufen die von der Kamera gestreamten Bilder mehrere Bildverarbeitungsschritte. Dabei wird das Bild in Graustufen umgewandelt, Noise reduziert und  mit gegebenen Kernels Kanten detektiert. % Das ist doch der Canny-Algorithmus oder? @Kilian: Schreib mal bitte noch 1-2 Sätze darüber
+ Die Kanten werden dabei in Vektoren erfasst. Durch die Beschaffenheit der Vektoren können mittels des Peucker Algorithmus jene Vektoren gefunden werden, die in der Summe 0 ergeben und somit einen Geschlossenen Graphen bilden. Durch die Detektion vier solcher Vektoren ist man in der Lage, innerhalb des Bildes Rechtecke zu finden. Bei gegebener Detektion eines Rechtecks wird diese extrahiert und erst dann mittels der Texterkennungsprozesse ausgelesen, jene werden im nächsten Kapitel erklärt. 
 
 
 
@@ -157,7 +158,7 @@ Die Alternative ist Tesseract, eine OCR-Engine, die ursprünglich von Hewlett-Pa
 Nach der Erkennung des Nummernschildes wird das dabei extrahierte Bild im nächsten Pipeline Schritt durch das Package ausgelesen und der Text in Schriftform generiert. Bezüglich der Funktionalität und der Hintergrundprozesse wird nun in Folge eingegangen.
 
 % Welches Modell? easyOCR oder Tesseract?
-Das Modell besteht aus zwei Schritten, zuerst die Detektion der einzelnen Buchstaben, danach deren Erkennung. Für erstere Aufgabe wird sich des CRAFT (Character Region Awareness for Text Detection) Algorithmus bedient. \autocite[Vgl.][]{baek2019character} Durch die Ausmachung der einzelnen Charaktere weist das Modell besonders bei verzerrten oder nicht linearen Texten bessere Ergebnisse, im Gegensatz zu Detektion von Wort Blöcken, auf. Das Modell basiert dabei auf einem  Convolutional Neuronal Network mit skip-connections und Charakteristiken eines U-Netzes. Es wird mit Texten jeglicher Form und Druckschrift trainiert. Nach erfolgreichem Training ist es in der Lage, für die Einzelne Buchstaben ein "region score" und ein "Affinitäts score" auszugeben. Ersterer bezieht sich dabei, wie der Name schon ausdrückt, auf die Koordinaten, die die Buchstabe lokalisieren, zweiteres auf die Wahrscheinlichkeit des Zusammenhangs einzelner Charaktere in einem Wort. Durch das Anpassen des Modells auf auch nicht lineare Texte gilt es als vielversprechenden bei der Umsetzung des $SmartGarage$ Projekts, da die Kamera in diesem Fall nicht Frontal auf das Nummernschild zeigen wird. Es entsteht verzerrte Schrift, die das OCR-Modell erkennen muss.
+Das Modell besteht aus zwei Schritten, zuerst die Detektion der einzelnen Buchstaben, danach deren Erkennung. Für erstere Aufgabe wird sich des CRAFT (Character Region Awareness for Text Detection) Algorithmus bedient. \autocite[Vgl.][]{baek2019character} Durch die Ausmachung der einzelnen Charaktere weist das Modell besonders bei verzerrten oder nicht linearen Texten, im Gegensatz zur Detektion von Wortblöcken, bessere Ergebnisse auf. Das Modell basiert dabei auf einem  Convolutional Neuronal Network mit skip-connections und Charakteristiken eines U-Netzes. Es wird mit Texten jeglicher Form und Druckschrift trainiert. Nach erfolgreichem Training ist es in der Lage, für die Einzelne Buchstaben einen "region score" und einen "Affinitäts score" auszugeben. Ersterer bezieht sich dabei, wie der Name schon ausdrückt, auf die Koordinaten, die die Buchstabe, lokalisieren, zweiteres auf die Wahrscheinlichkeit des Zusammenhangs einzelner Buchstaben in einem Wort. Durch das Anpassen des Modells auf auch nicht lineare Texte gilt es als vielversprechendend bei der Umsetzung des $SmartGarage$ Projekts, da die Kamera in diesem Fall nicht Frontal auf das Nummernschild zeigen wird. Es entsteht verzerrte Schrift, die das OCR-Modell erkennen muss.
 
 
 
@@ -170,34 +171,34 @@ Im Folgenden Bild sind die einzelnen Zusammenhänge der Detektion eines Wortes d
 \end{figure}
 
 
-Nach dessen Lokalisierung und der daraus gewonnen Koordinaten, werden die gewonnen Informationen in EasyOCR weiterverarbeitet und mittels eines CRNN (Convolutional Recurrent Neural Network) Netzes bestehend aus drei Komponenten ausgelesen. Es handelt sich dabei um eine Feature Extraktion, des Gesuchten Inputs mittels eines ResNets. Eines LSTM (Long-short term memory) Netzes für das sequenzielle Labeling von Charakteren innerhalb eines Wortes. LSTM Netzte eignen sich dabei besonders für die Verarbeitung sequenzieller Daten. Die dritte Komponente besteht aus einem CTC (connection temporal classification) Netz und ist für das Decoding der Outputs innerhalb des LSTM Netzes Zuständig ist \autocite[Vgl.][]{JaidedAI70}. 
+Nach der Lokalisierung eines Kennzeichen und der daraus gewonnen Koordinaten, werden die gewonnen Informationen in EasyOCR weiterverarbeitet und mittels eines CRNN (Convolutional Recurrent Neural Network) Netzes bestehend aus drei Komponenten ausgelesen. Es handelt sich dabei um eine Feature Extraction, des Gesuchten Inputs mittels eines ResNets, um ein LSTM (Long-short term memory) Netz für das sequenzielle Labeling von Charakteren innerhalb eines Wortes. LSTM Netzte eignen sich dabei besonders für die Verarbeitung sequenzieller Daten. Die dritte Komponente besteht aus einem CTC (connection temporal classification) Netz und ist für das Decoding der Outputs innerhalb des LSTM Netzes zuständig. \autocite[Vgl.][]{JaidedAI70}. 
 
-Die bei der Praktischen Umsetzung erlangten Resultate sind in dem Folgenden Unterkapitel aufgeführt. Manko bei der jeweiligen Implementierung ist jedoch die Notwendigkeit eines 64Bit Systems für die Implementierung, da die Bibliothek größtenteils auf Pytoch für die Implementierung der Netze zurückgreift. Die Ursprüngliche Hardwarekomponente mittels dessen das Projekt jedoch umgesetzt wird beläuft sich auf ein Rasbery Pi 3. Da für jenen bei der Umsetzung des Projektes (16.12.21-10.02.22) lediglich ein 32Bit Systeme zur Verfügung stand galt es Umsetzung mittels EasyOCR zu verwerfen. Mittlerweile steht jedoch ein 64Bit Systems zur Verfügung, dieses könnten in einer weiterführenden Arbeit die Nutzung des Packages bei Bedürfnis mit der selbigen Hardware erlauben.
+Die bei der Praktischen Umsetzung erlangten Resultate sind in dem Folgenden Unterkapitel aufgeführt. Manko bei der jeweiligen Implementierung ist jedoch die Notwendigkeit eines 64Bit Systems für die Implementierung, da die Bibliothek für die Implementierung der Netze auf PyTorch zurückgreift. Die Ursprüngliche Hardware, mit der das Projekt umgesetzt wird, ist ein Rasbery Pi 3. Da für diesen bei der Umsetzung des Projektes (16.12.21-10.02.22) lediglich ein 32Bit Systeme zur Verfügung stand, wurde die Umsetzung mittels EasyOCR verworfen. Mittlerweile steht jedoch ein 64Bit Systems zur Verfügung, dieses könnten in einer weiterführenden Arbeit die Nutzung des Packages mit der selben Hardware erlauben.
 
-Alternativ zu der Erkennung der Schriftzeichen mittels EasyOCR wurde auf die Bibliothek Tesseract 5zurückgegriffen. Diese bedient sich auch eines LSTM Netztes wie die vorherig gesehene Bibliothek, benötigt jedoch keines 64Bit Systems. Tesseract ist dabei ein open source Projekt, dass seit dem Jahr 2005 von Google verwaltet wird und seither immer weiterentwickelt wird. Bei der Umsetzung wird auf $Pytesseract$ und ein vortrainiertes englisches Modell der Texterkennung zurückgegriffen. \autocite[Vgl.][]{Tesserac98}
-Bei der Umsetzung wird auch wieder auf ein Preprocessing gesetzt, dass das Bild in Graustufen konvertiert. Des Weiteren wird versucht mittels des Gauß-Verfahrens und gegebenen Filtern, Noise herauszufiltern. Dritter Schritt des Preprocessings ist das hervorhebenden der Kanten mittels der Konvertierung des Bildes in sogenannte $Blobs$, dabei handelt es sich um die Umwandlung eines Graubildes mittels eines festgelegten Schwellenwerts in Binäre Werte. \autocite[Vgl.][]{8974469} 
-Das Modell versucht mittels Vektoren Linien auszumachen, auf denen sich die Schriftzüge befinden. Danach geht Tesseract dazu über Zeilenweise Wörter mittels der Bemessung von Abständen auszumachen und Wörter in Bounding-Boxes zu fassen. Die Erkennung der Texte geschieht über das vortrainierte englische LSTM Netzt. Dieses weist bei der Umsetzung jedoch deutlich schlechtere Resultate auf als das zuvor verwendete CRNN (EasyOCR). Die Funktionalität und Genauigkeit beider Modelle wird in einem separaten Kapitel ausgewertet. Da beide Modelle jedoch funktionieren ist es nicht von Nöten das schlechtere zu verwerfen, durch mehrere Versuche das Nummernschild zu lesen gelingt es beiden Modellen das richtige zu lesen. Lediglich die Halbwertszeit ist invers proportional zur Güte der Modelle. Somit ist man auch in der Lage mittels pytesseract die Nummernschild Erkennung durchzuführen und die Resultate mit einer White-list abzugleichen.
+Alternativ zu der Erkennung der Schriftzeichen mittels EasyOCR wurde auf die Bibliothek Tesseract 5 zurückgegriffen. Diese bedient sich auch eines LSTM Netzes, benötigt jedoch kein 64Bit System. Tesseract ist ein open source Projekt, dass seit dem Jahr 2005 von Google verwaltet wird und seither immer weiterentwickelt wird. Bei der Umsetzung wird auf $Pytesseract$ und ein vortrainiertes englisches Modell der Texterkennung zurückgegriffen. \autocite[Vgl.][]{Tesserac98}
+Bei der Umsetzung wird auch wieder auf ein Preprocessing gesetzt, dass das Bild in Graustufen konvertiert. Des Weiteren wird versucht mittels des Gauß-Verfahrens und gegebenen Filtern, Noise herauszufiltern. Dritter Schritt des Preprocessings ist das hervorhebenden der Kanten mittels der Konvertierung des Bildes in sogenannte $Blobs$, dabei handelt es sich um die Umwandlung eines Graubildes mittels eines festgelegten Schwellenwerts in Binäre Werte. \autocite[Vgl.][]{8974469} % Gehört das zu Tesseract oder ist das unser preprocessing?
+Das Modell versucht, mittels Vektoren Linien auszumachen, auf denen sich die Schriftzüge befinden. Danach geht Tesseract dazu über, zeilenweise Wörter mittels der Bemessung von Abständen auszumachen und Wörter in Bounding-Boxes zu fassen. Die Erkennung der Texte geschieht über das vortrainierte englische LSTM Netz. Dieses weist bei der Umsetzung jedoch deutlich schlechtere Resultate auf als das zuvor verwendete CRNN (EasyOCR). Die Funktionalität und Genauigkeit beider Modelle wird in einem separaten Kapitel ausgewertet. %Ab hier Quarantäne, den Satz fass ich nicht an
+Da beide Modelle jedoch funktionieren ist es nicht von Nöten das schlechtere zu verwerfen, durch mehrere Versuche das Nummernschild zu lesen gelingt es beiden Modellen das richtige zu lesen. Lediglich die Halbwertszeit ist invers proportional zur Güte der Modelle. Somit ist man auch in der Lage mittels pytesseract die Nummernschild Erkennung durchzuführen und die Resultate mit einer White-list abzugleichen.
+%Ende Quarantäne
 
+\section{Pipeline}
 
-\section{Evaluation der Pipelines}
-
-Nach erfolgreichem Proof-of-Concept musste unter den technisch möglichen Varianten der Verarbeitungspipelines die beste ausgewählt werden. Hierzu wurde ein Skript geschrieben, dass die Pipeline in leicht abgewandelter Form für jedes Bild des gesammelten Datensatzes durchführt und das Ergebnis oder eventuelle Fehler in den einzelnen Bearbeitungsschritten festhält. Damit konnten verschiedene OCR-Verfahren untereinander verglichen werden. Ebenso war es möglich die bereits festgestellten Unterschiede in der Bearbeitungsgeschwindigkeit und Qualität von der Berechnung am Laptop gegenüber der Bearbeitung auf dem RasPi zu quantifizieren. Anhand der festgestellten Metriken können schlussendlich auch weiterführende Optimierungen vorgenommen und Fehlerquellen lokalisiert werden.
+Nach erfolgreichem Proof-of-Concept musste unter den technisch möglichen Varianten der Verarbeitungspipelines die beste ausgewählt werden. Hierzu wurde ein Notebook geschrieben, das die Pipeline in leicht abgewandelter Form für jedes Bild des gesammelten Datensatzes durchführt und das Ergebnis oder eventuelle Fehler in den einzelnen Bearbeitungsschritten festhält. Damit konnten verschiedene OCR-Verfahren untereinander verglichen werden. Ebenso war es möglich die bereits festgestellten Unterschiede in der Bearbeitungsgeschwindigkeit und Qualität von der Berechnung am Laptop gegenüber der Bearbeitung auf dem RasPi zu quantifizieren. Anhand der festgestellten Metriken können schlussendlich auch weiterführende Optimierungen vorgenommen und Fehlerquellen lokalisiert werden.
 
 Die Kennzeichenerkennungspipeline besteht aus folgenden Schritten:
 
 \begin{itemize}
 \item Laden der kurz zuvor gespeicherten Datei
 \item Preprocessing
+\begin{itemize}
 \item Umwandlung zu Graustufen
 \item Bilateraler Filter
 \item Canny-Algorithmus zu Kantenfindung
 \item Douglas-Peucker-Algorithmus zur Erkennung von Rechtecken
 \item Cropping
+\end{itemize}
 \item OCR mit vorgefertigter Lösung
 \end{itemize}
-
-
-
 
 Ursprünglich war zu Beginn der Pipeline ein neuronales Netz vorgesehen, mit dem eine erste Eingrenzung des Kennzeichens erfolgen sollte. Dieser Schritt wurde jedoch aufgrund von technischen Problemen entfernt
 
@@ -221,20 +222,20 @@ Hieraus wird ein prozentualer Wert abgeleitet, der die Genauigkeit der Erkennung
 Für die finale Evaluation mit dieser Methode wurde ein Threshold von 45\% gewählt, um das gelesene Kennzeichen als richtig einzuordnen.
 
 Mit easyOCR wurden 28 von 85 Kennzeichen richtig gelesen, mit Tesseract 17.
-\begin{figure}[h]
+\begin{figure}[H]
 		\centering
 \includegraphics[width=8cm]{./img/evaluation_fuzzy_ratio.png}
-\caption{Evaluation mit fuzzy_ratio}
+\caption{Evaluation mit fuzzy ratio}
 \end{figure}
 
 
 Neben dem vollständigen Fuzzy Matching können mit der Funktion \lstinline{fuzz.partial_ratio()} auch Substrings berücksichtigt werden.
 Das ist sinnvoll, um beispielsweise die Namen von Autohäusern aus den OCR-Ergebnissen herauszufiltern.
 Mit dieser Methode (Threshold 45\%) liest easyOCR 31 von 85 Kennzeichen richtig, Tesseract 22. Dies entspricht 26\% bzw. 19\% der Ausgangsmenge von 118 Kennzeichen.
-\begin{figure}[h]
+\begin{figure}[H]
 		\centering
 \includegraphics[width=8cm]{./img/evaluation_partial_ratio.png}
-\caption{Evaluation mit partial_ratio}
+\caption{Evaluation mit partial ratio}
 \end{figure}
 
 
@@ -242,16 +243,16 @@ Abgesehen von den bestehenden Methoden zum Vergleich mehrerer Strings wurde auch
 
 % TODO: Formatierung prüfen
 \begin{lstlisting} 
-	def custom_match(read, label):	
+def custom_match(read, label):	
 	for x in label:
-	if x not in read:
-	return 0
+		if x not in read:
+			return 0
 	return 100
 \end{lstlisting}     
 % Bild dazu: eval_custom
 Die Werte 0 und 100 dienen der einheitlichen Visualisierung. \lstinline{read} ist der Text, den die OCR-Lösung erkannt hat. \lstinline{label} ist das Label des jeweiligen Bildes in der Form \lstinline{OG AE 1337}. Die leerzeichengetrennten Teile des Labels werden durch Python in jeweils einzelnen Schleifendurchläufen behandelt.
 Mit dieser Methode erzielt easyOCR 21 richtige Ergebnisse, Tesseract 5.
-\begin{figure}[h]
+\begin{figure}[H]
 		\centering
 	\includegraphics[width=8cm]{./img/evaluation_custom_matcher.png}
 	\caption{Evaluation mit eigener Funktion}
