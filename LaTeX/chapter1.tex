@@ -261,6 +261,24 @@ Mit dieser Methode erzielt easyOCR 21 richtige Ergebnisse, Tesseract 5.
 
 Es ist zu beachten, dass nicht alle im Vorigen Schritt freigestellten Bildsegmente auch wirklich Kennzeichen sind. Ein Mensch könnte an dieser Stelle also auch keine perfekte Leistung erreichen. 
 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ c | c | c }
+
+Methode & easyOCR & Tesseract \\
+\hline
+fuzzy Ratio & 28 & 17 \\
+partial Ratio & 31 & 22 \\
+eigene Funktion & 21 & 5 \\
+
+\end{tabular}
+\caption{Performance von easyOCR und Tesseract}
+\label{Tabelle:1}
+\end{center}
+\end{table}
+
+
+
 \subsection{Laufzeit}
 
 Für eine praktische Anwendung darf die Laufzeit der gesamten Pipeline nicht zu lang sein.
@@ -281,6 +299,22 @@ Wird jedoch stattdessen ein Raspberry Pi 3 verwendet, steigt die Laufzeit auf du
 EasyOCR wurde nicht evaluiert, weil es nicht mit der verwendeten Version von Pi OS kompatibel ist.
 
 Beachtet man, dass das System im schlimmsten Fall kurz vor Ankunft des Fahrzeugs ein Bild aufnahm, so vergehen selbst bei einer direkten Erkennung etwa 60 Sekunden bis zur nächsten Aufnahme und Auswertung. 
+
+\begin{table}[h]
+	\begin{center}
+	\begin{tabular}{ c | c | c }
+	
+	Schritt & Thinkpad T580 & Raspberry Pi 3 \\
+	\hline
+	Cropping & 1.37s & 14.87s \\
+	easyOCR & 2.27s & - \\
+	Tesseract & 2.67s & 17.62s \\
+	
+	\end{tabular}
+	\caption{Laufzeit von Cropping, easyOCR und Tesseract}
+	\label{Tabelle:2}
+	\end{center}
+\end{table}
 
 \subsection{Zwischenfazit}
 Geht man von der besten erreichten Erkennungsrate von 26\% aus, so beträgt der Erwartungswert der benötigten Erkennungsdurchläufe 100/26 = 3,84, welche wiederum 125 Sekunden benötigten. Dazu kommen durchschnittlich 0.5 * 32 Sekunden zur Beendigung der beim Eintreffen ablaufenden Schleife. Die Durchschnittliche Wartedauer beträgt also 141 Sekunden oder 2 Minuten und 21 Sekunden. 
